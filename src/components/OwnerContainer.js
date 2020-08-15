@@ -7,6 +7,7 @@ class OwnerContainer extends Component {
         return(
             <div>
                 Testing connection to App.js
+                {/* create route to ownerInput */}
                 <OwnerInput/>
             </div>
         )
