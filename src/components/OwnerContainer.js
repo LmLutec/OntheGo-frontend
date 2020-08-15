@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import OwnerInput from './OwnerInput'
 
 
 class OwnerContainer extends Component {
@@ -6,6 +7,7 @@ class OwnerContainer extends Component {
         return(
             <div>
                 Testing connection to App.js
+                <OwnerInput/>
             </div>
         )
     }
