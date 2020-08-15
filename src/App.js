@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import OwnerContainer from './components/OwnerContainer'
+import OwnerContainer from './components/owners/OwnerContainer'
 
 function App() {
   return (

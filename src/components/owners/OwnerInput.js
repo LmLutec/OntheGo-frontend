@@ -35,18 +35,17 @@ class OwnerInput extends Component {
 
         fetch("http://localhost:3000/api/v1/owners/", formData)
             .then(response => console.log(response.json()))
-            .then(json => console.log(json))
     }
 
     render(){
         return(
             <div>
-                Owner input is connected to the owner container
+               <h3>Hey Truck Owners! Create a New Account below:</h3>
                 <form onSubmit={event => {this.handleSubmit(event)}}>
                     <label>First name</label>
                     <input onChange= { event => {this.handleChange(event)}} type="text" id= "first_name" value={this.state.owner.first_name}/><br/>
                     <label>Last name</label>
-                    <input onChange={ event => {this.handleChange(event)}} type="text" id="last_name" value={this.state.owner.last_name} /><br/>
+                    <input onChange={ event => {this.handleChange(event)}} type="text" id="last_name" value={this.state.owner.lasame} /><br/>
                     <label>Email</label>
                     <input onChange={ event => {this.handleChange(event)}} type="text" id="email" value={this.state.owner.email} /><br/>
                     <label>Password</label>
