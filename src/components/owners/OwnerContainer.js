@@ -15,7 +15,6 @@ class OwnerContainer extends Component {
                 <NavLink to="/login">Login</NavLink>
                 <Route exact path="/login" component={OwnerLogin}></Route>
                 </Router>
-                {/* <OwnerInput/> */}
             </div>
         )
     }

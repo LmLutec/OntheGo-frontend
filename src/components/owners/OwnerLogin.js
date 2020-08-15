@@ -19,14 +19,34 @@ class OwnerLogin extends Component{
         })
     }
 
+    loginFetch(event) {
+        event.preventDefault()
+        const formData = { owner: {
+            email: this.state.owner.email,
+            password: this.state.owner.password
+        }}
+
+        fetch("http://localhost:3000/api/v1/login", {
+            method: "POST",
+            headers: { "Content-Type" : "application/json" },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(json => {
+            console.log(json)
+            localStorage.getItem("jwt_token", json.jwt)
+        })
+    }
+
     render(){
         return(
             <div>
-                <form>
+                <form onSubmit={event => {this.loginFetch(event)}}>
                     <label>Email</label>
                     <input onChange={event => {this.handleChange(event)}} type="text" id="email" value={this.state.owner.email}/><br/>
                     <label>Password</label>
                     <input onChange={event => {this.handleChange(event)}} type="password" id="password" value={this.state.owner.password}/>
+                    <input type="submit" value="submit"/>
                 </form>
             </div>
         )
@@ -36,3 +56,4 @@ class OwnerLogin extends Component{
 export default OwnerLogin
 
 
+// create an onSubmit for loginfetch
