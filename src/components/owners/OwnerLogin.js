@@ -33,10 +33,22 @@ class OwnerLogin extends Component{
         })
         .then(response => response.json())
         .then(json => {
-            console.log(json)
-            localStorage.getItem("jwt_token", json.jwt)
+            localStorage.setItem("jwt_token", json.jwt)
+            this.getProfile()
         })
     }
+
+    getProfile(){
+        fetch("http://localhost:3000/api/v1/profile", {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer: ${localStorage.getItem('jwt_token')}`
+            }
+        })
+        .then(response => response.json())
+        .then(json => console.log(json))
+    }
+
 
     render(){
         return(
