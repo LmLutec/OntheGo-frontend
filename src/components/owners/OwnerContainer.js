@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route, NavLink} from 'react-router-dom'
 import OwnerInput from './OwnerInput'
-import { BrowserRouter as Router, Route, NavLink} from 'react-router-dom';
+import OwnerLogin from './OwnerLogin'
 
 
 class OwnerContainer extends Component {
@@ -10,7 +11,9 @@ class OwnerContainer extends Component {
                 {/* create route to ownerInput */}
                 <Router>
                 <NavLink to="/owner/new">New Owner</NavLink>
-                <Route exact path="/owner/new" component={OwnerInput}></Route>
+                <Route exact path="/owner/new" component={OwnerInput}></Route><br/>
+                <NavLink to="/login">Login</NavLink>
+                <Route exact path="/login" component={OwnerLogin}></Route>
                 </Router>
                 {/* <OwnerInput/> */}
             </div>
