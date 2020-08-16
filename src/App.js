@@ -12,6 +12,7 @@ function App() {
           {/* Edit <code>src/App.js</code> and save to reload. */}
         </p>
         <OwnerContainer/>
+         {/* create owners nav link that leads to owners container */}
         <a
           className="App-link"
           href="https://reactjs.org"
