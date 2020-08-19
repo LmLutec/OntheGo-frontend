@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-
+// on new owner submit, redirect to truckinput
 class OwnerInput extends Component {
 
     state = {
