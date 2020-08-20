@@ -7,10 +7,12 @@ export function addOwnerFetch(){
         body: JSON.stringify(this.state) 
     }
 
-    fetch("http://localhost:3000/api/v1/owners/", formData)
-        .then(response => console.log(response.json()))
-
-    this.props.history.push("/")
+    const owners = fetch("http://localhost:3000/api/v1/owners/", formData)
+        // .then(response => console.log(response.json()))
+        return {
+                  type: 'ADD_OWNERS',
+                  owners
+                }
 }
 
 

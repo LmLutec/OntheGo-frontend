@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import TruckContainer from './TruckInput'
 import TruckInput from './TruckInput'
 
 
