@@ -24,19 +24,21 @@ class OwnerInput extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        
-        // const formData = {
-        //     method: 'POST',
-        //     headers: { 
-        //         'Content-Type': 'application/json'
-        //      },
-        //     body: JSON.stringify(this.state) 
-        // }
+        const formData = {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json'
+             },
+            body: JSON.stringify(this.state) 
+        }
+        // const data = this.state 
+        // debugger
+        // this.props.new(data)
+        fetch("http://localhost:3000/api/v1/owners/", formData)
+            .then(response => response.json())
+            .then(json => console.log(json))
 
-        // fetch("http://localhost:3000/api/v1/owners/", formData)
-        //     .then(response => console.log(response.json()))
-
-        this.props.history.push("/")
+        // this.props.history.push("/")
     }
 
     render(){

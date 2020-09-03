@@ -1,4 +1,4 @@
-export function ownersReducer(state = {
+export default function ownersReducer(state = {
     owner: {
     first_name: '',
     last_name: '',

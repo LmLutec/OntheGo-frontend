@@ -1,29 +1,38 @@
-export function addOwnerFetch(){
+export const addOwner = (data) => {
+    
     const formData = {
         method: 'POST',
         headers: { 
             'Content-Type': 'application/json'
          },
-        body: JSON.stringify(this.state) 
+        body: JSON.stringify(data) 
     }
 
     const owners = fetch("http://localhost:3000/api/v1/owners/", formData)
-        // .then(response => console.log(response.json()))
-        return {
-                  type: 'ADD_OWNERS',
-                  owners
-                }
+        .then(response => {
+            return response.json()
+        }).then(json => {
+            // dispatch({type: 'ADD_OWNER'})
+            console.log(json)
+        })
+        // return {
+        //           type: 'ADD_OWNER',
+        //           owners
+        //         }
 }
 
 
 
 
 
+// export const fetchCats = () => {
+//     return (dispatch) => {
+//       dispatch({ type: 'LOADING_CATS'})
+//       fetch('https://learn-co-curriculum.github.io/cat-api/cats.json').then(response => {
+//         return response.json()
+//       }).then(responseJSON => {
+//         dispatch({ type: 'ADD_CATS', cats: responseJSON.images })
+//       })
+//     }
+//   }
 
-// export function fetchAstronauts() {
-//     const astronauts = fetch('http://api.open-notify.org/astros.json');
-//     return {
-//       type: 'ADD_ASTRONAUTS',
-//       astronauts
-//     };
-//   };
