@@ -1,5 +1,8 @@
-export const addOwner = () => {
-    
+export const addOwner = (owner) => {
+    return {
+                  type: 'ADD_OWNER',
+                  owner
+            }
   }
 
 // export const addOwner = (data) => {
