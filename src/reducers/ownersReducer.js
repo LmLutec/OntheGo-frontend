@@ -10,5 +10,7 @@ export default function ownersReducer(state = {
                 return Object.assign({}, state, {
                     owner: [...state.owner,action.owner]
                 })
+        default: 
+            return state;
         }
     }

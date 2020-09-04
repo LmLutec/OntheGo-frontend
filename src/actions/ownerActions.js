@@ -1,25 +1,29 @@
-export const addOwner = (data) => {
+export const addOwner = () => {
     
-    const formData = {
-        method: 'POST',
-        headers: { 
-            'Content-Type': 'application/json'
-         },
-        body: JSON.stringify(data) 
-    }
+  }
 
-    const owners = fetch("http://localhost:3000/api/v1/owners/", formData)
-        .then(response => {
-            return response.json()
-        }).then(json => {
+// export const addOwner = (data) => {
+    // console.log(data)
+    // const formData = {
+    //     method: 'POST',
+    //     headers: { 
+    //         'Content-Type': 'application/json'
+    //      },
+    //     body: JSON.stringify(data) 
+    // }
+
+    // const owners = fetch("http://localhost:3000/api/v1/owners/", formData)
+    //     .then(response => {
+    //         return response.json()
+    //     }).then(json => {
             // dispatch({type: 'ADD_OWNER'})
-            console.log(json)
-        })
+        //     console.log(json)
+        // })
         // return {
         //           type: 'ADD_OWNER',
         //           owners
         //         }
-}
+// }
 
 
 

@@ -23,9 +23,9 @@ class OwnerContainer extends Component {
 }
 
 
-const mapDispatchToProps = () => {
+const mapDispatchToProps = (dispatch) => {
     return {
-      addOwner: data => addOwner({type: 'ADD_OWNER', data})
+      addOwner: data => dispatch(addOwner({type: 'ADD_OWNER', data}))
     }
   }
 

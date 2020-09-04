@@ -36,7 +36,7 @@ class OwnerInput extends Component {
         // this.props.new(data)
         fetch("http://localhost:3000/api/v1/owners/", formData)
             .then(response => response.json())
-            .then(json => console.log(json))
+            .then(json => this.props.new(json))
 
         // this.props.history.push("/")
     }
