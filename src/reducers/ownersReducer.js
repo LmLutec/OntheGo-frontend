@@ -7,9 +7,11 @@ export default function ownersReducer(state = {
     }  }, action){
         switch(action.type){
             case 'ADD_OWNER':
-                return Object.assign({}, state, {
-                    owner: [...state.owner,action.owner]
+                // debugger
+                Object.assign({}, state, {
+                    owners: {...state, owner: action.owner}
                 })
+                debugger
         default: 
             return state;
         }

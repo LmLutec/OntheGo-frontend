@@ -4,6 +4,7 @@ import OwnerInput from './OwnerInput'
 import OwnerLogin from './OwnerLogin'
 import { connect } from 'react-redux'
 import { addOwner } from '../../actions/ownerActions'
+// import Owners from './Owners'
 
 
 class OwnerContainer extends Component {
@@ -11,6 +12,7 @@ class OwnerContainer extends Component {
         return(
             <div>
                 {/* create route to ownerInput */}
+                {/* <Owners test={this.props.owners}/> */}
                 <Router>
                     <NavLink to="/owner/new">New Owner</NavLink>
                     <Route exact path="/owner/new" render={()=> <OwnerInput new={this.props.addOwner}/>}></Route><br/>
@@ -22,6 +24,10 @@ class OwnerContainer extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    // debugger
+    return { owners: state.owner }
+}
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -29,5 +35,5 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 
-export default connect(null, mapDispatchToProps)(OwnerContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(OwnerContainer)
 
