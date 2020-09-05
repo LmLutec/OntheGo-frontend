@@ -1,17 +1,8 @@
 export default function ownersReducer(state = {
-    owner: {
-    first_name: '',
-    last_name: '',
-    email: '',
-    password: ''  
-    }  }, action){
+    owners: []  }, action){
         switch(action.type){
             case 'ADD_OWNER':
-                // debugger
-                Object.assign({}, state, {
-                    owners: {...state, owner: action.owner}
-                })
-                debugger
+                return { ...state, owners: [...state.owners, action.owner] }
         default: 
             return state;
         }
