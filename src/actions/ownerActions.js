@@ -1,7 +1,7 @@
 export const addOwner = (owner) => {
     return {
                   type: 'ADD_OWNER',
-                  owner
+                  owner: owner
             }
   }
 
