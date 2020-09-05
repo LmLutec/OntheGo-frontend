@@ -13,9 +13,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
           <Router>
             <NavLink to="/owners">Truck Owners</NavLink>
-            <Route exact path="/owners" component={OwnerContainer}></Route><br/>
-          </Router>
-       
+            <Route exact path="/owners" render={()=> <OwnerContainer/>}/><br/>
+          </Router>       
 
 
 
