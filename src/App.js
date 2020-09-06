@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import OwnerContainer from './components/owners/OwnerContainer'
 import { BrowserRouter as Router, Route, NavLink} from 'react-router-dom'
+import TruckContainer from './components/trucks/TruckContainer';
 // import Home from './components/owners/Home';
 
 

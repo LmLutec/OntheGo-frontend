@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, NavLink, Redirect, Switch} from 'react-router-dom'
+import { BrowserRouter as Router, Route, NavLink} from 'react-router-dom'
 import OwnerInput from './OwnerInput'
 import OwnerLogin from './OwnerLogin'
 import { connect } from 'react-redux'
 import { addOwner } from '../../actions/ownerActions'
-import Owners from './Owners'
+import TruckContainer from '../trucks/TruckContainer'
+// import Owners from './Owners'
 
 
 class OwnerContainer extends Component {
@@ -21,6 +22,7 @@ class OwnerContainer extends Component {
                     <Route exact path="/owner/new" render={()=> <OwnerInput new={this.props.addOwner}/>}></Route><br/><br/>
                     <NavLink to="/login">Login</NavLink>
                     <Route exact path="/login" component={OwnerLogin}></Route><br/>
+                    <Route exact path="/truck/new" render={()=> <TruckContainer/>}/>
                 </Router>  
             </div>
         )

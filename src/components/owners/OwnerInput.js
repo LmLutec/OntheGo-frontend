@@ -31,21 +31,18 @@ class OwnerInput extends Component {
              },
             body: JSON.stringify(this.state) 
         }
-        // const data = this.state 
-        // debugger
-        // this.props.new(data)
+       
         fetch("http://localhost:3000/api/v1/owners/", formData)
             .then(response => response.json())
             .then(json => this.props.new(json))
 
-        // this.props.history.push("/")
     }
 
     render(){
         return(
             <div>
                <h3>Hey Truck Owners! Create a New Account below:</h3>
-                <form onSubmit={event => {this.handleSubmit(event)}}>
+                <form onSubmit={event => {this.handleSubmit(event)}}> 
                     <label>First name</label>
                     <input onChange= { event => {this.handleChange(event)}} type="text" id= "first_name" value={this.state.owner.first_name}/><br/>
                     <label>Last name</label>
