@@ -3,9 +3,11 @@ import React, { Component } from 'react'
 export default class Owners extends Component{
     
     render(){
-        const getOwners = this.props.test.map((owner) => {
-            console.log(owner)
-        })
+        debugger
+        const getOwners = this.props.test
+        // .map((owner) => {
+            // console.log(owner)
+        // })
         return(
             <div>
                {this.getOwners}

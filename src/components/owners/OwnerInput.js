@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import TruckContainer from '../trucks/TruckContainer'
 
 // on new owner submit, redirect to truckinput
 class OwnerInput extends Component {
@@ -24,19 +25,20 @@ class OwnerInput extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        const formData = {
-            method: 'POST',
-            headers: { 
-                'Content-Type': 'application/json'
-             },
-            body: JSON.stringify(this.state) 
-        }
+        {this.props.new(this.state.owner)}
+        // const formData = {
+        //     method: 'POST',
+        //     headers: { 
+        //         'Content-Type': 'application/json'
+        //      },
+        //     body: JSON.stringify(this.state) 
+        // }
        
-        fetch("http://localhost:3000/api/v1/owners/", formData)
-            .then(response => response.json())
-            .then(json => this.props.new(json))
-
-    }
+        // fetch("http://localhost:3000/api/v1/owners/", formData)
+        //     .then(response => response.json())
+        //     .then(json => this.props.new(json))
+            // this.props.history.push("/truck/new")
+        }
 
     render(){
         return(
