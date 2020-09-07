@@ -26,6 +26,9 @@ class OwnerInput extends Component {
     handleSubmit = event => {
         event.preventDefault()
         {this.props.new(this.state.owner)}
+        
+        // {this.props.addTruck}
+        
         // const formData = {
         //     method: 'POST',
         //     headers: { 

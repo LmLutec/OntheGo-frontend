@@ -11,16 +11,30 @@ class TruckInput extends Component {
         }
     }
 
+    handleChange = (event) => {
+        this.setState({
+            foodtruck: {
+                ...this.state.foodtruck,
+                [event.target.id]: event.target.value
+            }
+        })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        {this.props.addTruck(this.state.foodtruck)}
+    }
+
     render(){
         return(
             <div>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <label>Name</label>
-                    <input type="text" id="name" value={this.state.name} /><br/>
+                    <input onChange={ event => {this.handleChange(event)}} type="text" id="name" value={this.state.name} /><br/>
                     <label>Food type</label>
-                    <input type="text" id="food_type" value={this.state.food_type} /><br/>
+                    <input onChange= { event => {this.handleChange(event)}} type="text" id="food_type" value={this.state.food_type} /><br/>
                     <label>Phone number</label>
-                    <input type="text" id="phone_number" value={this.state.phone_number} /><br/>
+                    <input onChange= { event => {this.handleChange(event)}} type="text" id="phone_number" value={this.state.phone_number} /><br/>
                     <input type="submit" value="Submit Truck"/>
                 </form>
 

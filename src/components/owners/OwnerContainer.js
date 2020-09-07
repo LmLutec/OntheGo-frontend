@@ -6,15 +6,16 @@ import { connect } from 'react-redux'
 import { addOwner } from '../../actions/ownerActions'
 import TruckContainer from '../trucks/TruckContainer'
 import Home from './Home'
-import Owners from './Owners'
+// import Owners from './Owners'
 
 
 class OwnerContainer extends Component {
     render(){
         return(
             <div>
+                <TruckContainer/>
                 <Router>
-                <OwnerInput new={this.props.addOwner}/><br/>
+                <OwnerInput new={this.props.addOwner} addTruck={TruckContainer}/><br/>
                 <h4>Or Login</h4>
                 <NavLink to="/login">Login</NavLink> 
                 <Route exact path="/login" component={OwnerLogin}></Route><br/>
