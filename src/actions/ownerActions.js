@@ -20,7 +20,8 @@ export const addOwner = (owner) => {
         .then(response => {
             return response.json()
     }).then(json => {
-               dispatch({type: 'ADD_OWNER', owner: json.owner})
+        console.log(json)
+               dispatch({type: 'ADD_OWNER', owner: json})
         })
         // return {
         //           type: 'ADD_OWNER',

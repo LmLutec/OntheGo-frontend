@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Owners extends Component{
     
     render(){
-        debugger
+        // debugger
         const getOwners = this.props.test
         // .map((owner) => {
             // console.log(owner)

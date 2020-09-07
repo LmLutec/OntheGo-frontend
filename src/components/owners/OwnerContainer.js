@@ -19,14 +19,14 @@ class OwnerContainer extends Component {
                 <NavLink to="/login">Login</NavLink> 
                 <Route exact path="/login" component={OwnerLogin}></Route><br/>
                 </Router>
-                <Owners test={this.props.owners}/>
+                {/* <Owners test={this.props.owners}/> */}
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => {
-    return { owners: state }
+    return { owners: state.owners }
 }
 
 const mapDispatchToProps = (dispatch) => {

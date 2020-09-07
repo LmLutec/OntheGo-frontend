@@ -9,7 +9,7 @@ class OwnerInput extends Component {
             first_name: "",
             last_name: "",
             email: "",
-            password: ""
+            password_digest: ""
         }
     }
 
@@ -52,7 +52,7 @@ class OwnerInput extends Component {
                     <label>Email</label>
                     <input onChange={ event => {this.handleChange(event)}} type="text" id="email" value={this.state.owner.email} /><br/>
                     <label>Password</label>
-                    <input onChange={ event => {this.handleChange(event)}} type="password" id="password" value={this.state.owner.password}/><br/>
+                    <input onChange={ event => {this.handleChange(event)}} type="password" id="password_digest" value={this.state.owner.password}/><br/>
                     <input type="submit" name="submit"/>
                 </form>
             </div>
