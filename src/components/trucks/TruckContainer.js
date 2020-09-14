@@ -9,7 +9,7 @@ class TruckContainer extends Component {
     render(){
         return(
             <div>
-                <TruckInput new={this.props.addTruck}/>
+                <TruckInput addTruck={this.props.addTruck}/>
             </div>
         )
     }

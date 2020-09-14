@@ -19,25 +19,33 @@ class OwnerLogin extends Component{
         })
     }
 
-    loginFetch(event) {
+    handleSubmit(event) {
         event.preventDefault()
-        const formData = { owner: {
-            email: this.state.owner.email,
-            password: this.state.owner.password
-        }}
-
-        fetch("http://localhost:3000/api/v1/login", {
-            method: "POST",
-            headers: { "Content-Type" : "application/json" },
-            body: JSON.stringify(formData)
-        })
-        .then(response => response.json())
-        .then(json => {
-            localStorage.setItem("jwt_token", json.jwt)
-            this.getProfile()
-        })
+        // {this.props.login(this.state.owner)}
+            const data = { 
+                method: "POST",
+                headers: { "Content-Type" : "application/json" },
+                body: JSON.stringify(this.state.owner)
+                }
+        
+                fetch("http://localhost:3000/api/v1/login/", data)
+                    .then(response => {
+                        return response.json()
+                }).then(json => {
+                    console.log(json)
+                        // let ownerInfo = {}
+                        // ownerInfo.owner = json.owner
+                        // ownerInfo.token = json.jwt
+                        // console.log(json.ownerInfo)
+                        // ownerInfo.push(`${json.owner}`, `${json.jwt}`)
+                        // console.log(ownerInfo)
+                           localStorage.setItem("jwt_token", json.jwt)
+                        //    localStorage.setItem("owner", json.owner.id)
+                        //    console.log(localStorage.getItem('jwt_token', json.jwt))
+                    })
+                this.getProfile()
     }
-
+                
     getProfile(){
         fetch("http://localhost:3000/api/v1/profile", {
             method: "GET",
@@ -53,7 +61,7 @@ class OwnerLogin extends Component{
     render(){
         return(
             <div>
-                <form onSubmit={event => {this.loginFetch(event)}}>
+                <form onSubmit={event => {this.handleSubmit(event)}}>
                     <label>Email</label>
                     <input onChange={event => {this.handleChange(event)}} type="text" id="email" value={this.state.owner.email}/><br/>
                     <label>Password</label>

@@ -1,5 +1,6 @@
 export const addTruck = (truck) => {
-    // console.log(truck)
+    truck.owner_id = localStorage.getItem('owner')
+    
     const formData = {
         method: 'POST',
         headers: { 
@@ -13,7 +14,7 @@ export const addTruck = (truck) => {
         .then(response => {
             return response.json()
     }).then(json => {
-               dispatch({type: 'ADD_TRUCK', owner: json.foodtruck})
+               dispatch({type: 'ADD_TRUCK'})
         })
     }
 }
