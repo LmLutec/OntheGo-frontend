@@ -14,13 +14,15 @@ class OwnerContainer extends Component {
         return(
             <div>
                 <Router>
-                <OwnerInput addOwner={this.props.addOwner} /><br/>
-                {/* addTruck={TruckContainer} */}
-                <h4>Or Login</h4>
-                <NavLink to="/login">Login</NavLink> 
-                <OwnerLogin login={this.props.login}/>
-                {/* <Route exact path="/login" component={OwnerLogin}></Route><br/> */}
+                    <NavLink to="/owner/new">New Owner</NavLink><br/><br/>
+                    <NavLink to="/login">Login</NavLink> 
+                    <Route exact path="/owner/new" render={()=> <OwnerInput addOwner={this.props.addOwner}/>}></Route><br/><br/>
+                    <Route exact path="/login" component={OwnerLogin}></Route><br/>
                 </Router>
+                 {/* <OwnerInput addOwner={this.props.addOwner} /><br/> */}
+                {/* <OwnerLogin login={this.props.login} profile={<Home/>}/> */}
+                
+        
                 {/* <Owners test={this.props.owners}/> */}
             </div>
         )

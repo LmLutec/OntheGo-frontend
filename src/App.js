@@ -11,11 +11,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Router>
-         <NavLink to="/owners">Owners</NavLink>
-         <Route path="/owners" component={OwnerContainer} />
-        </Router>
-        
+         <OwnerContainer/>
       
       </header>
     </div>

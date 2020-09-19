@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Home from './Home'
 
 
 class OwnerLogin extends Component{
@@ -54,7 +55,10 @@ class OwnerLogin extends Component{
             }
         })
         .then(response => response.json())
-        .then(json => console.log(json))
+        .then(json =>{
+            console.log(json)
+            return <div><Home/></div>
+        })
     }
 
 
