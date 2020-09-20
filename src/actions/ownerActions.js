@@ -8,13 +8,11 @@ export const addOwner = (owner) => {
         body: JSON.stringify({owner: owner}) 
     }
     return (dispatch) => {
-        debugger
         dispatch({ type: 'ADD_OWNER'})
         fetch("http://localhost:3000/api/v1/owners/", formData)
         .then(response => {
             return response.json()
     }).then(json => {
-        debugger
                dispatch({type: 'ADD_OWNER', owner: json.owner})
         })
     }

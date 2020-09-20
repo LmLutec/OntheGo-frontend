@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Home from './Home'
+// import { useHistory } from "react-router-dom"
+// import { Redirect } from 'react-router-dom'
 
 
 class OwnerLogin extends Component{
@@ -10,6 +12,7 @@ class OwnerLogin extends Component{
             password: ""
         }
     }
+
 
     handleChange = event => {
         this.setState({
@@ -41,10 +44,11 @@ class OwnerLogin extends Component{
                         // ownerInfo.push(`${json.owner}`, `${json.jwt}`)
                         // console.log(ownerInfo)
                            localStorage.setItem("jwt_token", json.jwt)
-                        //    localStorage.setItem("owner", json.owner.id)
+                           localStorage.setItem("owner", JSON.stringify(json.owner))
                         //    console.log(localStorage.getItem('jwt_token', json.jwt))
                     })
                 this.getProfile()
+            
     }
                 
     getProfile(){
@@ -56,16 +60,25 @@ class OwnerLogin extends Component{
         })
         .then(response => response.json())
         .then(json =>{
-            console.log(json)
-            return <div><Home/></div>
+            // console.log(json)
+            this.Profile(json)
         })
+    }
+
+    Profile(json){
+        // const history = useHistory()
+
+        if(json){
+            console.log('true')
+        }
+        return <div><Home/></div>
     }
 
 
     render(){
         return(
             <div>
-                <form onSubmit={event => {this.handleSubmit(event)}}>
+                <form onSubmit={event => {this.handleSubmit(event)}} >
                     <label>Email</label>
                     <input onChange={event => {this.handleChange(event)}} type="text" id="email" value={this.state.owner.email}/><br/>
                     <label>Password</label>
@@ -76,6 +89,7 @@ class OwnerLogin extends Component{
         )
     }
 }
+
 
 export default OwnerLogin
 

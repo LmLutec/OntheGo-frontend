@@ -17,7 +17,8 @@ class OwnerContainer extends Component {
                     <NavLink to="/owner/new">New Owner</NavLink><br/><br/>
                     <NavLink to="/login">Login</NavLink> 
                     <Route exact path="/owner/new" render={()=> <OwnerInput addOwner={this.props.addOwner}/>}></Route><br/><br/>
-                    <Route exact path="/login" component={OwnerLogin}></Route><br/>
+                    <Route exact path="/login" render={()=> <OwnerLogin/>}></Route><br/>
+                    <Route exact path="/home" component={Home}/>
                 </Router>
                  {/* <OwnerInput addOwner={this.props.addOwner} /><br/> */}
                 {/* <OwnerLogin login={this.props.login} profile={<Home/>}/> */}
@@ -28,6 +29,8 @@ class OwnerContainer extends Component {
         )
     }
 }
+
+
 
 const mapStateToProps = (state) => {
     return { owners: state.owners }
