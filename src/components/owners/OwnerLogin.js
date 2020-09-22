@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Home from './Home'
-// import { useHistory } from "react-router-dom"
-// import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 
 class OwnerLogin extends Component{
@@ -25,7 +24,7 @@ class OwnerLogin extends Component{
 
     handleSubmit(event) {
         event.preventDefault()
-        // {this.props.login(this.state.owner)}
+    
             const data = { 
                 method: "POST",
                 headers: { "Content-Type" : "application/json" },
@@ -36,19 +35,9 @@ class OwnerLogin extends Component{
                     .then(response => {
                         return response.json()
                 }).then(json => {
-                    console.log(json)
-                        // let ownerInfo = {}
-                        // ownerInfo.owner = json.owner
-                        // ownerInfo.token = json.jwt
-                        // console.log(json.ownerInfo)
-                        // ownerInfo.push(`${json.owner}`, `${json.jwt}`)
-                        // console.log(ownerInfo)
                            localStorage.setItem("jwt_token", json.jwt)
                            localStorage.setItem("owner", JSON.stringify(json.owner))
-                        //    console.log(localStorage.getItem('jwt_token', json.jwt))
-                    })
-                this.getProfile()
-            
+                    })      
     }
                 
     getProfile(){
@@ -66,12 +55,11 @@ class OwnerLogin extends Component{
     }
 
     Profile(json){
-        // const history = useHistory()
 
         if(json){
             console.log('true')
+            
         }
-        return <div><Home/></div>
     }
 
 

@@ -1,9 +1,7 @@
 export const addTruck = (truck) => {
     const owner = JSON.parse(localStorage.getItem('owner'))
-    
-    // truck.owner_id = localStorage.getItem('owner')
+
     truck["owner_id"] = owner.id
-    console.log(truck)
 
     const formData = {
         method: 'POST',

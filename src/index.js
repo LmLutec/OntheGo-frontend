@@ -5,7 +5,7 @@ import App from './App';
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
-import { BrowserRouter as Router, BrowserRouter } from 'react-router-dom'
+// import { BrowserRouter as Router, BrowserRouter } from 'react-router-dom'
 import rootReducer from './reducers/rootReducer'
 
 // import * as serviceWorker from './serviceWorker';
@@ -15,9 +15,7 @@ const store = createStore(rootReducer,applyMiddleware(thunk))
 ReactDOM.render(
   // <React.StrictMode>
   <Provider store={store}>
-    <BrowserRouter>
         <App />
-    </BrowserRouter>
     </Provider>,
   // </React.StrictMode>,
   document.getElementById('root')
@@ -27,3 +25,4 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 // serviceWorker.unregister();
+

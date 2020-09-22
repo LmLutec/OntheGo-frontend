@@ -1,36 +1,40 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, NavLink, Switch} from 'react-router-dom'
+import { BrowserRouter as Router, Route, NavLink, Redirect, Switch} from 'react-router-dom'
 import OwnerInput from './OwnerInput'
 import OwnerLogin from './OwnerLogin'
 import { connect } from 'react-redux'
 import { addOwner } from '../../actions/ownerActions'
-// import TruckContainer from '../trucks/TruckContainer'
 import Home from './Home'
-// import Owners from './Owners'
+
 
 
 class OwnerContainer extends Component {
+
     render(){
         return(
             <div>
+                {/* <Switch> */}
                 <Router>
                     <NavLink to="/owner/new">New Owner</NavLink><br/><br/>
                     <NavLink to="/login">Login</NavLink> 
-                    <Route exact path="/owner/new" render={()=> <OwnerInput addOwner={this.props.addOwner}/>}></Route><br/><br/>
-                    <Route exact path="/login" render={()=> <OwnerLogin/>}></Route><br/>
-                    <Route exact path="/home" component={Home}/>
-                </Router>
-                 {/* <OwnerInput addOwner={this.props.addOwner} /><br/> */}
-                {/* <OwnerLogin login={this.props.login} profile={<Home/>}/> */}
-                
-        
-                {/* <Owners test={this.props.owners}/> */}
+
+                    <Route exact path="/login" component={OwnerLogin}></Route><br/>
+                    <Route exact path="/owner/new" component={OwnerInput}></Route>
+                    {/* <Route exact path="/home" component={<Home/>}></Route> */}
+                </Router>   
+                    {/* <Route exact path="/owner/new" render={()=> <OwnerInput addOwner={this.props.addOwner}/>}></Route><br/><br/> */}
+                    {/* <Route exact path="/login" component={<OwnerLogin/>}></Route><br/> */}
+                    {/* <Route exact path="/home" render={()=><Home/>}></Route> */}
+                    {/* <Route exact path="/home"> {loggedIn ? <Redirect to="/home" /> : <Home />}</Route> */}
+                {/* </Switch> */}
             </div>
         )
     }
+
+    
 }
 
-
+const loggedIn = localStorage.getItem('jwt_token')
 
 const mapStateToProps = (state) => {
     return { owners: state.owners }
@@ -39,7 +43,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
       addOwner: owner => dispatch(addOwner(owner))
-    //   login: owner => dispatch(loginFetch(owner))
     }
   }
 
