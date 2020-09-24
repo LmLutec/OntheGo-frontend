@@ -26,22 +26,12 @@ class OwnerInput extends Component {
     handleSubmit = event => {
         event.preventDefault()
         {this.props.addOwner(this.state.owner)}
-        this.props.history.push("/truck/new")
-        
-        // {this.props.addTruck}
-        
-        // const formData = {
-        //     method: 'POST',
-        //     headers: { 
-        //         'Content-Type': 'application/json'
-        //      },
-        //     body: JSON.stringify(this.state) 
-        // }
-       
-        // fetch("http://localhost:3000/api/v1/owners/", formData)
-        //     .then(response => response.json())
-        //     .then(json => this.props.new(json))
-            // this.props.history.push("/truck/new")
+
+        return(
+            <div>
+                {<TruckContainer/>}
+            </div>
+        )
         }
 
     render(){

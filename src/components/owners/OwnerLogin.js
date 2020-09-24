@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 import Home from './Home'
-import { Redirect } from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
+
 
 
 class OwnerLogin extends Component{
-
-    state = {
+    constructor(props){
+    super(props)
+    
+    this.state = {
         owner: {
             email: "",
             password: ""
+            },
+        loggedIn: false
         }
     }
 
@@ -23,6 +28,7 @@ class OwnerLogin extends Component{
     }
 
     handleSubmit(event) {
+        // debugger
         event.preventDefault()
     
             const data = { 
@@ -36,10 +42,21 @@ class OwnerLogin extends Component{
                         return response.json()
                 }).then(json => {
                            localStorage.setItem("jwt_token", json.jwt)
-                           localStorage.setItem("owner", JSON.stringify(json.owner))
-                    })      
+                           localStorage.setItem("owner", JSON.stringify(json.owner)) 
+                    }) 
+
+                    if (localStorage.getItem("jwt_token")){
+                        {this.props.history.push("/home")}
+                 }
     }
+                        //    this.setState({
+                        //     owner: { ...this.state.owner},
+                        //     loggedIn: true 
+                        //   })
+            
+    
                 
+
     getProfile(){
         fetch("http://localhost:3000/api/v1/profile", {
             method: "GET",
@@ -62,6 +79,7 @@ class OwnerLogin extends Component{
         }
     }
 
+ 
 
     render(){
         return(
@@ -79,7 +97,8 @@ class OwnerLogin extends Component{
 }
 
 
-export default OwnerLogin
+
+export default withRouter(OwnerLogin)
 
 
 // create an onSubmit for loginfetch

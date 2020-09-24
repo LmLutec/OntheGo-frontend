@@ -18,11 +18,12 @@ class Home extends Component {
         })
         .then(response => response.json())
         .then(json =>{
-            if (json.foodtruck.schedule && json.foodtruck.menu){
-                this.setState({
-                    completeProfile: true
-                })
-            }
+            console.log(json)
+            // if (json.foodtruck.schedule && json.foodtruck.menu){
+            //     this.setState({
+            //         completeProfile: true
+            //     })
+            // }
             // this.setState({
             //     owner: json,
 

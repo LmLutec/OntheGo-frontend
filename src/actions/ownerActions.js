@@ -15,8 +15,10 @@ export const addOwner = (owner) => {
     }).then(json => {
                dispatch({type: 'ADD_OWNER', owner: json.owner})
         })
-    }
+    } 
 }
+
+
 
 // export const loginFetch = (credentials) => {
 //     const data = { 
