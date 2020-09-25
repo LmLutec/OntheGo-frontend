@@ -2,10 +2,8 @@ import React, { Component } from 'react'
 
 
 class Schedule extends Component {
-    constructor(props){
-        super(props)
 
-    this.state = {
+    state = {
         schedule: {
             mon_start: "",
             mon_end: "",
@@ -29,11 +27,12 @@ class Schedule extends Component {
             christmas_day_end: ""
         }
     }
-    }
+    
 
     handleChange = (event) => {
         this.setState({
-            schedule: {
+            schedule: { 
+                ...this.state.schedule,
                 [event.target.id]: event.target.value
             }
         })
@@ -41,6 +40,7 @@ class Schedule extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
+        debugger
         {this.props.addSchedule(this.state.schedule)}
     }
 
@@ -71,7 +71,7 @@ class Schedule extends Component {
                     <input onChange={ event => {this.handleChange(event)}} type="text" id="thanksgiving_day_end" value={this.state.schedule.thanksgiving_day_end} placeholder="Close"/><br/>
                     Christmas Day<input onChange={ event => {this.handleChange(event)}} type="text" id="christmas_day_start" value={this.state.schedule.christmas_day_start} placeholder="Open"/>  
                     <input onChange={ event => {this.handleChange(event)}} type="text" id="christmas_day_end" value={this.state.schedule.christmas_day_end} placeholder="Close"/><br/>
-                    <input type="Submit" value="Set Hours"/>
+                    <input type="submit" value="Set Hours"/>
                 </form>
             </div>
         )

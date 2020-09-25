@@ -4,8 +4,8 @@ import foodtrucksReducer from './trucksReducer'
 
 
 const rootReducer = combineReducers({
-    owners: ownersReducer,
-    foodtrucks: foodtrucksReducer
+    owners: ownersReducer
+    // foodtrucks: foodtrucksReducer
   })
    
  

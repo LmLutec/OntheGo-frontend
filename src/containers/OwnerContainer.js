@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, NavLink, Redirect, Switch} from 'react-router-dom'
-import OwnerInput from './OwnerInput'
-import OwnerLogin from './OwnerLogin'
 import { connect } from 'react-redux'
-import { addOwner,login } from '../../actions/ownerActions'
-import Home from './Home'
-import TruckContainer from '../trucks/TruckContainer'
-import Schedule from '../trucks/Schedule'
+import { BrowserRouter as Router, Route, NavLink, Redirect, Switch} from 'react-router-dom'
+import Home from '../components/owners/Home'
+import OwnerInput from '../components/owners/OwnerInput'
+import OwnerLogin from '../components/owners/OwnerLogin'
+import TruckInput from '../components/owners/TruckInput'
+import Schedule from '../components/owners/Schedule'
+import { addOwner, addTruck, addSchedule } from '../actions/ownerActions'
 
 // let isLoggedIn;
 
@@ -33,27 +33,12 @@ class OwnerContainer extends Component {
                     </header>
                     <Route exact path="/login" component={OwnerLogin}></Route><br/>
                     <Route exact path="/owner/new" render={()=> <OwnerInput addOwner={this.props.addOwner}/>}></Route><br/><br/>
-                    <Route exact path="/setup" component={TruckContainer}></Route>
-                    <Route exact path="/schedule" component={Schedule}></Route>
+                    <Route exact path="/setup" render={()=> <TruckInput addTruck={this.props.addTruck}/>}></Route>
+                    <Route exact path="/schedule" render={()=> <Schedule addSchedule={this.props.addSchedule}/>}></Route>
                 <Switch>
                     <Route exact path="/home" component={Home}></Route>
                 </Switch>
-                {/* </Router> */}
-                    {/* <Route exact path="/home" render={() => ( IsLoggedIn() ? ( 
-                                <Redirect to="/home"/>
-                                     ) : (
-                                 <Redirect to="/"/>
-                                 ) 
-                     )}/> */}
-
-                    {/* <Route exact path="/owner/new" component={OwnerInput}></Route> */}
-                    {/* <Route exact path="/home"> {loggedIn ? <Redirect to="/home" /> : <Home />}</Route> */} 
-
               
-                    {/* <Route exact path="/owner/new" render={()=> <OwnerInput addOwner={this.props.addOwner}/>}></Route><br/><br/> */}
-                    {/* <Route exact path="/login" component={<OwnerLogin/>}></Route><br/> */}
-                    {/* <Route exact path="/home" render={()=><Home/>}></Route> */}
-                {/* </Switch> */}
             </div>
         )
     }
@@ -69,7 +54,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      addOwner: owner => dispatch(addOwner(owner))
+      addOwner: owner => dispatch(addOwner(owner)),
+      addTruck: truck => dispatch(addTruck(truck)),
+      addSchedule: schedule => dispatch(addSchedule(schedule))
     }
   }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Route, Switch} from 'react-router-dom'
-import OwnerContainer from './components/owners/OwnerContainer'
+import OwnerContainer from './containers/OwnerContainer'
 // import OwnerInput from './components/owners/OwnerInput'
 // import OwnerLogin from './components/owners/OwnerLogin'
 // import Home from './components/owners/Home'

@@ -5,17 +5,16 @@ import {withRouter} from 'react-router-dom'
 
 
 class OwnerLogin extends Component{
-    constructor(props){
-    super(props)
+  
     
-    this.state = {
+    state = {
         owner: {
             email: "",
             password: ""
             },
         loggedIn: false
         }
-    }
+    
 
 
     handleChange = event => {

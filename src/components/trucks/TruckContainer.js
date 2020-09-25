@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route, NavLink, Redirect, Switch} from 'react-router-dom'
-import TruckInput from './TruckInput'
+import TruckInput from '../owners/TruckInput'
 import { addTruck, addSchedule } from '../../actions/truckActions'
-import Schedule from './Schedule'
+import Schedule from '../owners/Schedule'
 
 
 

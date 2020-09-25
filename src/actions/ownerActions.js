@@ -18,29 +18,51 @@ export const addOwner = (owner) => {
     } 
 }
 
+export const addTruck = (truck) => {
+    const owner = JSON.parse(localStorage.getItem('owner'))
+
+    truck["owner_id"] = owner.id
+
+    const formData = {
+        method: 'POST',
+        headers: { 
+            'Content-Type': 'application/json'
+         },
+        body: JSON.stringify(truck) 
+    }
+    return (dispatch) => {
+        dispatch({ type: 'ADD_TRUCK'})
+        fetch("http://localhost:3000/api/v1/foodtrucks/", formData)
+        .then(response => {
+            return response.json()
+    }).then(json => {
+               dispatch({type: 'ADD_TRUCK'})
+        })
+    }
+}
+
+export const addSchedule = (schedule) => {
+    schedule["foodtruck_id"] = ""
+
+    const formData = {
+        method: 'POST',
+        headrs: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(schedule)
+    }
+    return (dispatch) => {
+        dispatch({ type: 'ADD_SCHEDULE'})
+        fetch("http://localhost:3000/api/v1/schedules/", formData)
+        .then(response => {
+            return response.JSON()
+        }).then(json => {
+            console.log(json)
+        })
+    }
+}
 
 
-// export const loginFetch = (credentials) => {
-//     const data = { 
-//         method: "POST",
-//         headers: { "Content-Type" : "application/json" },
-//         body: JSON.stringify(credentials)
-//         }
-
-//         return (dispatch) => {
-//             dispatch({ type: 'LOGIN'})
-//             fetch("http://localhost:3000/api/v1/login/", data)
-//             .then(response => {
-//                 return response.json()
-//         }).then(json => {
-//                 console.log(json)
-//                    dispatch({type: 'LOGIN', payload: json.owner})
-//                    // localStorage.setItem("jwt_token", json.jwt)
-//             })
-//         }
-
-
-// }
 
 
 
