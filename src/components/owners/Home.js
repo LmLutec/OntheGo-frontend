@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, NavLink, Redirect} from 'react-router-dom'
+import ReactDOM from 'react-dom'
+// import { BrowserRouter as Router, Route, NavLink, Redirect} from 'react-router-dom'
 import TruckContainer from '../trucks/TruckContainer'
 
 
@@ -8,6 +9,13 @@ class Home extends Component {
         completeProfile: false
         }
 
+        // componentDidMount() {
+        //    let link =ReactDOM.findDOMNode().querySelector('.navlink'); 
+
+        //    debugger
+        //    .display = none;
+        // }
+    // 
 
     getProfile(){
         fetch("http://localhost:3000/api/v1/profile", {
@@ -33,15 +41,14 @@ class Home extends Component {
     }
 
 
+    
+
     render(){
         return(
             <div>
                 <h1>This is Home</h1>
                 {this.getProfile()}
-                <Router>
-                    <NavLink to="/truck/new">New Truck</NavLink>
-                    <Route exact path="/truck/new" render={()=> <TruckContainer/>}></Route><br/><br/>
-                </Router>
+               
                 {/* <Router>
                     <NavLink to="/owner">Truck Owners</NavLink>
                     <Route exact path="/owner" component={OwnerContainer}></Route><br/>

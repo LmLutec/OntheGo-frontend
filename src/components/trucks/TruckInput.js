@@ -30,6 +30,7 @@ class TruckInput extends Component {
     render(){
         return(
             <div>
+                <h4>Food Truck Information</h4>
                 <form onSubmit={this.handleSubmit}>
                     <label>Name</label>
                     <input onChange={ event => {this.handleChange(event)}} type="text" id="name" value={this.state.name} /><br/>

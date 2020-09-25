@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, NavLink, Redirect} from 'react-router-dom'
+import { BrowserRouter as Router, Route, NavLink, Redirect, Switch} from 'react-router-dom'
 import OwnerInput from './OwnerInput'
 import OwnerLogin from './OwnerLogin'
 import { connect } from 'react-redux'
@@ -9,15 +9,15 @@ import TruckInput from '../trucks/TruckInput'
 
 // let isLoggedIn;
 
-const IsLoggedIn = () => {
-    if (localStorage.getItem('jwt_token')){
-        return true
-    }
-}
+// const IsLoggedIn = () => {
+//     if (localStorage.getItem('jwt_token')){
+//         return true
+//     }
+// }
 
-function GoHome() {
-    return <Redirect to="/home"/>
-}
+// function GoHome() {
+//     return <Redirect to="/home"/>
+// }
 
 class OwnerContainer extends Component {
 
@@ -26,15 +26,17 @@ class OwnerContainer extends Component {
         
         return(
             <div>
-                {/* <Switch> */}
-                <Router>
-                    <NavLink to="/owner/new">New Owner</NavLink><br/><br/>
-                    <NavLink to="/login">Login</NavLink> 
-
-                    <Route exact path="/login" render={()=> <OwnerLogin/>}></Route><br/>
+                    <header className="navlink">  
+                    <NavLink to="/owner/new" className="navlink">New Owner</NavLink><br/><br/>
+                    <NavLink to="/login" className="navlink">Login</NavLink> 
+                    </header>
+                    <Route exact path="/login" component={OwnerLogin}></Route><br/>
                     <Route exact path="/owner/new" render={()=> <OwnerInput addOwner={this.props.addOwner}/>}></Route><br/><br/>
-                    <Route exact path="/home" render={() => <Home/>}></Route>
-                 
+                    <Route exact path="/truck/new" component={TruckInput}></Route>
+                <Switch>
+                    <Route exact path="/home" component={Home}></Route>
+                </Switch>
+                {/* </Router> */}
                     {/* <Route exact path="/home" render={() => ( IsLoggedIn() ? ( 
                                 <Redirect to="/home"/>
                                      ) : (
@@ -43,10 +45,7 @@ class OwnerContainer extends Component {
                      )}/> */}
 
                     {/* <Route exact path="/owner/new" component={OwnerInput}></Route> */}
-                    {/* <Route exact path="/home"> {loggedIn ? <Redirect to="/home" /> : <Home />}</Route> */}
-                    
-                    
-                </Router>   
+                    {/* <Route exact path="/home"> {loggedIn ? <Redirect to="/home" /> : <Home />}</Route> */} 
 
               
                     {/* <Route exact path="/owner/new" render={()=> <OwnerInput addOwner={this.props.addOwner}/>}></Route><br/><br/> */}
