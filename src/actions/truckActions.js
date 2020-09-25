@@ -20,3 +20,24 @@ export const addTruck = (truck) => {
         })
     }
 }
+
+export const addSchedule = (schedule) => {
+    schedule["foodtruck_id"] = ""
+
+    const formData = {
+        method: 'POST',
+        headrs: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(schedule)
+    }
+    return (dispatch) => {
+        dispatch({ type: 'ADD_SCHEDULE'})
+        fetch("http://localhost:3000/api/v1/schedules/", formData)
+        .then(response => {
+            return response.JSON()
+        }).then(json => {
+            console.log(json)
+        })
+    }
+}

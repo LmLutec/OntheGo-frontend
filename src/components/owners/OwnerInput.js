@@ -28,7 +28,7 @@ class OwnerInput extends Component {
     handleSubmit = event => {
         event.preventDefault()
         {this.props.addOwner(this.state.owner)}
-        {this.props.history.push("/truck/new")}
+        {this.props.history.push("/setup")}
         }
 
     render(){

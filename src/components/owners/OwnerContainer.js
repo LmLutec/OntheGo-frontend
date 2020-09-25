@@ -33,7 +33,7 @@ class OwnerContainer extends Component {
                     </header>
                     <Route exact path="/login" component={OwnerLogin}></Route><br/>
                     <Route exact path="/owner/new" render={()=> <OwnerInput addOwner={this.props.addOwner}/>}></Route><br/><br/>
-                    <Route exact path="/truck/new" component={TruckContainer}></Route>
+                    <Route exact path="/setup" component={TruckContainer}></Route>
                     <Route exact path="/schedule" component={Schedule}></Route>
                 <Switch>
                     <Route exact path="/home" component={Home}></Route>
