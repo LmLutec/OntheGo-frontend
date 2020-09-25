@@ -5,7 +5,7 @@ import OwnerLogin from './OwnerLogin'
 import { connect } from 'react-redux'
 import { addOwner,login } from '../../actions/ownerActions'
 import Home from './Home'
-import TruckInput from '../trucks/TruckInput'
+import TruckContainer from '../trucks/TruckContainer'
 
 // let isLoggedIn;
 
@@ -32,7 +32,7 @@ class OwnerContainer extends Component {
                     </header>
                     <Route exact path="/login" component={OwnerLogin}></Route><br/>
                     <Route exact path="/owner/new" render={()=> <OwnerInput addOwner={this.props.addOwner}/>}></Route><br/><br/>
-                    <Route exact path="/truck/new" component={TruckInput}></Route>
+                    <Route exact path="/truck/new" component={TruckContainer}></Route>
                 <Switch>
                     <Route exact path="/home" component={Home}></Route>
                 </Switch>
