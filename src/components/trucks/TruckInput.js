@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 
 
 class TruckInput extends Component {
@@ -25,6 +26,7 @@ class TruckInput extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         {this.props.addTruck(this.state.foodtruck)}
+        this.props.history.push("/schedule")
     }
 
     render(){
@@ -50,4 +52,4 @@ class TruckInput extends Component {
     }
 }
 
-export default TruckInput
+export default withRouter(TruckInput)

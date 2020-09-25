@@ -5,9 +5,7 @@ import TruckContainer from '../trucks/TruckContainer'
 
 
 class Home extends Component {
-    state = {
-        completeProfile: false
-        }
+   
 
         // componentDidMount() {
         //    let link =ReactDOM.findDOMNode().querySelector('.navlink'); 
