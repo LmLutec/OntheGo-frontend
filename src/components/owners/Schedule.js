@@ -40,8 +40,8 @@ class Schedule extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        debugger
-        {this.props.addSchedule(this.state.schedule)}
+        let id = this.props.truck
+        {this.props.addSchedule(this.state.schedule, id)}
     }
 
     render(){
@@ -50,7 +50,7 @@ class Schedule extends Component {
             <div>
                 <h4>Foodtruck Hours</h4>
                 <h6>Remember to specify Am/Pm.</h6>
-                <form>
+                <form onSubmit={(event) => {this.handleSubmit(event)}}>
                     Monday<input onChange={ event => {this.handleChange(event)}} type="text" id="mon_start" value={this.state.schedule.mon_start} placeholder="Open"/>  
                     <input onChange={ event => {this.handleChange(event)}} type="text" id="mon_end" value={this.state.schedule.mon_end} placeholder="Close"/><br/>
                     Tuesday<input onChange={ event => {this.handleChange(event)}} type="text" id="tues_start" value={this.state.schedule.tues_start} placeholder="Open"/>  

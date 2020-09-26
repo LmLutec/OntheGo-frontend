@@ -34,7 +34,7 @@ class OwnerContainer extends Component {
                     <Route exact path="/login" component={OwnerLogin}></Route><br/>
                     <Route exact path="/owner/new" render={()=> <OwnerInput addOwner={this.props.addOwner}/>}></Route><br/><br/>
                     <Route exact path="/setup" render={()=> <TruckInput addTruck={this.props.addTruck}/>}></Route>
-                    <Route exact path="/schedule" render={()=> <Schedule addSchedule={this.props.addSchedule}/>}></Route>
+                    <Route exact path="/schedule" render={()=> <Schedule addSchedule={this.props.addSchedule} truck={this.props.truck}/>}></Route>
                 <Switch>
                     <Route exact path="/home" component={Home}></Route>
                 </Switch>
@@ -49,14 +49,18 @@ class OwnerContainer extends Component {
 
 
 const mapStateToProps = (state) => {
-    return { owners: state.owners }
+    // debugger
+    return {
+         owner: state.owners,
+         truck: state.owners.truck
+         }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
       addOwner: owner => dispatch(addOwner(owner)),
       addTruck: truck => dispatch(addTruck(truck)),
-      addSchedule: schedule => dispatch(addSchedule(schedule))
+      addSchedule: (schedule, truck) => dispatch(addSchedule(schedule, truck))
     }
   }
 

@@ -8,7 +8,7 @@ export const addOwner = (owner) => {
         body: JSON.stringify({owner: owner}) 
     }
     return (dispatch) => {
-        dispatch({ type: 'ADD_OWNER'})
+        // dispatch({ type: 'ADD_OWNER'})
         fetch("http://localhost:3000/api/v1/owners/", formData)
         .then(response => {
             return response.json()
@@ -31,33 +31,35 @@ export const addTruck = (truck) => {
         body: JSON.stringify(truck) 
     }
     return (dispatch) => {
-        dispatch({ type: 'ADD_TRUCK'})
+        // dispatch({ type: 'ADD_TRUCK'})
         fetch("http://localhost:3000/api/v1/foodtrucks/", formData)
         .then(response => {
             return response.json()
     }).then(json => {
-               dispatch({type: 'ADD_TRUCK'})
+        // debugger
+               dispatch({type: 'ADD_TRUCK', truck: json.foodtruck.data.id})
+            //    const truckId = localStorage.setItem('truckId', json.foodtruck)
         })
     }
 }
 
-export const addSchedule = (schedule) => {
-    schedule["foodtruck_id"] = ""
-
+export const addSchedule = (schedule, truck) => {
+    // const truckId = JSON.parse(localStorage.getItem('truckId'))
+    schedule["foodtruck_id"] = truck
     const formData = {
         method: 'POST',
-        headrs: {
+        headers: {
             'Content-type': 'application/json'
         },
-        body: JSON.stringify(schedule)
+        body: JSON.stringify({schedule: schedule})
     }
     return (dispatch) => {
-        dispatch({ type: 'ADD_SCHEDULE'})
+        // dispatch({ type: 'ADD_SCHEDULE'})
         fetch("http://localhost:3000/api/v1/schedules/", formData)
         .then(response => {
-            return response.JSON()
+            return response.json()
         }).then(json => {
-            console.log(json)
+            dispatch({type: 'ADD_SCHEDULE', schedule: json.data})
         })
     }
 }
