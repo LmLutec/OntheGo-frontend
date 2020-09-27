@@ -6,7 +6,8 @@ import OwnerInput from '../components/owners/OwnerInput'
 import OwnerLogin from '../components/owners/OwnerLogin'
 import TruckInput from '../components/owners/TruckInput'
 import Schedule from '../components/owners/Schedule'
-import { addOwner, addTruck, addSchedule, createMenu } from '../actions/ownerActions'
+import MenuItemsInput from '../components/owners/MenuItemsInput'
+import { addOwner, addTruck, addSchedule, createMenu, addFood } from '../actions/ownerActions'
 
 // let isLoggedIn;
 
@@ -35,6 +36,7 @@ class OwnerContainer extends Component {
                     <Route exact path="/owner/new" render={()=> <OwnerInput addOwner={this.props.addOwner}/>}></Route><br/><br/>
                     <Route exact path="/setup" render={()=> <TruckInput addTruck={this.props.addTruck}/>}></Route>
                     <Route exact path="/schedule" render={()=> <Schedule addSchedule={this.props.addSchedule} truck={this.props.truck} addMenu={this.props.createMenu}/>}></Route>
+                    <Route exact path="/manage/menu" render={() => <MenuItemsInput addFood={this.props.addFood} menu={this.props.menu}/>}></Route>
                 <Switch>
                     <Route exact path="/home" component={Home}></Route>
                 </Switch>
@@ -52,7 +54,8 @@ const mapStateToProps = (state) => {
     // debugger
     return {
          owner: state.owners,
-         truck: state.owners.truck
+         truck: state.owners.truck,
+         menu: state.owners.menu
          }
 }
 
@@ -61,7 +64,8 @@ const mapDispatchToProps = (dispatch) => {
       addOwner: owner => dispatch(addOwner(owner)),
       addTruck: truck => dispatch(addTruck(truck)),
       addSchedule: (schedule, truck) => dispatch(addSchedule(schedule, truck)),
-      createMenu: truckId => dispatch(createMenu(truckId))
+      createMenu: truckId => dispatch(createMenu(truckId)),
+      addFood: (food, menuId) => dispatch(addFood(food, menuId))
     }
   }
 

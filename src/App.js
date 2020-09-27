@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Route, Switch} from 'react-router-dom'
 import OwnerContainer from './containers/OwnerContainer'
+import FoodieContainer from './containers/FoodieContainer'
 // import OwnerInput from './components/owners/OwnerInput'
 // import OwnerLogin from './components/owners/OwnerLogin'
 // import Home from './components/owners/Home'
@@ -18,6 +19,7 @@ function App() {
         {/* <Route component={OwnerContainer}></Route> */}
       
         <OwnerContainer/>
+        <FoodieContainer />
         
       </header>
     </div>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import TruckContainer from '../trucks/TruckContainer'
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 
 // on new owner submit, redirect to truckinput
@@ -29,7 +28,7 @@ class OwnerInput extends Component {
         event.preventDefault()
         {this.props.addOwner(this.state.owner)}
         {this.props.history.push("/setup")}
-        }
+    }
 
     render(){
         return(

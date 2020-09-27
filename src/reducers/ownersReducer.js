@@ -2,6 +2,7 @@ export default function ownersReducer(state = {
         owner: "",
         truck: "",
         menu: "",
+        food: [],
         schedule: {}
 }, action){
     // debugger
@@ -15,6 +16,8 @@ export default function ownersReducer(state = {
                 return {...state,schedule: action.schedule}
         case "ADD_MENU":
                 return {...state, menu: action.menu}
+        case "ADD_FOOD":
+                return {...state, food: [...state.food, action.item]}
         case "REMOVE_TRUCK":
                 idx = state.findIndex(truck => truck.id  === action.id)
                 return [...state.slice(0, idx), ...state.slice(idx + 1)];

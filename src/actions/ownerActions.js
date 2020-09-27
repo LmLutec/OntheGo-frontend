@@ -13,6 +13,8 @@ export const addOwner = (owner) => {
             return response.json()
     }).then(json => {
                dispatch({type: 'ADD_OWNER', owner: json.owner})
+               localStorage.setItem("jwt_token", json.jwt)
+               localStorage.setItem("owner", JSON.stringify(json.owner)) 
         })
     } 
 }
@@ -34,7 +36,7 @@ export const addTruck = (truck) => {
         .then(response => {
             return response.json()
     }).then(json => {
-               dispatch({type: 'ADD_TRUCK', truck: json.foodtruck.data.id})
+               dispatch({type: 'ADD_TRUCK', truck: json.id})
         })
     }
 }
@@ -76,7 +78,25 @@ export const addSchedule = (schedule, truck) => {
     }
 }
 
+export const addFood = (food, menuId) => {
+    food["menu_id"] = menuId
 
+    const formData = {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({item: food})
+    }
+    return (dispatch) => {
+        fetch("http://localhost:3000/api/v1/items/", formData)
+        .then(response => {
+            return response.json()
+        }).then(json => {
+            dispatch({type: 'ADD_FOOD', food: json.item})
+        })
+    }
+}
 
 
 

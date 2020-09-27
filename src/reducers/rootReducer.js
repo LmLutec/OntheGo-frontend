@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 import ownersReducer from './ownersReducer'
-import foodtrucksReducer from './trucksReducer'
+import foodiesReducer from './foodiesReducer'
 
 
 const rootReducer = combineReducers({
-    owners: ownersReducer
-    // foodtrucks: foodtrucksReducer
+    owners: ownersReducer,
+    foodies: foodiesReducer
   })
    
  

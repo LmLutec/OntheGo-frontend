@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import {withRouter} from 'react-router-dom'
 
 class Schedule extends Component {
 
@@ -43,6 +43,7 @@ class Schedule extends Component {
         let id = this.props.truck
         {this.props.addSchedule(this.state.schedule, id)}
         {this.props.addMenu(Number(id))}
+        this.props.history.push("/manage/menu")
     }
 
     render(){
@@ -80,5 +81,5 @@ class Schedule extends Component {
 }
 
 
-export default Schedule
+export default withRouter(Schedule)
 
