@@ -12,6 +12,7 @@ export const search = (search) => {
         .then(response => {
             return response.json()
         }).then(json => {
+            // console.log(json)
             dispatch({type: 'SEARCH', trucks: json })
         })
     }

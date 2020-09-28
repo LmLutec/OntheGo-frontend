@@ -1,10 +1,9 @@
-export default function foodiesReducer(state = {
-    trucks: []
-}, action) {
+export default function foodiesReducer(state = [], action) {
     let idx;
     switch (action.type) {
       case "SEARCH":
-        return {...state,trucks: action.trucks}
+        // debugger
+        return [...state, action.trucks]
    
       default:
         return state;
