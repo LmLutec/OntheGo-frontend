@@ -18,7 +18,15 @@ export const search = (search) => {
     }
 }
 
+export const details = (id) => {
+    fetch("http://localhost:3000/api/v1/foodtrucks/${id}")
+    .then(response => {
+        return response.json()
+    }).then(json => {
+        console.log(json)
+    })
 
+}
 // export const addTruck = (truck) => {
 //     const owner = JSON.parse(localStorage.getItem('owner'))
 

@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route, NavLink, Redirect, Switch} from 'react-router-dom'
 import Search from '../components/foodies/Search'
-import Results from '../components/foodies/Results'
-import { search } from '../actions/foodieActions'
+import Truck from '../components/foodies/Truck'
+import { search, details } from '../actions/foodieActions'
 import Trucks from '../components/foodies/Trucks'
 
 
@@ -14,7 +14,10 @@ class FoodieContainer extends Component {
         return(
             <div>
                 <Search search={this.props.search}/>
-                <Trucks trucks={this.props.trucks}/>
+
+
+                <Route exact path="/results" render={() => <Trucks trucks={this.props.trucks} details={this.props.details}/>}></Route>
+                <Route exact path="/truck" render={() => <Truck/>}></Route>
                 {/* <Results trucks={this.props.trucks}/> */}
                 {/* <TruckInput addTruck={this.props.addTruck}/> */}
                 {/* <Route><Schedule addSchedule={this.props.addSchedule}/></Route> */}
@@ -33,7 +36,8 @@ const mapStateToProps = (state) => {
 
 const mapStateToDispatch = (dispatch) => {
     return {
-        search: data => dispatch(search(data))
+        search: data => dispatch(search(data)),
+        details: id => dispatch(details(id))
     }
 }
 
