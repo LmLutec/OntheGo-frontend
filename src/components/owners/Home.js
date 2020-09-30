@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import Owner from './Owner'
-
+let tn, ft, pn, c, s
 
 class Home extends Component {
 
@@ -56,9 +56,23 @@ class Home extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        // {this.props.addTruck(this.state.foodtruck)}
+        // this.props.editTruck
         // this.props.history.push("/schedule")
     }
+
+    // truckEditInfo = () => {
+        
+    //     if (this.state.truckName == ""){
+    //         this.setState({
+    //             foodtruck: {
+    //                 ...this.state.foodtruck,
+    //                 truckName: this.state.truckName
+    //             }
+    //         })
+    //     }
+        
+       
+    // }
 
     
     editTruck = () => {
@@ -96,15 +110,15 @@ class Home extends Component {
 
             <form style={{ display: this.state.clicked ? "block" : "none" }} onSubmit={(event) => {this.handleSubmit(event)}}>
                 <label>Name</label>
-                <input onChange={ event => {this.handleChange(event)}} type="text" id="name" value={this.state.foodtruck.name} /><br/>
+                <input onChange={ event => {this.handleChange(event)}} type="text" id="name" value={this.state.foodtruck.name} placeholder={this.state.truckName} /><br/>
                 <label>State</label>
-                <input onChange={ event => {this.handleChange(event)}} type="text" id="state" value={this.state.foodtruck.state} /><br/>
+                <input onChange={ event => {this.handleChange(event)}} type="text" id="state" value={this.state.foodtruck.state} placeholder={this.state.state} /><br/>
                 <label>City</label>
-                <input onChange={ event => {this.handleChange(event)}} type="text" id="city" value={this.state.foodtruck.city} /><br/>
+                <input onChange={ event => {this.handleChange(event)}} type="text" id="city" value={this.state.foodtruck.city} placeholder={this.state.city}/><br/>
                 <label>Food type</label>
-                <input onChange= { event => {this.handleChange(event)}} type="text" id="food_type" value={this.state.foodtruck.food_type} /><br/>
+                <input onChange= { event => {this.handleChange(event)}} type="text" id="food_type" value={this.state.foodtruck.food_type} placeholder={this.state.foodType} /><br/>
                 <label>Phone number</label>
-                <input onChange= { event => {this.handleChange(event)}} type="text" id="phone_number" value={this.state.foodtruck.phone_number} /><br/>
+                <input onChange= { event => {this.handleChange(event)}} type="text" id="phone_number" value={this.state.foodtruck.phone_number} placeholder={this.state.phoneNumber}/><br/>
                 <input type="submit" value="Edit Truck"/>
             </form>
 
