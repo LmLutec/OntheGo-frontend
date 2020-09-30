@@ -2,24 +2,32 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import Owner from './Owner'
 
-let ownerInfo = {}
-
 
 class Home extends Component {
 
     state = {
-        firstName: "",
-        lastName: "",
-        email: ""
+        truckName: "",
+        foodType: "",
+        phoneNumber: "",
+        city: "",
+        state: "",
+        foodtruck: {
+            name: "",
+            food_type: "",
+            phone_number: "",
+            city: "",
+            state: ""
+        },
+        clicked: false
     }
 
 
-        componentDidMount() {
-            this.ownerData()
-        }
+    componentDidMount() {
+        this.ownerData()
+    }
 
-        ownerData(){ 
-            fetch("http://localhost:3000/api/v1/profile", {
+    ownerData(){ 
+        fetch("http://localhost:3000/api/v1/profile", {
             method: "GET",
             headers: {
                 Authorization: `Bearer: ${localStorage.getItem('jwt_token')}`
@@ -27,49 +35,81 @@ class Home extends Component {
         })
         .then(response => response.json())
         .then(json =>   {
-            console.log(json)
-            debugger
-            // this.setState({
-            //     firstName: json.owner.first_name,
-            //     lastName: json.owner.last_name,
-            //     email: json.owner.email
-            // })
+            this.setState({
+                truckName: json.name,
+                foodType: json.food_type,
+                phoneNumber: json.phone_number,
+                city: json.city,
+                state: json.state
+            })
         })
     }
 
+    handleChange = (event) => {
+        this.setState({
+            foodtruck: {
+                ...this.state.foodtruck,
+                [event.target.id]: event.target.value
+            }
+        })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        // {this.props.addTruck(this.state.foodtruck)}
+        // this.props.history.push("/schedule")
+    }
+
     
+    editTruck = () => {
+        this.setState({
+            clicked: true
+        })
+    }
     
-    // ownerData = () => Object.values(ownerInfo).map(([value,id])=>{
-        // console.log(ownerInfo)
-        //     console.log(key, value)
-            //     return (
-            //         <div>{key} : {value}</div>
-            //     );
-            //   })
-        
-    
-        logout = () => {
-            localStorage.clear()
-            this.props.history.push("/")
-        }
+    logout = () => {
+        localStorage.clear()
+        this.props.history.push("/")
+    }
+
+
 
     render(){
 
-   
-        console.log(this.props.owner)
         return(
             <div>
                 <h1>Welcome back</h1> <br/>
+                <section className="truck_info">
+                    Food Truck: {this.state.truckName}<br/>
+                    Food type: {this.state.foodType}<br/>
+                    Phone Number: {this.state.phoneNumber}<br/>
+                    City: {this.state.city}<br/>
+                    State: {this.state.state}<br/>
+                    <button onClick={this.editTruck}>Edit Truck Information</button><br/><br/>
 
-                First Name: {this.state.firstName}<br/>
-                Last Name: {this.state.lastName}<br/>
-                Email: {this.state.email}<br/>
+            <form style={{ display: this.state.clicked ? "block" : "none" }} onSubmit={(event) => {this.handleSubmit(event)}}>
+                <label>Name</label>
+                <input onChange={ event => {this.handleChange(event)}} type="text" id="name" value={this.state.foodtruck.name} /><br/>
+                <label>State</label>
+                <input onChange={ event => {this.handleChange(event)}} type="text" id="state" value={this.state.foodtruck.state} /><br/>
+                <label>City</label>
+                <input onChange={ event => {this.handleChange(event)}} type="text" id="city" value={this.state.foodtruck.city} /><br/>
+                <label>Food type</label>
+                <input onChange= { event => {this.handleChange(event)}} type="text" id="food_type" value={this.state.foodtruck.food_type} /><br/>
+                <label>Phone number</label>
+                <input onChange= { event => {this.handleChange(event)}} type="text" id="phone_number" value={this.state.foodtruck.phone_number} /><br/>
+                <input type="submit" value="Edit Truck"/>
+            </form>
+
+
+
+                </section>
                 
-            
-
-
+                
                 <button onClick={this.logout}>Logout</button>
+
             </div>
+            
                             //  <button onClick={this.logout()}>Logout</button>
 
         )
