@@ -11,8 +11,7 @@ class OwnerLogin extends Component{
         owner: {
             email: "",
             password: ""
-            },
-        loggedIn: false
+            }
         }
     
 
@@ -27,26 +26,29 @@ class OwnerLogin extends Component{
     }
 
     handleSubmit(event) {
-        // debugger
         event.preventDefault()
-    
-            const data = { 
-                method: "POST",
-                headers: { "Content-Type" : "application/json" },
-                body: JSON.stringify(this.state.owner)
-                }
+        this.props.login(this.state.owner)
         
-                fetch("http://localhost:3000/api/v1/login/", data)
-                    .then(response => {
-                        return response.json()
-                }).then(json => {
-                           localStorage.setItem("jwt_token", json.jwt)
-                           localStorage.setItem("owner", JSON.stringify(json.owner)) 
-                    }) 
+             if (localStorage.getItem("jwt_token")){
+                {this.props.history.push("/home")}
+         }
+            // const data = { 
+            //     method: "POST",
+            //     headers: { "Content-Type" : "application/json" },
+            //     body: JSON.stringify(this.state.owner)
+            //     }
+        
+            //     fetch("http://localhost:3000/api/v1/login/", data)
+            //         .then(response => {
+            //             return response.json()
+            //     }).then(json => {
+            //                localStorage.setItem("jwt_token", json.jwt)
+            //                localStorage.setItem("owner", JSON.stringify(json.owner)) 
+            //         }) 
 
-                    if (localStorage.getItem("jwt_token")){
-                        {this.props.history.push("/home")}
-                 }
+            //         if (localStorage.getItem("jwt_token")){
+            //             {this.props.history.push("/home")}
+            //      }
     }
                         //    this.setState({
                         //     owner: { ...this.state.owner},

@@ -19,6 +19,24 @@ export const addOwner = (owner) => {
     } 
 }
 
+export const Login = (credentials) => {
+    const data = { 
+        method: "POST",
+        headers: { "Content-Type" : "application/json" },
+        body: JSON.stringify(credentials)
+        }
+        return(dispatch) => {
+        fetch("http://localhost:3000/api/v1/login/", data)
+            .then(response => {
+                return response.json()
+        }).then(json => {
+                dispatch({type: 'LOGIN', owner: json.owner})
+                   localStorage.setItem("jwt_token", json.jwt)
+                   localStorage.setItem("owner", JSON.stringify(json.owner)) 
+        }) 
+        }
+}
+
 export const addTruck = (truck) => {
     const owner = JSON.parse(localStorage.getItem('owner'))
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Route, Switch} from 'react-router-dom'
+import { Route, NavLink} from 'react-router-dom'
 import OwnerContainer from './containers/OwnerContainer'
 import FoodieContainer from './containers/FoodieContainer'
 // import OwnerInput from './components/owners/OwnerInput'
@@ -17,7 +17,10 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
     
         {/* <Route component={OwnerContainer}></Route> */}
-      
+      {/* <NavLink to="/owners">Owners</NavLink> */}
+      {/* <Route exact path="/owners" component={OwnerContainer}/> */}
+      {/* <Link to="/foodies">Foodies</Link> */}
+      {/* <Route exact path="/foodies" component={FoodieContainer}/> */}
         <OwnerContainer/>
         <FoodieContainer />
         

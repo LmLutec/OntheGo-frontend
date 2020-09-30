@@ -3,33 +3,41 @@ import { withRouter } from 'react-router-dom'
 import Owner from './Owner'
 
 let ownerInfo = {}
-let ownerData;
+
 
 class Home extends Component {
 
-        componentDidMount() {
-                fetch("http://localhost:3000/api/v1/profile", {
-                    method: "GET",
-                    headers: {
-                        Authorization: `Bearer: ${localStorage.getItem('jwt_token')}`
-                    }
-                })
-                .then(response => response.json())
-                .then(json =>{
-                    // this.ownerInfo(json)
-                    this.getOwnerData(json)
-                    // this.ownerData()
-                    // this.ownerInfo()
-                })
-        }
-
-    getOwnerData = (json) => {
-        ownerInfo["firstName"]=(json.owner.first_name)
-        ownerInfo["lastName"]=(json.owner.last_name)
-        ownerInfo["email"]=(json.owner.email)
+    state = {
+        firstName: "",
+        lastName: "",
+        email: ""
     }
 
 
+        componentDidMount() {
+            this.ownerData()
+        }
+
+        ownerData(){ 
+            fetch("http://localhost:3000/api/v1/profile", {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer: ${localStorage.getItem('jwt_token')}`
+            }
+        })
+        .then(response => response.json())
+        .then(json =>   {
+            console.log(json)
+            debugger
+            // this.setState({
+            //     firstName: json.owner.first_name,
+            //     lastName: json.owner.last_name,
+            //     email: json.owner.email
+            // })
+        })
+    }
+
+    
     
     // ownerData = () => Object.values(ownerInfo).map(([value,id])=>{
         // console.log(ownerInfo)
@@ -47,21 +55,17 @@ class Home extends Component {
 
     render(){
 
-       const ownerData = () => {
-        //    console.log(ownerInfo["email"])
-        return Object.values(ownerInfo).map(([key,value])=>{
-                    return (
-                        <div>{key} : {value}</div>
-                    );
-                  })
-        }
-
-
+   
+        console.log(this.props.owner)
         return(
             <div>
-                <h1>This is Home</h1>
-                {ownerData()}
-                First Name: <br/><br/>
+                <h1>Welcome back</h1> <br/>
+
+                First Name: {this.state.firstName}<br/>
+                Last Name: {this.state.lastName}<br/>
+                Email: {this.state.email}<br/>
+                
+            
 
 
                 <button onClick={this.logout}>Logout</button>

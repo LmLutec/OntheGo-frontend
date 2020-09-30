@@ -7,7 +7,7 @@ import OwnerLogin from '../components/owners/OwnerLogin'
 import TruckInput from '../components/owners/TruckInput'
 import Schedule from '../components/owners/Schedule'
 import MenuItemsInput from '../components/owners/MenuItemsInput'
-import { addOwner, addTruck, addSchedule, createMenu, addFood } from '../actions/ownerActions'
+import { addOwner, Login, addTruck, addSchedule, createMenu, addFood } from '../actions/ownerActions'
 
 // let isLoggedIn;
 
@@ -32,13 +32,13 @@ class OwnerContainer extends Component {
                     <NavLink to="/owner/new" className="navlink">New Owner</NavLink><br/><br/>
                     <NavLink to="/login" className="navlink">Login</NavLink> 
                     </header>
-                    <Route exact path="/login" component={OwnerLogin}></Route><br/>
+                    <Route exact path="/login" render={()=> <OwnerLogin login={this.props.login}/>}></Route><br/>
                     <Route exact path="/owner/new" render={()=> <OwnerInput addOwner={this.props.addOwner}/>}></Route><br/><br/>
                     <Route exact path="/setup" render={()=> <TruckInput addTruck={this.props.addTruck}/>}></Route>
                     <Route exact path="/schedule" render={()=> <Schedule addSchedule={this.props.addSchedule} truck={this.props.truck} addMenu={this.props.createMenu}/>}></Route>
                     <Route exact path="/manage/menu" render={() => <MenuItemsInput addFood={this.props.addFood} menu={this.props.menu}/>}></Route>
                 <Switch>
-                    <Route exact path="/home" component={Home}></Route>
+                    <Route exact path="/home" render={() => <Home owner={this.props.owner}/>}></Route>
                 </Switch>
               
             </div>
@@ -62,6 +62,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
       addOwner: owner => dispatch(addOwner(owner)),
+      login: credentials => dispatch(Login(credentials)),
       addTruck: truck => dispatch(addTruck(truck)),
       addSchedule: (schedule, truck) => dispatch(addSchedule(schedule, truck)),
       createMenu: truckId => dispatch(createMenu(truckId)),
