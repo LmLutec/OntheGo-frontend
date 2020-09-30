@@ -62,9 +62,16 @@ class Home extends Component {
 
     
     editTruck = () => {
-        this.setState({
-            clicked: true
-        })
+        if (this.state.clicked == false){
+            this.setState({
+                clicked: true
+            })
+        }
+        else{
+            this.setState({
+                clicked: false
+            })
+        }
     }
     
     logout = () => {
