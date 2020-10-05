@@ -59,6 +59,35 @@ export const addTruck = (truck) => {
     }
 }
 
+export const editTruck = (truck) => {
+
+    const formData = {
+        method: 'PATCH',
+        headers: { 
+            'Content-Type': 'application/json'
+         },
+        body: JSON.stringify({foodtruck:{ id: truck}}) 
+    }
+
+    return (dispatch) => {
+        fetch(`http://localhost:3000/api/v1/foodtrucks/${truck}`, formData)
+        .then(response => {
+            return response.json()
+    }).then(json => {
+        // debugger
+               dispatch({type: 'EDIT_TRUCK', truck: json.id})
+        })
+    }
+    
+} 
+
+export const logTruck = (truck) => {
+    return(dispatch) => {
+        dispatch({type: 'LOG_TRUCK', truck: truck})
+    }
+}
+// work on this action
+
 export const createMenu = (truckId) => {
     const formData = {
         method: 'POST',

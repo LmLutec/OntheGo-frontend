@@ -1,23 +1,16 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
-import Owner from './Owner'
-let tn, ft, pn, c, s
+import { Redirect, withRouter } from 'react-router-dom'
+
 
 class Home extends Component {
 
     state = {
+        // id: "",
         truckName: "",
         foodType: "",
         phoneNumber: "",
         city: "",
         state: "",
-        foodtruck: {
-            name: "",
-            food_type: "",
-            phone_number: "",
-            city: "",
-            state: ""
-        },
         clicked: false
     }
 
@@ -42,50 +35,14 @@ class Home extends Component {
                 city: json.city,
                 state: json.state
             })
+            // this.props.addTruck(json.id)
+            this.props.logtruck(json)
         })
     }
-
-    handleChange = (event) => {
-        this.setState({
-            foodtruck: {
-                ...this.state.foodtruck,
-                [event.target.id]: event.target.value
-            }
-        })
-    }
-
-    handleSubmit = (event) => {
-        event.preventDefault()
-        // this.props.editTruck
-        // this.props.history.push("/schedule")
-    }
-
-    // truckEditInfo = () => {
-        
-    //     if (this.state.truckName == ""){
-    //         this.setState({
-    //             foodtruck: {
-    //                 ...this.state.foodtruck,
-    //                 truckName: this.state.truckName
-    //             }
-    //         })
-    //     }
-        
-       
-    // }
 
     
     editTruck = () => {
-        if (this.state.clicked == false){
-            this.setState({
-                clicked: true
-            })
-        }
-        else{
-            this.setState({
-                clicked: false
-            })
-        }
+     this.props.history.push("/edit/truck")
     }
     
     logout = () => {
@@ -100,6 +57,13 @@ class Home extends Component {
         return(
             <div>
                 <h1>Welcome back</h1> <br/>
+{/* 
+                <section className="owner_info">
+
+                </section> */}
+
+
+
                 <section className="truck_info">
                     Food Truck: {this.state.truckName}<br/>
                     Food type: {this.state.foodType}<br/>
@@ -108,20 +72,8 @@ class Home extends Component {
                     State: {this.state.state}<br/>
                     <button onClick={this.editTruck}>Edit Truck Information</button><br/><br/>
 
-            <form style={{ display: this.state.clicked ? "block" : "none" }} onSubmit={(event) => {this.handleSubmit(event)}}>
-                <label>Name</label>
-                <input onChange={ event => {this.handleChange(event)}} type="text" id="name" value={this.state.foodtruck.name} placeholder={this.state.truckName} /><br/>
-                <label>State</label>
-                <input onChange={ event => {this.handleChange(event)}} type="text" id="state" value={this.state.foodtruck.state} placeholder={this.state.state} /><br/>
-                <label>City</label>
-                <input onChange={ event => {this.handleChange(event)}} type="text" id="city" value={this.state.foodtruck.city} placeholder={this.state.city}/><br/>
-                <label>Food type</label>
-                <input onChange= { event => {this.handleChange(event)}} type="text" id="food_type" value={this.state.foodtruck.food_type} placeholder={this.state.foodType} /><br/>
-                <label>Phone number</label>
-                <input onChange= { event => {this.handleChange(event)}} type="text" id="phone_number" value={this.state.foodtruck.phone_number} placeholder={this.state.phoneNumber}/><br/>
-                <input type="submit" value="Edit Truck"/>
-            </form>
-
+            
+               
 
 
                 </section>
@@ -140,7 +92,7 @@ class Home extends Component {
 
 
 
-const owner = JSON.parse(localStorage.getItem('owner'))
+// const owner = JSON.parse(localStorage.getItem('owner'))
 // console.log(owner.foodtruck)
 
 export default withRouter(Home)

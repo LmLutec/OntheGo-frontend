@@ -5,9 +5,10 @@ import Home from '../components/owners/Home'
 import OwnerInput from '../components/owners/OwnerInput'
 import OwnerLogin from '../components/owners/OwnerLogin'
 import TruckInput from '../components/owners/TruckInput'
+import EditTruck from '../components/owners/EditTruck'
 import Schedule from '../components/owners/Schedule'
 import MenuItemsInput from '../components/owners/MenuItemsInput'
-import { addOwner, Login, addTruck, addSchedule, createMenu, addFood } from '../actions/ownerActions'
+import { addOwner, Login, addTruck, addSchedule, createMenu, addFood, editTruck, logTruck } from '../actions/ownerActions'
 
 // let isLoggedIn;
 
@@ -38,7 +39,8 @@ class OwnerContainer extends Component {
                     <Route exact path="/schedule" render={()=> <Schedule addSchedule={this.props.addSchedule} truck={this.props.truck} addMenu={this.props.createMenu}/>}></Route>
                     <Route exact path="/manage/menu" render={() => <MenuItemsInput addFood={this.props.addFood} menu={this.props.menu}/>}></Route>
                 <Switch>
-                    <Route exact path="/home" render={() => <Home owner={this.props.owner}/>}></Route>
+                    <Route exact path="/home" render={() => <Home owner={this.props.owner} logtruck={this.props.logTruck} truck={this.props.truck}/>}></Route>
+                    <Route exact path="/edit/truck" render={() => <EditTruck edit={this.props.editTruck}/>}></Route>
                 </Switch>
               
             </div>
@@ -64,6 +66,8 @@ const mapDispatchToProps = (dispatch) => {
       addOwner: owner => dispatch(addOwner(owner)),
       login: credentials => dispatch(Login(credentials)),
       addTruck: truck => dispatch(addTruck(truck)),
+      editTruck: truck => dispatch(editTruck(truck)),
+      logTruck: truck => dispatch(logTruck(truck)),
       addSchedule: (schedule, truck) => dispatch(addSchedule(schedule, truck)),
       createMenu: truckId => dispatch(createMenu(truckId)),
       addFood: (food, menuId) => dispatch(addFood(food, menuId))
