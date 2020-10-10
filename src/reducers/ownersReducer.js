@@ -12,6 +12,8 @@ export default function ownersReducer(state = {
                 return {...state,owner: action.owner} 
         case "LOGIN":
                 return {...state,owner: action.owner}
+        case "PROFILE":
+                return {...state, truck: action.data.id, menu: action.data.menu, schedule: action.data.schedule}
         case "LOG_TRUCK":
                 return {...state,truck: action.truck}
         case "ADD_TRUCK":

@@ -16,17 +16,23 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
     
-        {/* <Route component={OwnerContainer}></Route> */}
-      {/* <NavLink to="/owners">Owners</NavLink> */}
-      {/* <Route exact path="/owners" component={OwnerContainer}/> */}
+      
+      
+      {/* Owners<Route exact path="/owners" component={OwnerContainer}/> */}
       {/* <Link to="/foodies">Foodies</Link> */}
-      {/* <Route exact path="/foodies" component={FoodieContainer}/> */}
+      {/* <Route exact path="/foodies" component={FoodieContainer}/>
+
+    <NavLink to="/foodies">Foodies</NavLink>
+      <Route exact path="/foodies">Foodies</Route> */}
+      
       <Switch>
-        <OwnerContainer/>
-      </Switch>
       <FoodieContainer />
-        
+      </Switch>
+        <OwnerContainer/>
       </header>
+    
+
+
     </div>
   );
 }

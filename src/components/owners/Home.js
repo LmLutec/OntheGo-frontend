@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect, withRouter } from 'react-router-dom'
+import EditTruck from './EditTruck'
 
 
 class Home extends Component {
@@ -29,6 +30,7 @@ class Home extends Component {
         .then(response => response.json())
         .then(json =>   {
             this.setState({
+                id: json.id,
                 truckName: json.name,
                 foodType: json.food_type,
                 phoneNumber: json.phone_number,
@@ -36,12 +38,13 @@ class Home extends Component {
                 state: json.state
             })
             // this.props.addTruck(json.id)
-            this.props.logtruck(json)
         })
     }
 
     
     editTruck = () => {
+        console.log(this.props.truck())
+        // return <EditTruck id={this.state.id}/>
      this.props.history.push("/edit/truck")
     }
     

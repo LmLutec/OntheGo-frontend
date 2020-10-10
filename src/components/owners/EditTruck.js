@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 
 
 class EditTruck extends Component {
+
     state = {
         foodtruck: {
-            id: "",
             name: "",
             food_type: "",
             phone_number: "",
@@ -24,8 +24,10 @@ class EditTruck extends Component {
     }
 
     handleSubmit = (event) => {
+        const id = this.props.truck
+        // console.log(id) 
         event.preventDefault()
-        this.props.edit(this.state)
+        this.props.edit(this.state, id)
     }
 
     render(){

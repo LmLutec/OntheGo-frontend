@@ -31,30 +31,9 @@ class OwnerLogin extends Component{
         
              if (localStorage.getItem("jwt_token")){
                 {this.props.history.push("/home")}
+                return this.props.profile()
          }
-            // const data = { 
-            //     method: "POST",
-            //     headers: { "Content-Type" : "application/json" },
-            //     body: JSON.stringify(this.state.owner)
-            //     }
-        
-            //     fetch("http://localhost:3000/api/v1/login/", data)
-            //         .then(response => {
-            //             return response.json()
-            //     }).then(json => {
-            //                localStorage.setItem("jwt_token", json.jwt)
-            //                localStorage.setItem("owner", JSON.stringify(json.owner)) 
-            //         }) 
-
-            //         if (localStorage.getItem("jwt_token")){
-            //             {this.props.history.push("/home")}
-            //      }
     }
-                        //    this.setState({
-                        //     owner: { ...this.state.owner},
-                        //     loggedIn: true 
-                        //   })
-            
     
                 
 

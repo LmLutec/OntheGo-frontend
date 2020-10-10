@@ -34,8 +34,29 @@ export const Login = (credentials) => {
                    localStorage.setItem("jwt_token", json.jwt)
                    localStorage.setItem("owner", JSON.stringify(json.owner)) 
         }) 
+      
         }
 }
+
+export const getProfile = () => {
+    debugger
+    return(dispatch) => {
+    fetch("http://localhost:3000/api/v1/profile", {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer: ${localStorage.getItem('jwt_token')}`
+            }
+        })
+        .then(response => response.json())
+        .then(json =>   {
+            console.log(json)
+            dispatch({type: 'PROFILE', data: json})
+            // this.props.addTruck(json.id)
+        })
+    }
+}
+
+
 
 export const addTruck = (truck) => {
     const owner = JSON.parse(localStorage.getItem('owner'))
@@ -59,14 +80,14 @@ export const addTruck = (truck) => {
     }
 }
 
-export const editTruck = (truck) => {
-
+export const editTruck = (truck,id) => {
+debugger
     const formData = {
         method: 'PATCH',
         headers: { 
             'Content-Type': 'application/json'
          },
-        body: JSON.stringify({foodtruck:{ id: truck}}) 
+        body: JSON.stringify(truck) 
     }
 
     return (dispatch) => {
@@ -74,14 +95,14 @@ export const editTruck = (truck) => {
         .then(response => {
             return response.json()
     }).then(json => {
-        // debugger
+        debugger
                dispatch({type: 'EDIT_TRUCK', truck: json.id})
         })
     }
     
 } 
 
-export const logTruck = (truck) => {
+export const logTruck = (truck,id) => {
     return(dispatch) => {
         dispatch({type: 'LOG_TRUCK', truck: truck})
     }

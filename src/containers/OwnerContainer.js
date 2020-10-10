@@ -8,7 +8,7 @@ import TruckInput from '../components/owners/TruckInput'
 import EditTruck from '../components/owners/EditTruck'
 import Schedule from '../components/owners/Schedule'
 import MenuItemsInput from '../components/owners/MenuItemsInput'
-import { addOwner, Login, addTruck, addSchedule, createMenu, addFood, editTruck, logTruck } from '../actions/ownerActions'
+import { addOwner, Login, addTruck, addSchedule, createMenu, addFood, editTruck, logTruck, getProfile } from '../actions/ownerActions'
 
 // let isLoggedIn;
 
@@ -33,15 +33,13 @@ class OwnerContainer extends Component {
                     <NavLink to="/owner/new" className="navlink">New Owner</NavLink><br/><br/>
                     <NavLink to="/login" className="navlink">Login</NavLink> 
                     </header>
-                    <Route exact path="/login" render={()=> <OwnerLogin login={this.props.login}/>}></Route><br/>
+                    <Route exact path="/login" render={()=> <OwnerLogin login={this.props.login} profile={this.props.getProfile}/>}></Route><br/>
                     <Route exact path="/owner/new" render={()=> <OwnerInput addOwner={this.props.addOwner}/>}></Route><br/><br/>
                     <Route exact path="/setup" render={()=> <TruckInput addTruck={this.props.addTruck}/>}></Route>
                     <Route exact path="/schedule" render={()=> <Schedule addSchedule={this.props.addSchedule} truck={this.props.truck} addMenu={this.props.createMenu}/>}></Route>
                     <Route exact path="/manage/menu" render={() => <MenuItemsInput addFood={this.props.addFood} menu={this.props.menu}/>}></Route>
-                <Switch>
                     <Route exact path="/home" render={() => <Home owner={this.props.owner} logtruck={this.props.logTruck} truck={this.props.truck}/>}></Route>
-                    <Route exact path="/edit/truck" render={() => <EditTruck edit={this.props.editTruck}/>}></Route>
-                </Switch>
+                    <Route exact path="/edit/truck" render={() => <EditTruck edit={this.props.editTruck} truck={this.props.truck}/>}></Route>
               
             </div>
         )
@@ -53,7 +51,7 @@ class OwnerContainer extends Component {
 
 
 const mapStateToProps = (state) => {
-    // debugger
+    debugger
     return {
          owner: state.owners,
          truck: state.owners.truck,
@@ -65,8 +63,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
       addOwner: owner => dispatch(addOwner(owner)),
       login: credentials => dispatch(Login(credentials)),
+      getProfile: () => dispatch(getProfile()),
       addTruck: truck => dispatch(addTruck(truck)),
-      editTruck: truck => dispatch(editTruck(truck)),
+      editTruck: (truck, id) => dispatch(editTruck(truck, id)),
       logTruck: truck => dispatch(logTruck(truck)),
       addSchedule: (schedule, truck) => dispatch(addSchedule(schedule, truck)),
       createMenu: truckId => dispatch(createMenu(truckId)),
