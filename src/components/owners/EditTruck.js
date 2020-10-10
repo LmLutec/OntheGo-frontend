@@ -24,9 +24,8 @@ class EditTruck extends Component {
     }
 
     handleSubmit = (event) => {
-        const id = this.props.truck
-        // console.log(id) 
         event.preventDefault()
+        const id = this.props.truck
         this.props.edit(this.state, id)
     }
 

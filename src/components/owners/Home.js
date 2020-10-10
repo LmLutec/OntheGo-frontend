@@ -43,8 +43,6 @@ class Home extends Component {
 
     
     editTruck = () => {
-        console.log(this.props.truck())
-        // return <EditTruck id={this.state.id}/>
      this.props.history.push("/edit/truck")
     }
     

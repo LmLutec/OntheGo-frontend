@@ -51,7 +51,6 @@ class OwnerContainer extends Component {
 
 
 const mapStateToProps = (state) => {
-    debugger
     return {
          owner: state.owners,
          truck: state.owners.truck,
