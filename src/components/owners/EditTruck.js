@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 
 
 class EditTruck extends Component {
 
     state = {
         foodtruck: {
-            name: "",
-            food_type: "",
-            phone_number: "",
-            city: "",
-            state: ""
+            name: `${this.props.truck.name}`,
+            food_type: `${this.props.truck.food_type}`,
+            phone_number: `${this.props.truck.phone_number}`,
+            city: `${this.props.truck.city}`,
+            state: `${this.props.truck.state}`
         }
     }
 
@@ -25,8 +26,9 @@ class EditTruck extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        const id = this.props.truck
+        const id = this.props.truck.id
         this.props.edit(this.state, id)
+        this.props.history.push("/home")
     }
 
     render(){
@@ -51,4 +53,4 @@ class EditTruck extends Component {
     }
 }
 
-export default EditTruck
+export default withRouter(EditTruck)

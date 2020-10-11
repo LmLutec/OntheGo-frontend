@@ -1,6 +1,6 @@
 export default function ownersReducer(state = {
         owner: "",
-        truck: "",
+        truck: {},
         menu: "",
         food: [],
         schedule: {}
@@ -13,7 +13,8 @@ export default function ownersReducer(state = {
         case "LOGIN":
                 return {...state,owner: action.owner}
         case "PROFILE":
-                return {...state, truck: action.data.id, menu: action.data.menu, schedule: action.data.schedule}
+                // debuggers
+                return {...state, truck: {id: action.data.id, name: action.data.name, food_type: action.data.food_type, phone_number: action.data.phone_number, city: action.data.city, state: action.data.state}, menu: action.data.menu, schedule: action.data.schedule}
         case "LOG_TRUCK":
                 return {...state,truck: action.truck}
         case "ADD_TRUCK":

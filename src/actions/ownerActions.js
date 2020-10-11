@@ -39,7 +39,6 @@ export const Login = (credentials) => {
 }
 
 export const getProfile = () => {
-    debugger
     return(dispatch) => {
     fetch("http://localhost:3000/api/v1/profile", {
             method: "GET",
@@ -80,8 +79,9 @@ export const addTruck = (truck) => {
 }
 
 export const editTruck = (truck,id) => {
-
+    console.log(id)
     truck.foodtruck["id"] = id 
+    console.log(truck)
 
     const formData = {
         method: 'PATCH',
@@ -96,6 +96,7 @@ export const editTruck = (truck,id) => {
         .then(response => {
             return response.json()
     }).then(json => {
+        console.log(json)
                dispatch({type: 'EDIT_TRUCK', truck: json.id})
         })
     }
