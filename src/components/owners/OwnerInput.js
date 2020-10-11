@@ -14,6 +14,8 @@ class OwnerInput extends Component {
         }
     }
 
+    // setup a way for user to change their password
+
     handleChange = event => {
         this.setState({
             owner: {

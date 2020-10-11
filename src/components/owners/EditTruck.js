@@ -14,6 +14,9 @@ class EditTruck extends Component {
         }
     }
 
+    componentDidMount() {
+       this.props.profile()
+    }
 
     handleChange = (event) => {
         this.setState({
@@ -28,6 +31,10 @@ class EditTruck extends Component {
         event.preventDefault()
         const id = this.props.truck.id
         this.props.edit(this.state, id)
+        this.props.history.push("/home")
+    }
+
+    home = () => {
         this.props.history.push("/home")
     }
 
@@ -48,6 +55,8 @@ class EditTruck extends Component {
                     <input onChange= { event => {this.handleChange(event)}} type="text" id="phone_number" value={this.state.foodtruck.phone_number}/><br/>
                     <input type="submit" value="Edit Truck"/>
                 </form>
+
+                <button onClick={this.home}>Home</button>
             </div>
         )
     }

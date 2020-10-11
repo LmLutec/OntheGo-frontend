@@ -16,34 +16,13 @@ class Home extends Component {
     }
 
 
-    componentDidMount() {
-        this.ownerData()
-    }
-
-    ownerData(){ 
-        fetch("http://localhost:3000/api/v1/profile", {
-            method: "GET",
-            headers: {
-                Authorization: `Bearer: ${localStorage.getItem('jwt_token')}`
-            }
-        })
-        .then(response => response.json())
-        .then(json =>   {
-            this.setState({
-                id: json.id,
-                truckName: json.name,
-                foodType: json.food_type,
-                phoneNumber: json.phone_number,
-                city: json.city,
-                state: json.state
-            })
-            // this.props.addTruck(json.id)
-        })
-    }
-
     
     editTruck = () => {
      this.props.history.push("/edit/truck")
+    }
+
+    editSchedule = () => {
+        this.props.history.push("/edit/schedule")
     }
     
     logout = () => {
@@ -52,9 +31,8 @@ class Home extends Component {
     }
 
 
-
     render(){
-
+console.log(this.props.schedule)
         return(
             <div>
                 <h1>Welcome back</h1> <br/>
@@ -66,19 +44,34 @@ class Home extends Component {
 
 
                 <section className="truck_info">
-                    Food Truck: {this.state.truckName}<br/>
-                    Food type: {this.state.foodType}<br/>
-                    Phone Number: {this.state.phoneNumber}<br/>
-                    City: {this.state.city}<br/>
-                    State: {this.state.state}<br/>
+                    Food Truck: {this.props.truck.name}<br/>
+                    Food type: {this.props.truck.food_type}<br/>
+                    Phone Number: {this.props.truck.phone_number}<br/>
+                    City: {this.props.truck.city}<br/>
+                    State: {this.props.truck.state}<br/>
                     <button onClick={this.editTruck}>Edit Truck Information</button><br/><br/>
-
-            
-               
-
-
                 </section>
-                
+
+                <section className="schedule info">
+                    Monday: {this.props.schedule.mon_start} to {this.props.schedule.mon_end} <br/>
+                    Tuesday: {this.props.schedule.tues_start} to {this.props.schedule.tues_end} <br/>
+                    Wednesday: {this.props.schedule.wed_start} to {this.props.schedule.wed_end} <br/>
+                    Thursday: {this.props.schedule.thurs_start} to {this.props.schedule.thurs_end} <br/>
+                    Friday: {this.props.schedule.fri_start} to {this.props.schedule.fri_end} <br/>
+                    Saturday: {this.props.schedule.sat_start} to {this.props.schedule.sat_end} <br/>
+                    Sunday: {this.props.schedule.sun_start} to {this.props.schedule.sun_end} <br/><br/>
+                    New Years Day: {this.props.schedule.new_years_day_start} to {this.props.schedule.new_years_day_end}<br/>
+                    Thanksgiving Day: {this.props.schedule.thanksgiving_day_start} to {this.props.schedule.thanksgiving_day_end}<br/>
+                    Christmas Day: {this.props.schedule.thanksgiving_day_start} to {this.props.schedule.thanksgiving_day_end}<br/>
+                    <button onClick={this.editSchedule}>Edit Schedule</button>
+                </section>
+           
+
+
+
+
+
+
                 
                 <button onClick={this.logout}>Logout</button>
 

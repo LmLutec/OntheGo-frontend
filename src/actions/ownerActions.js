@@ -48,6 +48,7 @@ export const getProfile = () => {
         })
         .then(response => response.json())
         .then(json =>   {
+            debugger
             dispatch({type: 'PROFILE', data: json})
             // this.props.addTruck(json.id)
         })
@@ -81,7 +82,6 @@ export const addTruck = (truck) => {
 export const editTruck = (truck,id) => {
     console.log(id)
     truck.foodtruck["id"] = id 
-    console.log(truck)
 
     const formData = {
         method: 'PATCH',
