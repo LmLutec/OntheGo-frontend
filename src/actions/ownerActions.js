@@ -48,7 +48,6 @@ export const getProfile = () => {
         })
         .then(response => response.json())
         .then(json =>   {
-            debugger
             dispatch({type: 'PROFILE', data: json})
             // this.props.addTruck(json.id)
         })
@@ -96,7 +95,6 @@ export const editTruck = (truck,id) => {
         .then(response => {
             return response.json()
     }).then(json => {
-        console.log(json)
                dispatch({type: 'EDIT_TRUCK', truck: json.id})
         })
     }
@@ -145,6 +143,29 @@ export const addSchedule = (schedule, truck) => {
             dispatch({type: 'ADD_SCHEDULE', schedule: json.data})
         })
     }
+}
+
+export const editSchedule = (schedule, id) => {
+        schedule["foodtruck_id"] = id
+
+
+    const formData = {
+        method: 'PATCH',
+        headers: { 
+            'Content-Type': 'application/json'
+         },
+        body: JSON.stringify(schedule) 
+    }
+
+    return (dispatch) => {
+        fetch(`http://localhost:3000/api/v1/schedules/${schedule.id}`, formData)
+        .then(response => {
+            return response.json()
+    }).then(json => {
+               dispatch({type: 'EDIT_SCHEDULE', schedule: json})
+        })
+    }
+    
 }
 
 export const addFood = (food, menuId) => {

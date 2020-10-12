@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 
 
 class EditSchedule extends Component {
     state = {
         schedule: {
+            id: `${this.props.schedule.id}`,
             mon_start: `${this.props.schedule.mon_start}`,
             mon_end: `${this.props.schedule.mon_end}`,
             tues_start: `${this.props.schedule.tues_start}`,
@@ -26,7 +28,6 @@ class EditSchedule extends Component {
             christmas_day_end: `${this.props.schedule.christmas_day_end}`
         }
     }
-    
 
     handleChange = (event) => {
         this.setState({
@@ -40,13 +41,15 @@ class EditSchedule extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         let id = this.props.truck.id
-        // {this.props.addSchedule(this.state.schedule, id)}
-        // {this.props.addMenu(Number(id))}
-        // this.props.history.push("/manage/menu")
+        this.props.edit(this.state, id)
+        this.props.history.push("/home")
+    }
+
+    home = () => {
+        this.props.history.push("/home")
     }
 
     render(){
-
         return(
             <div>
                 <h4>Foodtruck Hours</h4>
@@ -73,10 +76,13 @@ class EditSchedule extends Component {
                     Christmas Day<input onChange={ event => {this.handleChange(event)}} type="text" id="christmas_day_start" value={this.state.schedule.christmas_day_start} placeholder="Open"/>  
                     <input onChange={ event => {this.handleChange(event)}} type="text" id="christmas_day_end" value={this.state.schedule.christmas_day_end} placeholder="Close"/><br/>
                     <input type="submit" value="Edit Hours"/>
-                </form>
+                </form><br/><br/>
+                <button onClick={this.home}>Home</button>
+
+
             </div>
         )
     }
 }
 
-export default EditSchedule
+export default withRouter(EditSchedule)

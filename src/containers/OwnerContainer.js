@@ -9,7 +9,7 @@ import EditTruck from '../components/owners/EditTruck'
 import Schedule from '../components/owners/Schedule'
 import EditSchedule from '../components/owners/EditSchedule'
 import MenuItemsInput from '../components/owners/MenuItemsInput'
-import { addOwner, Login, addTruck, addSchedule, createMenu, addFood, editTruck, logTruck, getProfile } from '../actions/ownerActions'
+import { addOwner, Login, addTruck, addSchedule, editSchedule, createMenu, addFood, editTruck, logTruck, getProfile } from '../actions/ownerActions'
 
 // let isLoggedIn;
 
@@ -41,7 +41,7 @@ class OwnerContainer extends Component {
                     <Route exact path="/manage/menu" render={() => <MenuItemsInput addFood={this.props.addFood} menu={this.props.menu}/>}></Route>
                     <Route exact path="/home" render={() => <Home owner={this.props.owner} logtruck={this.props.logTruck} truck={this.props.truck} schedule={this.props.schedule} menu={this.props.menu}/>}></Route>
                     <Route exact path="/edit/truck" render={() => <EditTruck edit={this.props.editTruck} truck={this.props.truck} profile={this.props.getProfile}/>}></Route>
-                    <Route exact path="/edit/schedule" render={() => <EditSchedule schedule={this.props.schedule}/>}></Route>
+                    <Route exact path="/edit/schedule" render={() => <EditSchedule schedule={this.props.schedule} edit={this.props.editSchedule} truck={this.props.truck}/>}></Route>
             </div>
         )
     }
@@ -69,6 +69,7 @@ const mapDispatchToProps = (dispatch) => {
       editTruck: (truck, id) => dispatch(editTruck(truck, id)),
       logTruck: truck => dispatch(logTruck(truck)),
       addSchedule: (schedule, truck) => dispatch(addSchedule(schedule, truck)),
+      editSchedule: (schedule) => dispatch(editSchedule(schedule)),
       createMenu: truckId => dispatch(createMenu(truckId)),
       addFood: (food, menuId) => dispatch(addFood(food, menuId))
     }

@@ -32,7 +32,7 @@ class Home extends Component {
 
 
     render(){
-console.log(this.props.schedule)
+// console.log(this.props.schedule)
         return(
             <div>
                 <h1>Welcome back</h1> <br/>
