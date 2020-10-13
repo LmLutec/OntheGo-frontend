@@ -1,18 +1,14 @@
 import React, { Component } from 'react'
-import {withRouter} from 'react-router-dom'
+import MenuItem from './MenuItem'
 
-let list;
 
-class MenuItemsInput extends Component {
-
+class EditMenu extends Component {
     state = {
         item: {
             name: "",
             price: ""
         }
     }
-
-    list = []
 
     handleChange = (event) => {
         this.setState({
@@ -28,20 +24,21 @@ class MenuItemsInput extends Component {
         event.preventDefault()
         {this.props.addFood(this.state.item, this.props.menu.id)}
         // this.props.history.push("/home")
-        this.list.push(this.state.item)
         // debugger
     }
 
-    showList = () =>{
-      console.log(true)
-    }
+    // showList = () =>{
+    //   this.props.menu.items.map((i) => {
+    //     <li>{i}</li>
+    //   })
+    // }
 
     goHome = () => {
         this.props.history.push("/home")
     }
 
     render(){
-console.log(this.props.menu)
+        const renderTexts = this.props.menu.items.map((item, id) => <MenuItem delete={this.props.delete} key={id} item={item}/>)
         return(
             <div>
                 <h4>Add menu items</h4>
@@ -51,19 +48,11 @@ console.log(this.props.menu)
                     <input type="submit" value="Add to Menu"/>
                 </form>
 
-                <h5>So far you've added:</h5><br/><br/>
-                <ul>
-                {/* {this.showList()} */}
-                    <li>
-                        {/* {this.state.item.name}{this.state.item.price} */}
-                    </li>
-                </ul>
-                {/* <button onClick={this.goHome()}>Home</button> */}
+                <h5>Menu</h5><br/><br/>
+                    {renderTexts}
             </div>
         )
     }
+}
 
-} 
-
-
-export default withRouter(MenuItemsInput)
+export default EditMenu

@@ -9,6 +9,7 @@ import EditTruck from '../components/owners/EditTruck'
 import Schedule from '../components/owners/Schedule'
 import EditSchedule from '../components/owners/EditSchedule'
 import MenuItemsInput from '../components/owners/MenuItemsInput'
+import EditMenu from '../components/owners/EditMenu'
 import { addOwner, Login, addTruck, addSchedule, editSchedule, createMenu, addFood, editTruck, logTruck, getProfile } from '../actions/ownerActions'
 
 // let isLoggedIn;
@@ -36,12 +37,13 @@ class OwnerContainer extends Component {
                     </header>
                     <Route exact path="/login" render={()=> <OwnerLogin login={this.props.login} profile={this.props.getProfile}/>}></Route><br/>
                     <Route exact path="/owner/new" render={()=> <OwnerInput addOwner={this.props.addOwner}/>}></Route><br/><br/>
-                    <Route exact path="/setup" render={()=> <TruckInput addTruck={this.props.addTruck}/>}></Route>
+                    <Route exact path="/setup" render={()=> <TruckInput addTruck={this.props.addTruck} menu={this.props.createMenu}/>}></Route>
                     <Route exact path="/schedule" render={()=> <Schedule addSchedule={this.props.addSchedule} truck={this.props.truck} addMenu={this.props.createMenu}/>}></Route>
-                    <Route exact path="/manage/menu" render={() => <MenuItemsInput addFood={this.props.addFood} menu={this.props.menu}/>}></Route>
+                    <Route exact path="/manage/menu" render={() => <MenuItemsInput addFood={this.props.addFood} menu={this.props.menu} food={this.props.food}/>}></Route>
                     <Route exact path="/home" render={() => <Home owner={this.props.owner} logtruck={this.props.logTruck} truck={this.props.truck} schedule={this.props.schedule} menu={this.props.menu}/>}></Route>
                     <Route exact path="/edit/truck" render={() => <EditTruck edit={this.props.editTruck} truck={this.props.truck} profile={this.props.getProfile}/>}></Route>
                     <Route exact path="/edit/schedule" render={() => <EditSchedule schedule={this.props.schedule} edit={this.props.editSchedule} truck={this.props.truck}/>}></Route>
+                    <Route exact path="/edit/menu" render={()=> <EditMenu menu={this.props.menu} addFood={this.props.addFood} />}></Route>
             </div>
         )
     }
@@ -56,6 +58,7 @@ const mapStateToProps = (state) => {
          owner: state.owners,
          truck: state.owners.truck,
          menu: state.owners.menu,
+         food: state.owners.food,
          schedule: state.owners.schedule
          }
 }

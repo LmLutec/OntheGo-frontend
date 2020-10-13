@@ -25,7 +25,7 @@ class TruckInput extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        {this.props.addTruck(this.state.foodtruck)}
+        this.props.addTruck(this.state.foodtruck)
         this.props.history.push("/schedule")
     }
 

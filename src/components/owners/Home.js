@@ -24,6 +24,10 @@ class Home extends Component {
     editSchedule = () => {
         this.props.history.push("/edit/schedule")
     }
+
+    editMenu = () => {
+        this.props.history.push("/edit/menu")
+    }
     
     logout = () => {
         localStorage.clear()
@@ -32,7 +36,7 @@ class Home extends Component {
 
 
     render(){
-// console.log(this.props.schedule)
+console.log(this.props.menu)
         return(
             <div>
                 <h1>Welcome back</h1> <br/>
@@ -52,7 +56,7 @@ class Home extends Component {
                     <button onClick={this.editTruck}>Edit Truck Information</button><br/><br/>
                 </section>
 
-                <section className="schedule info">
+                <section className="schedule_info">
                     Monday: {this.props.schedule.mon_start} to {this.props.schedule.mon_end} <br/>
                     Tuesday: {this.props.schedule.tues_start} to {this.props.schedule.tues_end} <br/>
                     Wednesday: {this.props.schedule.wed_start} to {this.props.schedule.wed_end} <br/>
@@ -66,7 +70,9 @@ class Home extends Component {
                     <button onClick={this.editSchedule}>Edit Schedule</button>
                 </section>
            
-
+                <section className="menu_info">
+                    <button onClick={this.editMenu}>Edit Menu</button>
+                </section>
 
 
 
