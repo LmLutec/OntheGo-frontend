@@ -18,7 +18,7 @@ class Search extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        {this.props.search(this.state)}
+        this.props.search(this.state)
         this.props.history.push("/results")
     }
 

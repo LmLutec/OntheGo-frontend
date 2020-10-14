@@ -10,7 +10,8 @@ import Schedule from '../components/owners/Schedule'
 import EditSchedule from '../components/owners/EditSchedule'
 import MenuItemsInput from '../components/owners/MenuItemsInput'
 import EditMenu from '../components/owners/EditMenu'
-import { addOwner, Login, addTruck, addSchedule, editSchedule, createMenu, addFood, editTruck, logTruck, getProfile } from '../actions/ownerActions'
+import { addOwner, Login, addTruck, addSchedule, editSchedule, createMenu, addFood, editTruck, logTruck, getProfile, deleteFood } from '../actions/ownerActions'
+import MenuItem from '../components/owners/MenuItem'
 
 // let isLoggedIn;
 
@@ -31,19 +32,26 @@ class OwnerContainer extends Component {
         
         return(
             <div>
-                    <header className="navlink">  
-                    <NavLink to="/owner/new" className="navlink">New Owner</NavLink><br/><br/>
-                    <NavLink to="/login" className="navlink">Login</NavLink> 
-                    </header>
-                    <Route exact path="/login" render={()=> <OwnerLogin login={this.props.login} profile={this.props.getProfile}/>}></Route><br/>
-                    <Route exact path="/owner/new" render={()=> <OwnerInput addOwner={this.props.addOwner}/>}></Route><br/><br/>
-                    <Route exact path="/setup" render={()=> <TruckInput addTruck={this.props.addTruck} menu={this.props.createMenu}/>}></Route>
-                    <Route exact path="/schedule" render={()=> <Schedule addSchedule={this.props.addSchedule} truck={this.props.truck} addMenu={this.props.createMenu}/>}></Route>
-                    <Route exact path="/manage/menu" render={() => <MenuItemsInput addFood={this.props.addFood} menu={this.props.menu} food={this.props.food}/>}></Route>
-                    <Route exact path="/home" render={() => <Home owner={this.props.owner} logtruck={this.props.logTruck} truck={this.props.truck} schedule={this.props.schedule} menu={this.props.menu}/>}></Route>
-                    <Route exact path="/edit/truck" render={() => <EditTruck edit={this.props.editTruck} truck={this.props.truck} profile={this.props.getProfile}/>}></Route>
-                    <Route exact path="/edit/schedule" render={() => <EditSchedule schedule={this.props.schedule} edit={this.props.editSchedule} truck={this.props.truck}/>}></Route>
-                    <Route exact path="/edit/menu" render={()=> <EditMenu menu={this.props.menu} addFood={this.props.addFood} />}></Route>
+                    
+                    <Switch>
+                    <Route exact path="/">
+                        <header className="navlink">  
+                        <NavLink exact to="/owner/new" className="navlink">New Owner</NavLink><br/><br/>
+                        <NavLink exact to="/login" className="navlink">Login</NavLink> 
+                        <NavLink exact to="/foodies" className="navlink">Foodies</NavLink>
+                        </header>
+                    </Route>
+                    <Route exact path="/home"> <Home owner={this.props.owner} logtruck={this.props.logTruck} truck={this.props.truck} schedule={this.props.schedule} menu={this.props.menu}/></Route>
+                    <Route exact path="/login"> <OwnerLogin login={this.props.login} profile={this.props.getProfile}/></Route>
+                    <Route exact path="/owner/new"><OwnerInput addOwner={this.props.addOwner}/></Route>
+                    <Route exact path="/setup"> <TruckInput addTruck={this.props.addTruck} menu={this.props.createMenu}/></Route>
+                    <Route exact path="/schedule"> <Schedule addSchedule={this.props.addSchedule} truck={this.props.truck} addMenu={this.props.createMenu}/></Route>
+                    <Route exact path="/manage/menu"> <MenuItemsInput addFood={this.props.addFood} menu={this.props.menu} food={this.props.food}/></Route>
+                    <Route exact path="/edit/truck"> <EditTruck edit={this.props.editTruck} truck={this.props.truck} profile={this.props.getProfile}/></Route>
+                    <Route exact path="/edit/schedule"><EditSchedule schedule={this.props.schedule} edit={this.props.editSchedule} truck={this.props.truck}/></Route>
+                    <Route exact path="/edit/menu"><EditMenu menu={this.props.menu} addFood={this.props.addFood} /></Route>
+                    {/* <MenuItem delete={this.props.delete}/> */}
+                    </Switch>
             </div>
         )
     }
@@ -74,28 +82,10 @@ const mapDispatchToProps = (dispatch) => {
       addSchedule: (schedule, truck) => dispatch(addSchedule(schedule, truck)),
       editSchedule: (schedule) => dispatch(editSchedule(schedule)),
       createMenu: truckId => dispatch(createMenu(truckId)),
-      addFood: (food, menuId) => dispatch(addFood(food, menuId))
+      addFood: (food, menuId) => dispatch(addFood(food, menuId)),
+      deleteFood: (food) => dispatch(deleteFood(food))
     }
   }
 
 export default connect(mapStateToProps, mapDispatchToProps)(OwnerContainer)
 
-
-{/* create route to ownerInput */}
-                {/* <Owners test={this.props.owners}/>
-                <OwnerInput new={this.props.addOwner}/> */}
-                {/* <OwnerLogin/> */}
-                {/* <Switch>
-                    <br/><br/>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
-                    <Route exact path="/owner/new">
-                        <OwnerInput />
-                    </Route> */}
-                    {/* <NavLink to="/owner/new">New Owner</NavLink>
-                    <Route exact path="/owner/new" render={()=> <OwnerInput new={this.props.addOwner}/>}></Route><br/><br/> */}
-                    {/* <NavLink to="/login">Login</NavLink>
-                    <Route exact path="/login" component={OwnerLogin}></Route><br/>
-                    <Route exact path="/truck/new" render={()=> <TruckContainer/>}/>
-                </Switch>   */}

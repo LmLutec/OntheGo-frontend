@@ -22,7 +22,7 @@ class EditMenu extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        {this.props.addFood(this.state.item, this.props.menu.id)}
+        this.props.addFood(this.state.item, this.props.menu.id)
         // this.props.history.push("/home")
         // debugger
     }
@@ -38,7 +38,7 @@ class EditMenu extends Component {
     }
 
     render(){
-        const renderTexts = this.props.menu.items.map((item, id) => <MenuItem delete={this.props.delete} key={id} item={item}/>)
+        const items = this.props.menu.items.map((item, id) => <MenuItem delete={this.props.delete} key={id} item={item}/>)
         return(
             <div>
                 <h4>Add menu items</h4>
@@ -49,7 +49,7 @@ class EditMenu extends Component {
                 </form>
 
                 <h5>Menu</h5><br/><br/>
-                    {renderTexts}
+                    {items}
             </div>
         )
     }

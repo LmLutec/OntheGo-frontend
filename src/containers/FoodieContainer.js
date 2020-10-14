@@ -13,17 +13,13 @@ class FoodieContainer extends Component {
     render(){
         return(
             <div>
-                <Search search={this.props.search}/>
-
-
-                <Route exact path="/results" render={() => <Trucks trucks={this.props.trucks} details={this.props.details}/>}></Route>
-                <Route exact path="/truck" render={() => <Truck/>}></Route>
-                {/* <Results trucks={this.props.trucks}/> */}
-                {/* <TruckInput addTruck={this.props.addTruck}/> */}
-                {/* <Route><Schedule addSchedule={this.props.addSchedule}/></Route> */}
-                {/* <Route exact path="/truck/new" render={()=> <TruckInput addTruck={this.props.addTruck}/>}></Route>
-                <Route exact path="/schedule" render={()=> <Schedule addSchedule={this.props.addSchedule}/>}></Route> */}
-
+                <Switch>
+                    <Route exact path="/foodies"> 
+                        <Search search={this.props.search}/>
+                    </Route> 
+                    <Route exact path="/results"> <Trucks trucks={this.props.trucks} details={this.props.details}/></Route>
+                    <Route exact path="/truck"><Truck /></Route>
+                </Switch>
             </div>
         )
     }

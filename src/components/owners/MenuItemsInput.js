@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {withRouter} from 'react-router-dom'
+import MenuItem from './MenuItem'
 
 let list;
 
@@ -27,21 +28,22 @@ class MenuItemsInput extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         {this.props.addFood(this.state.item, this.props.menu.id)}
-        // this.props.history.push("/home")
-        this.list.push(this.state.item)
+        this.props.history.push("/home")
+        // return <MenuItem item={this.state.item}/>
         // debugger
     }
 
-    showList = () =>{
-      console.log(true)
-    }
+    // showList = () =>{
+    //   console.log(true)
+    // }
 
     goHome = () => {
         this.props.history.push("/home")
     }
 
     render(){
-console.log(this.props.menu)
+    
+        // <MenuItem delete={this.props.delete} key={id} item={item}/>)
         return(
             <div>
                 <h4>Add menu items</h4>
@@ -52,13 +54,7 @@ console.log(this.props.menu)
                 </form>
 
                 <h5>So far you've added:</h5><br/><br/>
-                <ul>
-                {/* {this.showList()} */}
-                    <li>
-                        {/* {this.state.item.name}{this.state.item.price} */}
-                    </li>
-                </ul>
-                {/* <button onClick={this.goHome()}>Home</button> */}
+                    {/* {item} */}
             </div>
         )
     }

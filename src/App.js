@@ -15,20 +15,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+   
+
     
       
-      
-      {/* Owners<Route exact path="/owners" component={OwnerContainer}/> */}
-      {/* <Link to="/foodies">Foodies</Link> */}
-      {/* <Route exact path="/foodies" component={FoodieContainer}/>
-
-    <NavLink to="/foodies">Foodies</NavLink>
-      <Route exact path="/foodies">Foodies</Route> */}
-      
-      <Switch>
       <FoodieContainer />
-      </Switch>
-        <OwnerContainer/>
+        <OwnerContainer />
       </header>
     
 

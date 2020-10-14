@@ -30,7 +30,7 @@ class OwnerLogin extends Component{
         this.props.login(this.state.owner)
         
              if (localStorage.getItem("jwt_token")){
-                {this.props.history.push("/home")}
+                this.props.history.push("/home")
                 return this.props.profile()
          }
     }

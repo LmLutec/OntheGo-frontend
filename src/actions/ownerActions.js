@@ -189,6 +189,23 @@ export const addFood = (food, menuId) => {
 }
 
 
-
+export const deleteFood = (food) => {
+    debugger
+    const formData = {
+        method: 'DELETE',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({item: food})
+    }
+    return (dispatch) => {
+        fetch("http://localhost:3000/api/v1/items/", formData)
+        .then(response => {
+            return response.json()
+        }).then(json => {
+            dispatch({type: 'ADD_FOOD', food: json.item})
+        })
+    }
+}
 
 

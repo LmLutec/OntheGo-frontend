@@ -19,7 +19,7 @@ export const search = (search) => {
 }
 
 export const details = (id) => {
-    fetch("http://localhost:3000/api/v1/foodtrucks/${id}")
+    fetch(`http://localhost:3000/api/v1/foodtrucks/${id}`)
     .then(response => {
         return response.json()
     }).then(json => {
