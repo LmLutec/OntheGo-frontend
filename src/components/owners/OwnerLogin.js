@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Home from './Home'
 import {withRouter} from 'react-router-dom'
 
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route, NavLink, Redirect, Switch} from 'react-router-dom'
+import { BrowserRouter as Route, Switch} from 'react-router-dom'
 import Search from '../components/foodies/Search'
 import Truck from '../components/foodies/Truck'
 import { search, details } from '../actions/foodieActions'

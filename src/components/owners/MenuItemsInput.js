@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import {withRouter} from 'react-router-dom'
-import MenuItem from './MenuItem'
 
-let list;
+
 
 class MenuItemsInput extends Component {
 
@@ -27,7 +26,7 @@ class MenuItemsInput extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        {this.props.addFood(this.state.item, this.props.menu.id)}
+        this.props.addFood(this.state.item, this.props.menu.id)
         this.props.history.push("/home")
         // return <MenuItem item={this.state.item}/>
         // debugger

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Redirect, withRouter } from 'react-router-dom'
-import EditTruck from './EditTruck'
+import { withRouter } from 'react-router-dom'
+
 
 
 class Home extends Component {
@@ -36,7 +36,7 @@ class Home extends Component {
 
 
     render(){
-console.log(this.props.menu)
+console.log(this.props.schedule)
         return(
             <div>
                 <h1>Welcome back</h1> <br/>
