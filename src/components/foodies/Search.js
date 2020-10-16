@@ -22,6 +22,10 @@ class Search extends Component {
         this.props.history.push("/results")
     }
 
+    goBack = () => {
+        window.history.back()
+    }
+
     render(){
         return(
             <div>
@@ -31,6 +35,8 @@ class Search extends Component {
                     <input onChange={(event) => {this.handleChange(event)}} type="text" id="state" value={this.state.state} placeholder="state"/><br/>
                     <input type="submit" value="Search for Trucks"/>
                 </form>
+                <br/>
+                <button onClick={this.goBack}>Back</button>
             </div>
         )
     }

@@ -32,6 +32,10 @@ class OwnerInput extends Component {
         this.props.history.push("/setup")
     }
 
+    goBack = () => {
+        window.history.back()
+    }
+
     render(){
         return(
             <div>
@@ -47,6 +51,8 @@ class OwnerInput extends Component {
                     <input onChange={ event => {this.handleChange(event)}} type="password" id="password" value={this.state.owner.password}/><br/>
                     <input type="submit" name="submit"/>
                 </form>
+                <br/>
+                <button onClick={this.goBack}>Back</button>
             </div>
         )
     }

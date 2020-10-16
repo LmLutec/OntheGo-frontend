@@ -57,6 +57,9 @@ class OwnerLogin extends Component{
             
     //     }
     // }
+    goBack = () => {
+        window.history.back()
+    }
 
  
 
@@ -70,6 +73,8 @@ class OwnerLogin extends Component{
                     <input onChange={event => {this.handleChange(event)}} type="password" id="password" value={this.state.owner.password}/><br/>
                     <input type="submit" value="submit"/>
                 </form>
+                <br/>
+                <button onClick={this.goBack}>Back</button>
             </div>
         )
     }

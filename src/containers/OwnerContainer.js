@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Route, NavLink, Switch} from 'react-router-dom'
+import { Route, NavLink, Switch } from 'react-router-dom'
 import Home from '../components/owners/Home'
 import OwnerInput from '../components/owners/OwnerInput'
 import OwnerLogin from '../components/owners/OwnerLogin'
