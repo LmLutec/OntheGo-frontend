@@ -14,6 +14,7 @@ class TruckInput extends Component {
         }
     }
 
+
     handleChange = (event) => {
         this.setState({
             foodtruck: {

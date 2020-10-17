@@ -4,10 +4,11 @@ import React, { Component } from 'react'
 class MenuItem extends Component {
     render() {
       
-        const item = this.props.item
-    
+        const item = this.props
+    debugger
         return (
           <div>
+            Items
             <li>
               {item.name}<button onClick={() => this.props.delete(item)}> Remove </button>
             </li>

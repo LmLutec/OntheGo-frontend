@@ -42,7 +42,7 @@ class Schedule extends Component {
         event.preventDefault()
         let id = this.props.truck
         this.props.addSchedule(this.state.schedule, id)
-        this.props.addMenu(Number(id))
+        this.props.addMenu(id)
         this.props.history.push("/manage/menu")
     }
 

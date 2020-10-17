@@ -49,7 +49,6 @@ export const getProfile = () => {
         .then(response => response.json())
         .then(json =>   {
             dispatch({type: 'PROFILE', data: json})
-            // this.props.addTruck(json.id)
         })
     }
 }
@@ -101,14 +100,15 @@ export const editTruck = (truck,id) => {
     
 } 
 
-export const logTruck = (truck,id) => {
-    return(dispatch) => {
-        dispatch({type: 'LOG_TRUCK', truck: truck})
-    }
-}
+// export const logTruck = (truck,id) => {
+//     return(dispatch) => {
+//         dispatch({type: 'LOG_TRUCK', truck: truck})
+//     }
+// }
 // work on this action
 
 export const createMenu = (truckId) => {
+    
     const formData = {
         method: 'POST',
         headers: {
@@ -121,7 +121,7 @@ export const createMenu = (truckId) => {
         .then(response => {
             return response.json()
         }).then(json => {
-            dispatch({type: 'ADD_MENU', menu: json.menu})
+            dispatch({type: 'ADD_MENU', menu: json.id})
         })
     }
 }
@@ -169,6 +169,7 @@ export const editSchedule = (schedule, id) => {
 }
 
 export const addFood = (food, menuId) => {
+    
     food["menu_id"] = menuId
 
     const formData = {
@@ -190,7 +191,7 @@ export const addFood = (food, menuId) => {
 
 
 export const deleteFood = (food) => {
-    debugger
+    
     const formData = {
         method: 'DELETE',
         headers: {
