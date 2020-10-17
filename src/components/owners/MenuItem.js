@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 class MenuItem extends Component {
     render() {
       
-        const item = this.props
+        const item = this.props.item
     debugger
         return (
           <div>
