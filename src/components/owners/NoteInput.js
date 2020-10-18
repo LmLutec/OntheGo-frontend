@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 
 
 class NoteInput extends Component {
@@ -30,6 +31,8 @@ class NoteInput extends Component {
             message: ""
             }
         })
+
+        this.props.history.push("/home")
     }
 
 
@@ -48,7 +51,7 @@ class NoteInput extends Component {
     }
 }
 
-export default NoteInput
+export default withRouter(NoteInput)
 
 
 

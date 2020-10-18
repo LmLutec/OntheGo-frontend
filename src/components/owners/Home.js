@@ -20,9 +20,9 @@ class Home extends Component {
         this.props.profile()
     }
     
-    componentDidUpdate(){
-        this.props.profile()
-    }
+    // componentDidUpdate(){
+    //     this.props.profile()
+    // }
 
     editTruck = () => {
      this.props.history.push("/edit/truck")
@@ -47,10 +47,9 @@ class Home extends Component {
 
 
     render(){
-        // debugger
+    console.log(this.props.notes)
 
         const renderItems = () => {
-            // debugger
             return this.props.food.map((items) => {
                return items.map((i, id) => <MenuItem delete={this.props.delete} key={id} item={i}/>)
             })

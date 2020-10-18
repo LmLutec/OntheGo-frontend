@@ -215,8 +215,6 @@ export const deleteFood = (food) => {
 
 export const addNote = (note) => {
 
-    console.log(note)
-
     const formData = {
         method: 'POST',
         headers: {
@@ -229,7 +227,7 @@ export const addNote = (note) => {
         .then(response => {
             return response.json()
         }).then(json => {
-            console.log(json)
+            dispatch({type: 'ADD_NOTE', note: json})
         })
     }
 }
