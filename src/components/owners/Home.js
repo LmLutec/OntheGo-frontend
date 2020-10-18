@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import MenuItem from './MenuItem'
+import Note from './Note'
 
 
 
@@ -54,6 +55,12 @@ class Home extends Component {
                return items.map((i, id) => <MenuItem delete={this.props.delete} key={id} item={i}/>)
             })
             
+         }
+
+         const renderNotes = () => {
+            return this.props.notes.map((allnotes) => {
+                return allnotes.map((n, id) => <Note delete={this.props.delete} key={id} note={n}/>)
+             })
          }
     
 
@@ -119,7 +126,7 @@ class Home extends Component {
            
                 <section className="menu_info">
                     
-                        {/* {toSee()} */}
+                        {renderNotes()}
                     
                     {renderItems()}
                     <button onClick={this.editMenu}>Edit Menu</button>
