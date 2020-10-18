@@ -52,14 +52,14 @@ class Home extends Component {
 
         const renderItems = () => {
             return this.props.food.map((items) => {
-               return items.map((i, id) => <MenuItem delete={this.props.delete} key={id} item={i}/>)
+               return items.map((i, id) => <MenuItem deleteFood={this.props.deleteFood} key={id} item={i}/>)
             })
             
          }
 
          const renderNotes = () => {
             return this.props.notes.map((allnotes) => {
-                return allnotes.map((n, id) => <Note delete={this.props.delete} key={id} note={n}/>)
+                return allnotes.map((n, id) => <Note deleteNote={this.props.deleteNote} key={id} note={n}/>)
              })
          }
     
@@ -126,13 +126,13 @@ class Home extends Component {
            
                 <section className="menu_info">
                     
-                        {renderNotes()}
                     
                     {renderItems()}
                     <button onClick={this.editMenu}>Edit Menu</button>
                 </section>
 
                 <section className="add_notes">
+                {renderNotes()}
                     <button onClick={this.addNote}>Add note</button>
                 </section>
 

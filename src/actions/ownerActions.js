@@ -213,6 +213,26 @@ export const deleteFood = (food) => {
     }
 }
 
+
+export const deleteNote = (note) => {
+    const formData = {
+        method: 'DELETE',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(note)
+    }
+    return (dispatch) => {
+        fetch(`http://localhost:3000/api/v1/notes/${note.id}`, formData)
+        .then(response => {
+            return response.json()
+        }).then(json => {
+            dispatch({type: 'DELETE_NOTE', note: json})
+        })
+    }
+}
+
+
 export const addNote = (note) => {
 
     const formData = {
@@ -231,3 +251,4 @@ export const addNote = (note) => {
         })
     }
 }
+

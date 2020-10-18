@@ -10,7 +10,7 @@ import Schedule from '../components/owners/Schedule'
 import EditSchedule from '../components/owners/EditSchedule'
 import MenuItemsInput from '../components/owners/MenuItemsInput'
 import EditMenu from '../components/owners/EditMenu'
-import { addOwner, Login, addTruck, addSchedule, editSchedule, createMenu, addFood, editTruck, addNote, getProfile, deleteFood } from '../actions/ownerActions'
+import { addOwner, Login, addTruck, addSchedule, editSchedule, createMenu, addFood, editTruck, addNote, getProfile, deleteFood, deleteNote } from '../actions/ownerActions'
 import NoteInput from '../components/owners/NoteInput'
 
 
@@ -42,7 +42,7 @@ class OwnerContainer extends Component {
                         <NavLink exact to="/foodies">Foodies</NavLink>
                         {/* </header> */}
                     </Route>
-                    <Route exact path="/home"><Home owner={this.props.owner} profile={this.props.getProfile} truck={this.props.truck} schedule={this.props.schedule} menu={this.props.menu} food={this.props.food} notes={this.props.notes} delete={this.props.deleteFood}/></Route>
+                    <Route exact path="/home"><Home owner={this.props.owner} profile={this.props.getProfile} truck={this.props.truck} schedule={this.props.schedule} menu={this.props.menu} food={this.props.food} notes={this.props.notes} deleteFood={this.props.deleteFood} deleteNote={this.props.deleteNote}/></Route>
                     <Route exact path="/login"> <OwnerLogin login={this.props.login} profile={this.props.getProfile}/></Route>
                     <Route exact path="/owner/new"><OwnerInput addOwner={this.props.addOwner}/></Route>
                     <Route exact path="/setup"> <TruckInput addTruck={this.props.addTruck} menu={this.props.createMenu} profile={this.props.getProfile}/></Route>
@@ -85,7 +85,8 @@ const mapDispatchToProps = (dispatch) => {
       createMenu: truckId => dispatch(createMenu(truckId)),
       addFood: (food, menuId) => dispatch(addFood(food, menuId)),
       deleteFood: (food) => dispatch(deleteFood(food)),
-      addNote: (note) => dispatch(addNote(note))
+      addNote: (note) => dispatch(addNote(note)),
+      deleteNote: (note) => dispatch(deleteNote(note))
     }
   }
 

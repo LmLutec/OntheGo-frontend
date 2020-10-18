@@ -11,7 +11,7 @@ const Note = props => {
               <p>{note.date}</p>
               <i>{note.message}</i>
               <br/>
-              <button onClick={() => props.delete(note)}> Remove </button> 
+              <button onClick={() => props.deleteNote(note)}> Remove </button> 
       </ul>
     </div>
   )
