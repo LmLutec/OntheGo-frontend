@@ -214,12 +214,15 @@ export const deleteFood = (food) => {
 }
 
 export const addNote = (note) => {
+
+    console.log(note)
+
     const formData = {
         method: 'POST',
         headers: {
             'Content-type': 'application/json'
         },
-        body: JSON.stringify({note: note})
+        body: JSON.stringify(note)
     }
     return (dispatch) => {
         fetch("http://localhost:3000/api/v1/notes/", formData)

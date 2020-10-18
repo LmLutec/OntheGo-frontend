@@ -6,14 +6,15 @@ class NoteInput extends Component {
     state = {
         note: {
             date: "",
-            message: ""
+            message: "",
+            foodtruck_id: `${this.props.truck.id}`
         }
     }
 
     handleChange = (event) => {
         this.setState({
-            item: {
-            ...this.state.item, 
+            note: {
+            ...this.state.note, 
             [event.target.id] : event.target.value
             }
         })
@@ -37,9 +38,9 @@ class NoteInput extends Component {
             <div>
                 <form onSubmit={(event) => {this.handleSubmit(event)}}>
                     <label>Date</label>
-                    <input onChange={(event) => this.handleChange(event)} type="text" id="date" value={this.state.note.date} /><br/>
+                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="date" value={this.state.note.date} /><br/>
                     <label>Message</label>
-                    <input onChange={(event) => this.handleChange(event)} type="text" id="message" value={this.state.note.message}/><br/>
+                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="message" value={this.state.note.message}/><br/>
                     <input type="submit" name="Add Note"/>
                 </form>
             </div>
