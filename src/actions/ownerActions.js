@@ -48,6 +48,7 @@ export const getProfile = () => {
         })
         .then(response => response.json())
         .then(json =>   {
+            // debugger
             dispatch({type: 'PROFILE', data: json})
         })
     }
@@ -116,11 +117,13 @@ export const createMenu = (truckId) => {
         },
         body: JSON.stringify({menu: {foodtruck_id: truckId }})
     }
+    debugger
     return (dispatch) => {
         fetch("http://localhost:3000/api/v1/menus/", formData)
         .then(response => {
             return response.json()
         }).then(json => {
+            // debugger
             dispatch({type: 'ADD_MENU', menu: json.id})
         })
     }

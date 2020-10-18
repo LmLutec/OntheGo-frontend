@@ -41,22 +41,30 @@ class Home extends Component {
         this.props.history.push("/")
     }
 
-    // renderItems = () => {
-        // debugger
-        // return this.props.menu.items.map((item) => console.log(item))
-        // <MenuItem delete={this.props.delete} key={band.id} band={band}/>)
-    //  }
 
     render(){
-        const menu = this.props.menu
-    
-        function toSee (){
-            for (const i in menu){
-                // console.log(menu[i])
-                return <MenuItem item={menu[i]} />
-            }
-        }
+        // debugger
 
+        const renderItems = () => {
+            // debugger
+            return this.props.food.map((items) => {
+               return items.map((i, id) => <MenuItem delete={this.props.delete} key={id} item={i}/>)
+            })
+            
+         }
+    
+
+        // const menu = this.props.menu
+    
+        
+        // function toSee (){
+        //     for (const i in menu){
+        //         console.log(menu[i])
+        //         return <MenuItem item={menu[i]} />
+        //     }
+        // }
+    
+    
            
         // this.props.menu.map((i) => console.log(i))
     //    const obj = this.props.menu.items 
@@ -73,7 +81,7 @@ class Home extends Component {
     // <MenuItem delete={this.props.delete} key={id} item={item}/>)
  
         return(
-            
+        
             <div>
                 <h1>Welcome back</h1> <br/>
 {/* 
@@ -108,9 +116,9 @@ class Home extends Component {
            
                 <section className="menu_info">
                     
-                        {toSee()}
+                        {/* {toSee()} */}
                     
-                    {/* {this.renderItems()} */}
+                    {renderItems()}
                     <button onClick={this.editMenu}>Edit Menu</button>
                 </section>
 

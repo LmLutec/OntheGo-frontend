@@ -1,17 +1,21 @@
 import React, { Component } from 'react'
 
-// Add type attribute to item
+
 class MenuItem extends Component {
     render() {
       
         const item = this.props.item
-    debugger
+        
+        // })
+    // debugger
         return (
           <div>
-            Items
-            <li>
-              {item.name}<button onClick={() => this.props.delete(item)}> Remove </button>
-            </li>
+            <ul>
+              ${item.price} - {item.name} <br/>
+              <i>{item.description}</i>
+              <br/>
+              <button onClick={() => this.props.delete(item)}> Remove </button>
+            </ul>
           </div>
         );
       }

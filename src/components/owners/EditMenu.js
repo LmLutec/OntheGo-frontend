@@ -7,6 +7,7 @@ class EditMenu extends Component {
         item: {
             name: "",
             price: "",
+            description: "",
             item_type: ""
         }
     }
@@ -15,9 +16,9 @@ class EditMenu extends Component {
         this.props.profile()
     }
     
-    componentDidUpdate(){
-        this.props.profile()
-    }
+    // componentDidUpdate(){
+    //     this.props.profile()
+    // }
 
     handleChange = (event) => {
         this.setState({
@@ -36,6 +37,7 @@ class EditMenu extends Component {
             item: {
             name: "", 
             price: "",
+            description: "",
             item_type: ""
             }
         })
@@ -52,6 +54,7 @@ class EditMenu extends Component {
     }
 
     render(){
+        console.log(this.props.menu.id)
         // const items = this.props.menu.items.map((item, id) => <MenuItem delete={this.props.delete} key={id} item={item}/>)
         return(
             <div>
@@ -59,6 +62,7 @@ class EditMenu extends Component {
                 <form onSubmit={(event) => {this.handleSubmit(event)}}>
                     <input onChange={(event) => {this.handleChange(event)}} type="text" id="name" value={this.state.item.name} placeholder="Food name"/>
                     <input onChange={(event) => {this.handleChange(event)}} type="text" id="price" value={this.state.item.price} placeholder="Price"/><br/>
+                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="description" value={this.state.item.description} placeholder="Description"/><br/>
                     <input onChange={(event) => {this.handleChange(event)}} type="text" id="item_type" value={this.state.item.item_type} placeholder="Entree, drink, etc"/>
                     <input type="submit" value="Add to Menu"/>
                 </form>
