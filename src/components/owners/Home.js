@@ -20,9 +20,9 @@ class Home extends Component {
         this.props.profile()
     }
     
-    // componentDidUpdate(){
-    //     this.props.profile()
-    // }
+    componentDidUpdate(){
+        this.props.profile()
+    }
 
     editTruck = () => {
      this.props.history.push("/edit/truck")
@@ -34,6 +34,10 @@ class Home extends Component {
 
     editMenu = () => {
         this.props.history.push("/edit/menu")
+    }
+
+    addNote = () => {
+        this.props.history.push("new/note")
     }
     
     logout = () => {
@@ -122,7 +126,9 @@ class Home extends Component {
                     <button onClick={this.editMenu}>Edit Menu</button>
                 </section>
 
-
+                <section className="add_notes">
+                    <button onClick={this.addNote}>Add note</button>
+                </section>
 
 
 

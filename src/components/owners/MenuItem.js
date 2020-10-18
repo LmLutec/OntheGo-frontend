@@ -17,7 +17,7 @@ class MenuItem extends Component {
               <button onClick={() => this.props.delete(item)}> Remove </button>
             </ul>
           </div>
-        );
+        )
       }
 }
 

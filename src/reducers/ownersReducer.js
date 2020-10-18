@@ -3,7 +3,8 @@ export default function ownersReducer(state = {
         truck: {},
         menu: "",
         food: [],
-        schedule: {}
+        schedule: {},
+        notes: ""
 }, action){
     // debugger
     let idx;
@@ -13,7 +14,6 @@ export default function ownersReducer(state = {
         case "LOGIN":
                 return {...state,owner: action.owner}
         case "PROFILE":
-                // debugger
                 return {...state, truck: {id: action.data.id, name: action.data.name, food_type: action.data.food_type, phone_number: action.data.phone_number, city: action.data.city, state: action.data.state}, menu: action.data.menu, food: [action.data.menu.items], schedule: action.data.schedule}
         case "LOG_TRUCK":
                 return {...state,truck: action.truck}
@@ -29,6 +29,13 @@ export default function ownersReducer(state = {
                 return {...state, menu: action.menu}
         case "ADD_FOOD":
                 return {...state, food: [...state.food, action.item]}
+        case "ADD_NOTE":
+                debugger 
+                return {...state, notes: action.note}
+        case "DELETE_FOOD":
+                debugger
+                idx = state.findIndex(item => item.id === action.id)
+                return [...state.slice(0, idx), ...state.slice(idx + 1)]
         case "REMOVE_TRUCK":
                 idx = state.findIndex(truck => truck.id  === action.id)
                 return [...state.slice(0, idx), ...state.slice(idx + 1)]

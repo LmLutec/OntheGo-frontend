@@ -117,7 +117,7 @@ export const createMenu = (truckId) => {
         },
         body: JSON.stringify({menu: {foodtruck_id: truckId }})
     }
-    debugger
+    
     return (dispatch) => {
         fetch("http://localhost:3000/api/v1/menus/", formData)
         .then(response => {
@@ -203,13 +203,30 @@ export const deleteFood = (food) => {
         body: JSON.stringify({item: food})
     }
     return (dispatch) => {
-        fetch("http://localhost:3000/api/v1/items/", formData)
+        fetch(`http://localhost:3000/api/v1/items/${food.id}`, formData)
         .then(response => {
             return response.json()
         }).then(json => {
-            dispatch({type: 'ADD_FOOD', food: json.item})
+            // console.log(json)
+            dispatch({type: 'DELETE_FOOD', food: json})
         })
     }
 }
 
-
+export const addNote = (note) => {
+    const formData = {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({note: note})
+    }
+    return (dispatch) => {
+        fetch("http://localhost:3000/api/v1/notes/", formData)
+        .then(response => {
+            return response.json()
+        }).then(json => {
+            console.log(json)
+        })
+    }
+}
