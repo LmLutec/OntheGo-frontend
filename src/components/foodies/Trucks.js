@@ -1,5 +1,5 @@
-import React from 'react'
-import { Component } from 'react'
+// import React from 'react'
+import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
  
 // let Details;
@@ -11,6 +11,7 @@ class Trucks extends Component {
 render(){
 
 const trucks = this.props.trucks
+
 // const details = this.props.details
 
 // function handleSubmit(id){

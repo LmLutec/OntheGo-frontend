@@ -17,10 +17,13 @@ class Home extends Component {
         clicked: false
     }
 
-    componentDidMount(){
+    componentWillMount(){
         this.props.profile()
     }
     
+    componentDidMount(){
+        this.props.profile()
+    }
     // componentDidUpdate(){
     //     this.props.profile()
     // }
@@ -64,31 +67,6 @@ class Home extends Component {
          }
     
 
-        // const menu = this.props.menu
-    
-        
-        // function toSee (){
-        //     for (const i in menu){
-        //         console.log(menu[i])
-        //         return <MenuItem item={menu[i]} />
-        //     }
-        // }
-    
-    
-           
-        // this.props.menu.map((i) => console.log(i))
-    //    const obj = this.props.menu.items 
-
-    // for (const value in obj){
-    //     return(   <MenuItem name={obj[value].name} price={obj[value]} item_type={obj[value]}/>
-    //     )
-    //     }
-    // this.props.menu.items.map((i) => console.log(i))
-    // menu.map((item, id) => {
-    //     return item 
-    // })
-    // console.log(items)
-    // <MenuItem delete={this.props.delete} key={id} item={item}/>)
  
         return(
         

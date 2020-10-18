@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { BrowserRouter as Route, Switch} from 'react-router-dom'
+import { Route, Switch} from 'react-router-dom'
 import Search from '../components/foodies/Search'
 import Truck from '../components/foodies/Truck'
 import { search, details } from '../actions/foodieActions'
@@ -27,7 +27,7 @@ class FoodieContainer extends Component {
 
 const mapStateToProps = (state) => {
     // debugger
-    return { trucks: state.foodies }
+    return { trucks: state.foodies.trucks }
 }
 
 const mapStateToDispatch = (dispatch) => {
