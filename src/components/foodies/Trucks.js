@@ -1,27 +1,14 @@
-// import React from 'react'
-import React, { Component } from 'react'
+import React from 'react'
 import { withRouter } from 'react-router-dom'
- 
-// let Details;
-
-class Trucks extends Component {   
-    
 
 
-render(){
 
-const trucks = this.props.trucks
+const Trucks = props => {
+  const allTrucks = props.trucks
 
-// const details = this.props.details
+  function Grab(){
 
-// function handleSubmit(id){
-//     debugger
-    // this.props.details(id)
-// }
-
-function Grab(){
-
-    return trucks.map((nestedTrucks) => {
+    return allTrucks.map((nestedTrucks) => {
       return nestedTrucks.map((truck, id) => {
         return <div key={id}>
                 Food Truck: {truck.name}<br/>
@@ -29,7 +16,7 @@ function Grab(){
                 Phone number: {truck.phone_number}<br/>
                 City: {truck.city}<br/>
                 State: {truck.state}<br/><br/>
-                {/* <button onClick={details}>Details</button> */}
+                <button>View Details</button>
                 {/* onclick needs to render truck show page */}
               </div>
        
@@ -37,18 +24,19 @@ function Grab(){
     })
 }
 
-    
-
   return (
-
-
     <div>
-            All trucks  
-            
-            {Grab()}
+        All trucks 
+      <ul>
+              {Grab()}
+              {/* <button onClick={() => props.deleteNote(note)}> Remove </button>  */}
+      </ul>
     </div>
   )
-  }
 }
+
 export default withRouter(Trucks)
+
+
+
 

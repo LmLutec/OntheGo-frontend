@@ -18,7 +18,7 @@ class FoodieContainer extends Component {
                         <Search search={this.props.search}/>
                     </Route> 
                     <Route exact path="/results"> <Trucks trucks={this.props.trucks} details={this.props.details}/></Route>
-                    <Route exact path="/truck"><Truck /></Route>
+                    <Route exact path="/truck"><Truck truck={this.props.truck} /></Route>
                 </Switch>
             </div>
         )
@@ -27,7 +27,10 @@ class FoodieContainer extends Component {
 
 const mapStateToProps = (state) => {
     // debugger
-    return { trucks: state.foodies.trucks }
+    return { 
+        trucks: state.foodies.trucks,
+        truck: state.foodies.truck
+    }
 }
 
 const mapStateToDispatch = (dispatch) => {

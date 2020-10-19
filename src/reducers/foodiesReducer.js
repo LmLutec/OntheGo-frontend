@@ -1,5 +1,5 @@
 export default function foodiesReducer(state = {
-  trucks: []
+  trucks: [], truck: ""
 }, action) {
     
     switch (action.type) {
@@ -7,7 +7,8 @@ export default function foodiesReducer(state = {
         // debugger
         return {...state, trucks: [action.trucks]}
       case "DETAILS":
-        return state 
+        // debugger
+        return {...state, truck: action.truck}
       default:
         return state;
     }
