@@ -4,6 +4,9 @@ import { withRouter } from 'react-router-dom'
 const Truck = props => {
   const t = props.truck  
 
+  function Rate(){
+    props.history.push("/new/rating")
+  }
 
   function goBack(){
     window.history.back()
@@ -19,7 +22,8 @@ const Truck = props => {
             Phone number:{t.phone_number}<br/>
             City:{t.city}<br/>
             State:{t.state}<br/><br/>
-            <button onClick={() => {goBack()}}>Back to results</button>
+            <button onClick={() => {goBack()}}>Back to results</button><br/>
+            <button onClick={() => {Rate()}}>Rate Foodtruck</button>
         </ul>
 
     </div>

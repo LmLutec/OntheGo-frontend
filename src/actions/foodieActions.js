@@ -29,6 +29,25 @@ export const details = (id) => {
     })
     }
 }
+
+export const addRating = (rating) => {
+    const formData = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(rating)
+    }
+    return (dispatch) => {
+        fetch("http://localhost:3000/api/v1/ratings/", formData)
+        .then(response => {
+            return response.json()
+        }).then(json => {
+            console.log(json)
+            // dispatch({type: 'SEARCH', trucks: json })
+        })
+    }
+}
 // export const addTruck = (truck) => {
 //     const owner = JSON.parse(localStorage.getItem('owner'))
 

@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 import { Route, Switch} from 'react-router-dom'
 import Search from '../components/foodies/Search'
 import Truck from '../components/foodies/Truck'
-import { search, details } from '../actions/foodieActions'
+import { search, details, addRating } from '../actions/foodieActions'
 import Trucks from '../components/foodies/Trucks'
+import RatingInput from '../components/foodies/RatingInput'
 
 
 
@@ -19,6 +20,7 @@ class FoodieContainer extends Component {
                     </Route> 
                     <Route exact path="/results"> <Trucks trucks={this.props.trucks} details={this.props.details}/></Route>
                     <Route exact path="/truck"><Truck truck={this.props.truck} /></Route>
+                    <Route exact path="/new/rating"><RatingInput truck={this.props.truck} /></Route>
                 </Switch>
             </div>
         )
@@ -36,7 +38,8 @@ const mapStateToProps = (state) => {
 const mapStateToDispatch = (dispatch) => {
     return {
         search: data => dispatch(search(data)),
-        details: id => dispatch(details(id))
+        details: id => dispatch(details(id)),
+        addRating: rating => dispatch(addRating(rating))
     }
 }
 
