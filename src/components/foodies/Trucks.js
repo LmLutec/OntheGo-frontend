@@ -1,6 +1,5 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import Truck from './Truck'
 
 
 const Trucks = props => {
@@ -22,7 +21,6 @@ const Trucks = props => {
                 City: {truck.city}<br/>
                 State: {truck.state}<br/><br/>
                 <button onClick={() => {details(truck.id)}}>View Details</button>
-                {/* onclick needs to render truck show page */}
               </div>
       })
     })
@@ -33,7 +31,6 @@ return (
       All trucks 
     <ul>
         {Grab()}
-              {/* <button onClick={() => props.deleteNote(note)}> Remove </button>  */}
     </ul>
   </div>
   )
