@@ -1,10 +1,15 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-
+import Truck from './Truck'
 
 
 const Trucks = props => {
   const allTrucks = props.trucks
+  
+  function details(truckId){
+    props.details(truckId)
+    props.history.push("/truck")
+  }
 
   function Grab(){
 
@@ -16,22 +21,21 @@ const Trucks = props => {
                 Phone number: {truck.phone_number}<br/>
                 City: {truck.city}<br/>
                 State: {truck.state}<br/><br/>
-                <button>View Details</button>
+                <button onClick={() => {details(truck.id)}}>View Details</button>
                 {/* onclick needs to render truck show page */}
               </div>
-       
       })
     })
-}
+  }
 
-  return (
-    <div>
-        All trucks 
-      <ul>
-              {Grab()}
+return (
+  <div>
+      All trucks 
+    <ul>
+        {Grab()}
               {/* <button onClick={() => props.deleteNote(note)}> Remove </button>  */}
-      </ul>
-    </div>
+    </ul>
+  </div>
   )
 }
 

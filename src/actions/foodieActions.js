@@ -24,7 +24,7 @@ export const details = (id) => {
     .then(response => {
         return response.json()
     }).then(json => {
-        console.log(json)
+        // console.log(json)
         dispatch({type: 'DETAILS', truck: json})
     })
     }
