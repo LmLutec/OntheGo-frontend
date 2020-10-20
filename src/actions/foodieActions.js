@@ -30,7 +30,9 @@ export const details = (id) => {
     }
 }
 
-export const addRating = (rating) => {
+export const addRating = (rating, truckId) => {
+    rating["foodtruck_id"] = truckId
+
     const formData = {
         method: 'POST',
         headers: {
@@ -44,7 +46,7 @@ export const addRating = (rating) => {
             return response.json()
         }).then(json => {
             console.log(json)
-            // dispatch({type: 'SEARCH', trucks: json })
+            dispatch({type: 'ADD_RATING', rating: json })
         })
     }
 }

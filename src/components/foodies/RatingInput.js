@@ -25,13 +25,25 @@ class RatingInput extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
+        console.log(this.props.truck.id)
+        this.props.add(this.state.rating, this.props.truck.id)
+
+        this.setState({
+            rating: {
+                food_quality: "",
+                customer_service: "",
+                speed_of_service: "",
+                prices: ""
+            }
+        })
     }
 
     render(){
+        
         return(
             <div>
                 Rate Foodtruck below
-                <form>
+                <form onSubmit={(event) => {this.handleSubmit(event)}}>
                     <label>On a scale of 1 to 5 (1 = bad, 5 = excellent), rate the following areas</label><br/>
                     Food quality(Freshness and taste)<input onChange={(event) => {this.handleChange(event)}} type="text" id="food_quality" value={this.state.rating.food_quality}/><br/>
                     Speed of Service<input onChange={(event) => {this.handleChange(event)}} type="text" id="speed_of_service" value={this.state.rating.speed_of_service}/><br/>
