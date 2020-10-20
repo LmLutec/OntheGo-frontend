@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 
 
 
@@ -36,6 +37,9 @@ class RatingInput extends Component {
                 prices: ""
             }
         })
+
+        window.history.back()
+        // this.props.history.push("/home")
     }
 
     render(){
@@ -56,4 +60,4 @@ class RatingInput extends Component {
     }
 }
 
-export default RatingInput
+export default withRouter(RatingInput)
