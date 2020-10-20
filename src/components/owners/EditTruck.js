@@ -9,8 +9,10 @@ class EditTruck extends Component {
             name: `${this.props.truck.name}`,
             food_type: `${this.props.truck.food_type}`,
             phone_number: `${this.props.truck.phone_number}`,
+            street: `${this.props.truck.street}`,
             city: `${this.props.truck.city}`,
-            state: `${this.props.truck.state}`
+            state: `${this.props.truck.state}`,
+            zip_code: `${this.props.truck.zip_code}`
         }
     }
 
@@ -45,10 +47,14 @@ class EditTruck extends Component {
                 <form onSubmit={(event) => {this.handleSubmit(event)}}>
                     <label>Name</label>
                     <input onChange={ event => {this.handleChange(event)}} type="text" id="name" value={this.state.foodtruck.name} /><br/>
+                    <label>Street</label>
+                    <input onChange={ event => {this.handleChange(event)}} type="text" id="street" value={this.state.foodtruck.street}/><br/>
                     <label>State</label>
                     <input onChange={ event => {this.handleChange(event)}} type="text" id="state" value={this.state.foodtruck.state}/><br/>
                     <label>City</label>
                     <input onChange={ event => {this.handleChange(event)}} type="text" id="city" value={this.state.foodtruck.city}/><br/>
+                    <label>Zip code</label>
+                    <input onChange={ event => {this.handleChange(event)}} type="text" id="zip_code" value={this.state.foodtruck.zip_code}/><br/>
                     <label>Food type</label>
                     <input onChange= { event => {this.handleChange(event)}} type="text" id="food_type" value={this.state.foodtruck.food_type}/><br/>
                     <label>Phone number</label>

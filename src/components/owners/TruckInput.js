@@ -8,8 +8,10 @@ class TruckInput extends Component {
         foodtruck: {
             name: '',
             food_type: '',
+            street: '',
             city: '',
             state: '',
+            zip_code: '',
             phone_number: ''
         }
     }
@@ -37,10 +39,14 @@ class TruckInput extends Component {
                 <form onSubmit={(event) => {this.handleSubmit(event)}}>
                     <label>Name</label>
                     <input onChange={ event => {this.handleChange(event)}} type="text" id="name" value={this.state.foodtruck.name} /><br/>
+                    <label>Street</label>
+                    <input onChange={ event => {this.handleChange(event)}} type="text" id="street" value={this.state.foodtruck.street}/><br/>
                     <label>State</label>
                     <input onChange={ event => {this.handleChange(event)}} type="text" id="state" value={this.state.foodtruck.state} /><br/>
                     <label>City</label>
                     <input onChange={ event => {this.handleChange(event)}} type="text" id="city" value={this.state.foodtruck.city} /><br/>
+                    <label>Zip code</label>
+                    <input onChange={ event => {this.handleChange(event)}} type="text" id="zip_code" value={this.state.foodtruck.zip_code}/><br/>
                     <label>Food type</label>
                     <input onChange= { event => {this.handleChange(event)}} type="text" id="food_type" value={this.state.foodtruck.food_type} /><br/>
                     <label>Phone number</label>

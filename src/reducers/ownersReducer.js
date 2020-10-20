@@ -4,7 +4,8 @@ export default function ownersReducer(state = {
         menu: "",
         food: [],
         schedule: {},
-        notes: []
+        notes: [],
+        ratings: [],
 }, action){
     // debugger
     let idx;
@@ -14,8 +15,7 @@ export default function ownersReducer(state = {
         case "LOGIN":
                 return {...state,owner: action.owner}
         case "PROFILE":
-                // debugger
-                return {...state, truck: {id: action.data.id, name: action.data.name, food_type: action.data.food_type, phone_number: action.data.phone_number, city: action.data.city, state: action.data.state}, menu: action.data.menu, food: [action.data.menu.items], schedule: action.data.schedule, notes: [action.data.notes]}
+                return {...state, truck: {id: action.data.id, name: action.data.name, food_type: action.data.food_type, phone_number: action.data.phone_number, street: action.data.street, city: action.data.city, state: action.data.state, zip_code: action.data.zip_code}, menu: action.data.menu, food: [action.data.menu.items], schedule: action.data.schedule, notes: [action.data.notes], ratings: [action.data.ratings]}
         case "LOG_TRUCK":
                 return {...state,truck: action.truck}
         case "ADD_TRUCK":

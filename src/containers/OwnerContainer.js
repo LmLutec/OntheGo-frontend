@@ -42,7 +42,7 @@ class OwnerContainer extends Component {
                         <NavLink exact to="/foodies">Foodies</NavLink>
                         {/* </header> */}
                     </Route>
-                    <Route exact path="/home"><Home owner={this.props.owner} profile={this.props.getProfile} truck={this.props.truck} schedule={this.props.schedule} menu={this.props.menu} food={this.props.food} notes={this.props.notes} deleteFood={this.props.deleteFood} deleteNote={this.props.deleteNote}/></Route>
+                    <Route exact path="/home"><Home owner={this.props.owner} profile={this.props.getProfile} truck={this.props.truck} schedule={this.props.schedule} menu={this.props.menu} food={this.props.food} notes={this.props.notes} deleteFood={this.props.deleteFood} deleteNote={this.props.deleteNote} ratings={this.props.ratings}/></Route>
                     <Route exact path="/login"> <OwnerLogin login={this.props.login} profile={this.props.getProfile}/></Route>
                     <Route exact path="/owner/new"><OwnerInput addOwner={this.props.addOwner}/></Route>
                     <Route exact path="/setup"> <TruckInput addTruck={this.props.addTruck} menu={this.props.createMenu} profile={this.props.getProfile}/></Route>
@@ -69,7 +69,8 @@ const mapStateToProps = (state) => {
          menu: state.owners.menu,
          food: state.owners.food,
          schedule: state.owners.schedule,
-         notes: state.owners.notes
+         notes: state.owners.notes,
+         ratings: state.owners.ratings
          }
 }
 

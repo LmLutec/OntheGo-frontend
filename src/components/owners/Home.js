@@ -2,28 +2,21 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import MenuItem from './MenuItem'
 import Note from './Note'
+import GetRatings from './GetRatings'
 
 
 
 class Home extends Component {
 
-    state = {
-        // id: "",
-        truckName: "",
-        foodType: "",
-        phoneNumber: "",
-        city: "",
-        state: "",
-        clicked: false
-    }
-
-    componentWillMount(){
-        this.props.profile()
-    }
+ 
     
-    componentDidMount(){
-        this.props.profile()
-    }
+    // componentWillMount(){
+    //     this.props.profile()
+    // }
+    
+    // componentDidMount(){
+    //     this.props.profile()
+    // }
     // componentDidUpdate(){
     //     this.props.profile()
     // }
@@ -50,9 +43,13 @@ class Home extends Component {
     }
 
 
-    render(){
-    console.log(this.props.notes)
 
+//  numbers.reduce(myFunc);
+
+
+
+
+    render(){
         const renderItems = () => {
             return this.props.food.map((items) => {
                return items.map((i, id) => <MenuItem deleteFood={this.props.deleteFood} key={id} item={i}/>)
@@ -65,8 +62,10 @@ class Home extends Component {
                 return allnotes.map((n, id) => <Note deleteNote={this.props.deleteNote} key={id} note={n}/>)
              })
          }
-    
 
+         function myFunc(total, num) {
+            return total - num;
+          }
  
         return(
         
@@ -82,9 +81,11 @@ class Home extends Component {
                 <section className="truck_info">
                     Food Truck: {this.props.truck.name}<br/>
                     Food type: {this.props.truck.food_type}<br/>
-                    Phone Number: {this.props.truck.phone_number}<br/>
+                    Street: {this.props.truck.street}<br/>
                     City: {this.props.truck.city}<br/>
                     State: {this.props.truck.state}<br/>
+                    Zip code: {this.props.truck.zip_code}<br/>
+                    Phone Number: {this.props.truck.phone_number}<br/>
                     <button onClick={this.editTruck}>Edit Truck Information</button><br/><br/>
                 </section>
 
@@ -114,7 +115,9 @@ class Home extends Component {
                     <button onClick={this.addNote}>Add note</button>
                 </section>
 
-
+                <section>
+                    <GetRatings ratings={this.props.ratings}/>
+                </section>
 
                 
                 <button onClick={this.logout}>Logout</button>

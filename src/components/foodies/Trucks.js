@@ -17,9 +17,11 @@ const Trucks = props => {
         return <div key={id}>
                 Food Truck: {truck.name}<br/>
                 Food type: {truck.food_type}<br/>
-                Phone number: {truck.phone_number}<br/>
+                Street: {truck.street}<br/>
                 City: {truck.city}<br/>
-                State: {truck.state}<br/><br/>
+                State: {truck.state}<br/>
+                Zip code: {truck.zip_code}<br/>
+                Phone number: {truck.phone_number}<br/>
                 <button onClick={() => {details(truck.id)}}>View Details</button>
               </div>
       })
