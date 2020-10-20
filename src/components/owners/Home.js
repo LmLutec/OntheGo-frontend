@@ -14,9 +14,9 @@ class Home extends Component {
     //     this.props.profile()
     // }
     
-    // componentDidMount(){
-    //     this.props.profile()
-    // }
+    componentDidMount(){
+        this.props.profile()
+    }
     // componentDidUpdate(){
     //     this.props.profile()
     // }
@@ -43,12 +43,6 @@ class Home extends Component {
     }
 
 
-
-//  numbers.reduce(myFunc);
-
-
-
-
     render(){
         const renderItems = () => {
             return this.props.food.map((items) => {
@@ -71,14 +65,11 @@ class Home extends Component {
         
             <div>
                 <h1>Welcome back</h1> <br/>
-{/* 
-                <section className="owner_info">
-
-                </section> */}
 
 
 
                 <section className="truck_info">
+                    <h3>Food Truck</h3>
                     Food Truck: {this.props.truck.name}<br/>
                     Food type: {this.props.truck.food_type}<br/>
                     Street: {this.props.truck.street}<br/>
@@ -90,6 +81,7 @@ class Home extends Component {
                 </section>
 
                 <section className="schedule_info">
+                    <h3>Schedule</h3>
                     Monday: {this.props.schedule.mon_start} to {this.props.schedule.mon_end} <br/>
                     Tuesday: {this.props.schedule.tues_start} to {this.props.schedule.tues_end} <br/>
                     Wednesday: {this.props.schedule.wed_start} to {this.props.schedule.wed_end} <br/>
@@ -104,18 +96,19 @@ class Home extends Component {
                 </section>
            
                 <section className="menu_info">
-                    
-                    
+                    <h3>Menu</h3>
                     {renderItems()}
                     <button onClick={this.editMenu}>Edit Menu</button>
                 </section>
 
                 <section className="add_notes">
+                    <h3>Notes</h3>
                 {renderNotes()}
                     <button onClick={this.addNote}>Add note</button>
                 </section>
 
                 <section>
+                    <h3>Ratings</h3>
                     <GetRatings ratings={this.props.ratings}/>
                 </section>
 
@@ -124,16 +117,11 @@ class Home extends Component {
 
             </div>
             
-                            //  <button onClick={this.logout()}>Logout</button>
 
         )
     }
 
 }
 
-
-
-// const owner = JSON.parse(localStorage.getItem('owner'))
-// console.log(owner.foodtruck)
 
 export default withRouter(Home)

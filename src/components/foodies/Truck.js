@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
  
 const Truck = props => {
   const t = props.truck  
-
+console.log(t)
   function Rate(){
     props.history.push("/new/rating")
   }
