@@ -13,7 +13,7 @@ const reducer = (accumulator, currentValue) => (accumulator + currentValue)
 
 const GetRatings = props => {
    props.ratings.map((nestedRatings) => {
-     nestedRatings.map((rating) => {
+     return nestedRatings.map((rating) => {
         foodQuality.push(rating.food_quality)
         customerService.push(rating.customer_service)
         speedOfService.push(rating.speed_of_service)

@@ -6,21 +6,13 @@ import GetRatings from './GetRatings'
 
 
 
+
 class Home extends Component {
 
- 
-    
-    // componentWillMount(){
-    //     this.props.profile()
-    // }
-    
     componentDidMount(){
         this.props.profile()
     }
-    // componentDidUpdate(){
-    //     this.props.profile()
-    // }
-
+  
     editTruck = () => {
      this.props.history.push("/edit/truck")
     }
@@ -37,11 +29,15 @@ class Home extends Component {
         this.props.history.push("new/note")
     }
     
+    allRatings = () => {
+        this.props.history.push("/truck/ratings")
+    }
+
     logout = () => {
         localStorage.clear()
         this.props.history.push("/")
     }
-
+// create link for owner to delete their profile
 
     render(){
         const renderItems = () => {
@@ -57,10 +53,7 @@ class Home extends Component {
              })
          }
 
-         function myFunc(total, num) {
-            return total - num;
-          }
- 
+        
         return(
         
             <div>
@@ -110,6 +103,7 @@ class Home extends Component {
                 <section>
                     <h3>Ratings</h3>
                     <GetRatings ratings={this.props.ratings}/>
+                    <button onClick={this.allRatings}>See all ratings</button>
                 </section>
 
                 

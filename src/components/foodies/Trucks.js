@@ -10,6 +10,10 @@ const Trucks = props => {
     props.history.push("/truck")
   }
 
+  function mainPage(){
+    window.history.back()
+  }
+
   function Grab(){
 
     return allTrucks.map((nestedTrucks) => {
@@ -34,6 +38,7 @@ return (
     <ul>
         {Grab()}
     </ul>
+    <button onClick={() => {mainPage()}}>Main Page</button>
   </div>
   )
 }

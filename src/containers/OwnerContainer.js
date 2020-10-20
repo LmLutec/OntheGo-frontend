@@ -12,6 +12,7 @@ import MenuItemsInput from '../components/owners/MenuItemsInput'
 import EditMenu from '../components/owners/EditMenu'
 import { addOwner, Login, addTruck, addSchedule, editSchedule, createMenu, addFood, editTruck, addNote, getProfile, deleteFood, deleteNote } from '../actions/ownerActions'
 import NoteInput from '../components/owners/NoteInput'
+import TruckRatings from '../components/owners/RatingsDetails'
 
 
 // let isLoggedIn;
@@ -52,6 +53,7 @@ class OwnerContainer extends Component {
                     <Route exact path="/edit/schedule"><EditSchedule schedule={this.props.schedule} edit={this.props.editSchedule} truck={this.props.truck} profile={this.props.getProfile}/></Route>
                     <Route exact path="/edit/menu"><EditMenu menu={this.props.menu} addFood={this.props.addFood} profile={this.props.getProfile} /></Route>
                     <Route exact path="/new/note"><NoteInput add={this.props.addNote} truck={this.props.truck}/></Route>
+                    <Route exact path="/truck/ratings"><TruckRatings ratings={this.props.ratings}/></Route>
                     </Switch>
             </div>
         )
