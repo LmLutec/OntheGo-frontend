@@ -19,7 +19,7 @@ class FoodieContainer extends Component {
                         <Search search={this.props.search}/>
                     </Route> 
                     <Route exact path="/results"> <Trucks trucks={this.props.trucks} details={this.props.details}/></Route>
-                    <Route exact path="/truck"><Truck truck={this.props.truck} /></Route>
+                    <Route exact path="/truck"><Truck truck={this.props.truck} schedule={this.props.schedule} items={this.props.items} ratings={this.props.ratings} getInfo={this.props.details}/></Route>
                     <Route exact path="/new/rating"><RatingInput add={this.props.addRating} truck={this.props.truck} /></Route>
                 </Switch>
             </div>
@@ -31,7 +31,10 @@ const mapStateToProps = (state) => {
     // debugger
     return { 
         trucks: state.foodies.trucks,
-        truck: state.foodies.truck
+        truck: state.foodies.truck,
+        schedule: state.foodies.schedule,
+        items: state.foodies.items,
+        ratings: state.foodies.ratings
     }
 }
 

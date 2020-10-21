@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+// import Home from './Home'
 
 
 class EditMenu extends Component {
@@ -12,13 +13,9 @@ class EditMenu extends Component {
         }
     }
 
-    componentDidMount(){
-        this.props.profile()
+    componentWillUnmount(){
+        window.location.reload()
     }
-    
-    // componentDidUpdate(){
-    //     this.props.profile()
-    // }
 
     handleChange = (event) => {
         this.setState({
@@ -41,6 +38,7 @@ class EditMenu extends Component {
             item_type: ""
             }
         })
+
     }
 
     // showList = () =>{
@@ -50,7 +48,9 @@ class EditMenu extends Component {
     // }
 
     goHome = () => {
+    //    return (<Home />)
         this.props.history.push("/home")
+        
     }
 
     render(){

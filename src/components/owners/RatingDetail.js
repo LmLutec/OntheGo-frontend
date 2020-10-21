@@ -9,6 +9,7 @@ const RatingDetail = props => {
 
         return(
           <div>
+              <br/>
               Food quality: {rating.food_quality} <br/>
               Customer service: {rating.customer_service} <br/>
               Speed of service: {rating.speed_of_service} <br/>

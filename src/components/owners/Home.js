@@ -12,7 +12,7 @@ class Home extends Component {
     componentDidMount(){
         this.props.profile()
     }
-  
+
     editTruck = () => {
      this.props.history.push("/edit/truck")
     }

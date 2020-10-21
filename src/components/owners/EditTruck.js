@@ -20,6 +20,10 @@ class EditTruck extends Component {
        this.props.profile()
     }
 
+    componentWillUnmount(){
+        window.location.reload()
+    }
+
     handleChange = (event) => {
         this.setState({
             foodtruck: {

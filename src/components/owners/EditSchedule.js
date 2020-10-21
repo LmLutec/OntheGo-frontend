@@ -29,6 +29,10 @@ class EditSchedule extends Component {
         }
     }
 
+    componentWillUnmount(){
+        window.location.reload()
+    }
+
     handleChange = (event) => {
         this.setState({
             schedule: { 

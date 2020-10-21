@@ -15,7 +15,9 @@ class MenuItemsInput extends Component {
     }
 
 
-    list = []
+    componentWillUnmount(){
+        window.location.reload()
+    }
 
     handleChange = (event) => {
         this.setState({
@@ -29,7 +31,8 @@ class MenuItemsInput extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addFood(this.state.item, this.props.menu.id)
+        // debugger
+        this.props.addFood(this.state.item, this.props.menu)
         this.setState({
             item: {
             name: "", 

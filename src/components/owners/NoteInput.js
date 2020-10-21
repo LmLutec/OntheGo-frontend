@@ -12,6 +12,10 @@ class NoteInput extends Component {
         }
     }
 
+    // componentWillUnmount(){
+    //     window.location.reload()
+    // }
+
     handleChange = (event) => {
         this.setState({
             note: {
@@ -31,7 +35,6 @@ class NoteInput extends Component {
             message: ""
             }
         })
-
         this.props.history.push("/home")
     }
 

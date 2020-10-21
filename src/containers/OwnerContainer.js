@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Route, NavLink, Switch } from 'react-router-dom'
+import { Route, NavLink, Switch, Redirect } from 'react-router-dom'
 import Home from '../components/owners/Home'
 import OwnerInput from '../components/owners/OwnerInput'
 import OwnerLogin from '../components/owners/OwnerLogin'
@@ -12,7 +12,7 @@ import MenuItemsInput from '../components/owners/MenuItemsInput'
 import EditMenu from '../components/owners/EditMenu'
 import { addOwner, Login, addTruck, addSchedule, editSchedule, createMenu, addFood, editTruck, addNote, getProfile, deleteFood, deleteNote } from '../actions/ownerActions'
 import NoteInput from '../components/owners/NoteInput'
-import TruckRatings from '../components/owners/RatingsDetails'
+import RatingsDetails from '../components/owners/RatingsDetails'
 
 
 // let isLoggedIn;
@@ -30,6 +30,12 @@ import TruckRatings from '../components/owners/RatingsDetails'
 class OwnerContainer extends Component {
 
 
+    IsLoggedIn = () => {
+        if (localStorage.getItem('jwt_token')){
+            return true
+        }
+    }
+
     render(){
         
         return(
@@ -43,7 +49,10 @@ class OwnerContainer extends Component {
                         <NavLink exact to="/foodies">Foodies</NavLink>
                         {/* </header> */}
                     </Route>
-                    <Route exact path="/home"><Home owner={this.props.owner} profile={this.props.getProfile} truck={this.props.truck} schedule={this.props.schedule} menu={this.props.menu} food={this.props.food} notes={this.props.notes} deleteFood={this.props.deleteFood} deleteNote={this.props.deleteNote} ratings={this.props.ratings}/></Route>
+                 
+                    <Route exact path="/home">
+                        <Home owner={this.props.owner} profile={this.props.getProfile} truck={this.props.truck} schedule={this.props.schedule} menu={this.props.menu} food={this.props.food} notes={this.props.notes} deleteFood={this.props.deleteFood} deleteNote={this.props.deleteNote} ratings={this.props.ratings}/> 
+                    </Route>
                     <Route exact path="/login"> <OwnerLogin login={this.props.login} profile={this.props.getProfile}/></Route>
                     <Route exact path="/owner/new"><OwnerInput addOwner={this.props.addOwner}/></Route>
                     <Route exact path="/setup"> <TruckInput addTruck={this.props.addTruck} menu={this.props.createMenu} profile={this.props.getProfile}/></Route>
@@ -53,7 +62,7 @@ class OwnerContainer extends Component {
                     <Route exact path="/edit/schedule"><EditSchedule schedule={this.props.schedule} edit={this.props.editSchedule} truck={this.props.truck} profile={this.props.getProfile}/></Route>
                     <Route exact path="/edit/menu"><EditMenu menu={this.props.menu} addFood={this.props.addFood} profile={this.props.getProfile} /></Route>
                     <Route exact path="/new/note"><NoteInput add={this.props.addNote} truck={this.props.truck}/></Route>
-                    <Route exact path="/truck/ratings"><TruckRatings ratings={this.props.ratings}/></Route>
+                    <Route exact path="/truck/ratings"><RatingsDetails ratings={this.props.ratings}/></Route>
                     </Switch>
             </div>
         )
