@@ -1,9 +1,17 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 
 
 const Note = props => {
   const note = props.note
+
+  const home = (note) => {
+    props.deleteNote(note)
+    props.history.push("/home")
+    window.location.reload()
+  }
+
   return (
     <div>
         Note
@@ -11,10 +19,10 @@ const Note = props => {
               <p>{note.date}</p>
               <i>{note.message}</i>
               <br/>
-              <button onClick={() => props.deleteNote(note)}> Remove </button> 
+              <button onClick={() => home(note)}> Remove </button> 
       </ul>
     </div>
   )
 }
 
-export default Note
+export default withRouter(Note)

@@ -222,7 +222,7 @@ export const deleteNote = (note) => {
         .then(response => {
             return response.json()
         }).then(json => {
-            dispatch({type: 'DELETE_NOTE', note: json})
+            dispatch({type: 'DELETE_NOTE'})
         })
     }
 }

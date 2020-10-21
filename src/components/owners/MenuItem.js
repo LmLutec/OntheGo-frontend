@@ -8,7 +8,7 @@ const MenuItem = props => {
   const home = (item) => {
     props.deleteFood(item)
     props.history.push("/home")
-      window.location.reload()
+    window.location.reload()
   }
   
 

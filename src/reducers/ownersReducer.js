@@ -33,8 +33,10 @@ export default function ownersReducer(state = {
         case "ADD_NOTE":
                 // debugger 
                 return {...state, notes: [...state.notes, action.note]}
+        case "DELETE_NOTE":
+                idx = state.findIndex(item => item.id === action.id)
+                return [...state.slice(0, idx), ...state.slice(idx + 1)]
         case "DELETE_FOOD":
-                debugger
                 idx = state.findIndex(item => item.id === action.id)
                 return [...state.slice(0, idx), ...state.slice(idx + 1)]
         case "REMOVE_TRUCK":
