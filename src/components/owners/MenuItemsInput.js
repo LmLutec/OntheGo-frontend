@@ -62,9 +62,17 @@ class MenuItemsInput extends Component {
                     <label>Food price</label>
                     <input onChange={(event) => {this.handleChange(event)}} type="text" id="price" value={this.state.item.price} placeholder="Price"/><br/>
                     <label>Food description</label>
-                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="description" value={this.state.item.description} placeholder="Description"/><br/>
+                    <input onChange={(event) => {this.handleChange(event)}} type="textarea" id="description" value={this.state.item.description} placeholder="Description"/><br/>
                     <label>Item type:</label>
-                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="item_type" value={this.state.item.item_type} placeholder="Entree, drink, etc"/>
+                    <select value={this.state.item.item_type} onChange={(event) => {this.handleChange(event)}}>
+                    <option value="Beverage">Beverage</option>
+                    <option value="Dessert">Dessert</option>
+                    <option value="Salad">Salad</option>
+                    <option value="Entree">Entree</option>
+                    <option value="Sandwich">Sandwich</option>
+                    <option value="Side">Side</option>
+                    </select>
+                    {/* <input onChange={(event) => {this.handleChange(event)}} type="text" id="item_type" value={this.state.item.item_type} placeholder="Entree, drink, etc"/> */}
                     <input type="submit" value="Add to Menu"/>
                 </form>
 
@@ -76,6 +84,15 @@ class MenuItemsInput extends Component {
     }
 
 } 
+
+
+
+
+
+
+
+
+
 
 
 export default withRouter(MenuItemsInput)

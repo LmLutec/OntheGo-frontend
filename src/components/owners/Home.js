@@ -94,18 +94,18 @@ class Home extends Component {
                     <button onClick={this.editMenu}>Edit Menu</button>
                 </section>
 
-                <section className="add_notes">
+                <section className="add_notes" style={{display: this.props.truck.notes > 0 ? 'block' : 'none' }}>
                     <h3>Notes</h3>
-                {renderNotes()}
-                    <button onClick={this.addNote}>Add note</button>
+                    {renderNotes()}
                 </section>
-
-                <section>
+                <button onClick={this.addNote}>Add note</button><br/>
+                
+                <section className="ratings" style={{display: this.props.truck.ratings > 0 ? 'block' : 'none' }}>
                     <h3>Ratings</h3>
                     <GetRatings ratings={this.props.ratings}/>
                     <button onClick={this.allRatings}>See all ratings</button>
                 </section>
-
+                
                 
                 <button onClick={this.logout}>Logout</button>
 

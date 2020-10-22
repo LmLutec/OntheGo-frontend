@@ -1,13 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { withRouter } from 'react-router-dom'
  
-// const Truck = props => {
-//   const t = props.truck  
-//   const s = props.schedule
-//   const r = props.ratings
-//   const i = props.items
-// console.log(t.schedule)
-// debugger
+const Truck = props => {
+  const t = props.truck  
+  const s = props.schedule
+  const r = props.ratings
+  const i = props.items
+
   function Rate(){
     this.props.history.push("/new/rating")
   }
@@ -16,20 +15,11 @@ import { withRouter } from 'react-router-dom'
     window.history.back()
   }
 
-class Truck extends Component {
-  componentDidMount(){
-    this.props.getInfo(this.props.truck.id)
-  }
-
-  render(){
-
-    const t = this.props.truck  
-      const s = this.props.schedule
-      const r = this.props.ratings
-      const i = this.props.items
+ 
       // debugger
 
     return(
+      
       <div>
 
          <section>
@@ -45,7 +35,6 @@ class Truck extends Component {
 
       </div>
     )
-  }
 }
 
   // const renderItems = () => {

@@ -31,8 +31,8 @@ class Search extends Component {
             <div>
                 Find Foodtrucks by location
                 <form onSubmit={(event)=> {this.handleSubmit(event)}}>
-                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="city" value={this.state.city} placeholder="city"/><br/>
-                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="state" value={this.state.state} placeholder="state"/><br/>
+                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="city" value={this.state.city} placeholder="city" required/><br/>
+                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="state" value={this.state.state} placeholder="state" required/><br/>
                     <input type="submit" value="Search for Trucks"/>
                 </form>
                 <br/>
