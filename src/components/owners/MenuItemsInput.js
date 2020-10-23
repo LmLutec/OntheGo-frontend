@@ -64,7 +64,7 @@ class MenuItemsInput extends Component {
                     <label>Food description</label>
                     <input onChange={(event) => {this.handleChange(event)}} type="textarea" id="description" value={this.state.item.description} placeholder="Description"/><br/>
                     <label>Item type:</label>
-                    <select value={this.state.item.item_type} onChange={(event) => {this.handleChange(event)}}>
+                    <select onChange={(event) => {this.handleChange(event)}} value={this.state.item.item_type}>
                     <option value="Beverage">Beverage</option>
                     <option value="Dessert">Dessert</option>
                     <option value="Salad">Salad</option>

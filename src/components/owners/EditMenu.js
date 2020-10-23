@@ -18,6 +18,7 @@ class EditMenu extends Component {
     }
 
     handleChange = (event) => {
+
         this.setState({
             item: {
             ...this.state.item, 
@@ -29,6 +30,7 @@ class EditMenu extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
+        // debugger
         this.props.addFood(this.state.item, this.props.menu.id)
         this.setState({
             item: {
@@ -54,7 +56,6 @@ class EditMenu extends Component {
     }
 
     render(){
-        console.log(this.props.menu.id)
         // const items = this.props.menu.items.map((item, id) => <MenuItem delete={this.props.delete} key={id} item={item}/>)
         return(
             <div>
@@ -63,7 +64,7 @@ class EditMenu extends Component {
                     <input onChange={(event) => {this.handleChange(event)}} type="text" id="name" value={this.state.item.name} placeholder="Food name"/>
                     <input onChange={(event) => {this.handleChange(event)}} type="text" id="price" value={this.state.item.price} placeholder="Price"/><br/>
                     <input onChange={(event) => {this.handleChange(event)}} type="textarea" id="description" value={this.state.item.description} placeholder="Description"/><br/>
-                    <select value={this.state.item.item_type} onChange={(event) => {this.handleChange(event)}}>
+                    <select onChange={(event) => {this.handleChange(event)}} value={this.state.item.item_type} id="item_type">
                     <option value="Beverage">Beverage</option>
                     <option value="Dessert">Dessert</option>
                     <option value="Salad">Salad</option>
