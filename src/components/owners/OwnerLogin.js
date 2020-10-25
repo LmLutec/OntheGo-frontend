@@ -68,9 +68,9 @@ class OwnerLogin extends Component{
             <div>
                 <form onSubmit={event => {this.handleSubmit(event)}} >
                     <label>Email</label>
-                    <input onChange={event => {this.handleChange(event)}} type="text" id="email" value={this.state.owner.email}/><br/>
+                    <input onChange={event => {this.handleChange(event)}} type="text" id="email" value={this.state.owner.email} required/><br/>
                     <label>Password</label>
-                    <input onChange={event => {this.handleChange(event)}} type="password" id="password" value={this.state.owner.password}/><br/>
+                    <input onChange={event => {this.handleChange(event)}} type="password" id="password" value={this.state.owner.password} required/><br/>
                     <input type="submit" value="submit"/>
                 </form>
                 <br/>
