@@ -44,9 +44,9 @@ class NoteInput extends Component {
             <div>
                 <form onSubmit={(event) => {this.handleSubmit(event)}}>
                     <label>Date</label>
-                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="date" value={this.state.note.date} /><br/>
+                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="date" value={this.state.note.date} required/><br/>
                     <label>Message</label>
-                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="message" value={this.state.note.message}/><br/>
+                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="message" value={this.state.note.message} required/><br/>
                     <input type="submit" name="Add Note"/>
                 </form>
             </div>
