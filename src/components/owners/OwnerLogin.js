@@ -35,28 +35,6 @@ class OwnerLogin extends Component{
     }
     
                 
-
-    // getProfile(){
-    //     fetch("http://localhost:3000/api/v1/profile", {
-    //         method: "GET",
-    //         headers: {
-    //             Authorization: `Bearer: ${localStorage.getItem('jwt_token')}`
-    //         }
-    //     })
-    //     .then(response => response.json())
-    //     .then(json =>{
-    //         // console.log(json)
-    //         this.Profile(json)
-    //     })
-    // }
-
-    // Profile(json){
-
-    //     if(json){
-    //         console.log('true')
-            
-    //     }
-    // }
     goBack = () => {
         window.history.back()
     }
