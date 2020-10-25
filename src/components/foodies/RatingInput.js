@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
-let errorMessage = ""
-
 class RatingInput extends Component {
 
     state = {
@@ -13,10 +11,6 @@ class RatingInput extends Component {
             prices: ""
         }
     }
-
-    ratingInputValidator = () => {
-    }
-
 
     handleChange = event => {
         this.setState({
@@ -30,7 +24,7 @@ class RatingInput extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        // this.ratingInputValidator()
+        
         console.log(this.props.truck.id)
         this.props.add(this.state.rating, this.props.truck.id)
 
@@ -94,9 +88,7 @@ class RatingInput extends Component {
                 </form>
 
                 <button onClick={this.goBack()}>Go back</button>
-                <section className="errors">
-                    {errorMessage}
-                </section>
+              
             </div>
         )
     }
