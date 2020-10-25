@@ -10,7 +10,7 @@ import Schedule from '../components/owners/Schedule'
 import EditSchedule from '../components/owners/EditSchedule'
 import MenuItemsInput from '../components/owners/MenuItemsInput'
 import EditMenu from '../components/owners/EditMenu'
-import { addOwner, Login, addTruck, addSchedule, editSchedule, createMenu, addFood, editTruck, addNote, getProfile, deleteFood, deleteNote } from '../actions/ownerActions'
+import { addOwner, Login, addTruck, addSchedule, editSchedule, createMenu, addFood, editTruck, addNote, getProfile, deleteFood, deleteNote, deleteProfile } from '../actions/ownerActions'
 import NoteInput from '../components/owners/NoteInput'
 import RatingsDetails from '../components/owners/RatingsDetails'
 
@@ -51,7 +51,7 @@ class OwnerContainer extends Component {
                     </Route>
                  
                     <Route exact path="/home">
-                        <Home owner={this.props.owner} profile={this.props.getProfile} truck={this.props.truck} schedule={this.props.schedule} menu={this.props.menu} food={this.props.food} notes={this.props.notes} deleteFood={this.props.deleteFood} deleteNote={this.props.deleteNote} ratings={this.props.ratings}/> 
+                        <Home owner={this.props.owner} profile={this.props.getProfile} truck={this.props.truck} schedule={this.props.schedule} menu={this.props.menu} food={this.props.food} notes={this.props.notes} deleteFood={this.props.deleteFood} deleteNote={this.props.deleteNote} ratings={this.props.ratings} deleteAcct={this.props.deleteProfile}/> 
                     </Route>
                     <Route exact path="/login"> <OwnerLogin login={this.props.login} profile={this.props.getProfile}/></Route>
                     <Route exact path="/owner/new"><OwnerInput addOwner={this.props.addOwner}/></Route>
@@ -98,7 +98,8 @@ const mapDispatchToProps = (dispatch) => {
       addFood: (food, menuId) => dispatch(addFood(food, menuId)),
       deleteFood: (food) => dispatch(deleteFood(food)),
       addNote: (note) => dispatch(addNote(note)),
-      deleteNote: (note) => dispatch(deleteNote(note))
+      deleteNote: (note) => dispatch(deleteNote(note)),
+      deleteProfile: (acct) => dispatch(deleteProfile(acct))
     }
   }
 

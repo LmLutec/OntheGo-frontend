@@ -9,6 +9,10 @@ import GetRatings from './GetRatings'
 
 class Home extends Component {
 
+    state = {
+        deleteProf: false
+    }
+
     componentDidMount(){
         this.props.profile()
     }
@@ -36,6 +40,30 @@ class Home extends Component {
     logout = () => {
         localStorage.clear()
         this.props.history.push("/")
+    }
+
+    deleteProfileConf = () => {
+        if (this.state.deleteProf == false){
+            this.setState({
+                deleteProf: true
+            })
+        }
+        else {
+            this.setState({
+                deleteProf: false
+            })
+        }
+    }
+
+    delete = () => {
+        this.props.deleteAcct(this.props.owner)
+        this.props.history.push("/")
+    }
+
+    dontDelete = () => {
+        this.setState({
+            deleteProf: false
+        })
     }
 // create link for owner to delete their profile
 
@@ -105,10 +133,18 @@ class Home extends Component {
                     <GetRatings ratings={this.props.ratings}/>
                     <button onClick={this.allRatings}>See all ratings</button>
                 </section>
-                
-                
-                <button onClick={this.logout}>Logout</button>
 
+                <button onClick={this.logout}>Logout</button><br/><br/><br/>
+
+                <section className="delete_confirmation">
+                    <div style={{display: this.state.deleteProf == false ? 'none' : 'block'}}>
+                        Are you sure you want to delete your account? Account will be permanently deleted.
+                            <button onClick={this.delete}>Yes</button>
+                            <button onClick={this.dontDelete}>No</button>
+                    </div>
+                    <button onClick={this.deleteProfileConf}>DELETE ACCOUNT</button>
+                </section>
+               
             </div>
             
 

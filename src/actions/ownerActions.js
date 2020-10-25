@@ -247,3 +247,22 @@ export const addNote = (note) => {
     }
 }
 
+
+export const deleteProfile = (acct) => {
+    
+    const formData = {
+        method: 'DELETE',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(acct)
+    }
+    return (dispatch) => {
+        fetch(`http://localhost:3000/api/v1/owners/${acct.owner.id}`, formData)
+        // .then(response => {
+        //     return response.json()
+        // }).then(json => {
+        //     dispatch({type: 'DELETE_NOTE'})
+        // })
+    }
+}
