@@ -64,7 +64,7 @@ class MenuItemsInput extends Component {
                     <label>Food description</label>
                     <input onChange={(event) => {this.handleChange(event)}} type="textarea" id="description" value={this.state.item.description} placeholder="Description"/><br/>
                     <label>Item type:</label>
-                    <select onChange={(event) => {this.handleChange(event)}} value={this.state.item.item_type}>
+                    <select onChange={(event) => {this.handleChange(event)}} value={this.state.item.item_type} id="item_type">
                     <option value="Beverage">Beverage</option>
                     <option value="Dessert">Dessert</option>
                     <option value="Salad">Salad</option>
@@ -72,7 +72,6 @@ class MenuItemsInput extends Component {
                     <option value="Sandwich">Sandwich</option>
                     <option value="Side">Side</option>
                     </select>
-                    {/* <input onChange={(event) => {this.handleChange(event)}} type="text" id="item_type" value={this.state.item.item_type} placeholder="Entree, drink, etc"/> */}
                     <input type="submit" value="Add to Menu"/>
                 </form>
 

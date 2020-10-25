@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
-
+let errorMessage = ""
 
 class RatingInput extends Component {
 
@@ -13,6 +13,16 @@ class RatingInput extends Component {
             prices: ""
         }
     }
+
+    ratingInputValidator = () => {
+        if (this.state.rating.includes("")){
+            console.log(true)
+        }
+        // if (this.state.food_quality === "" || this.state.food_quality > 5){
+        //     errorMessage = ""
+        // }
+    }
+
 
     handleChange = event => {
         this.setState({
@@ -26,6 +36,7 @@ class RatingInput extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
+        this.ratingInputValidator()
         console.log(this.props.truck.id)
         this.props.add(this.state.rating, this.props.truck.id)
 
@@ -55,6 +66,10 @@ class RatingInput extends Component {
                     Price (1 = not expensive, 5 = expensive)<input onChange={(event) => {this.handleChange(event)}} type="text" id="prices" value={this.state.rating.prices}/><br/>
                     <input type="submit" value="Add rating"/>
                 </form>
+
+                <section className="errors">
+                    {errorMessage}
+                </section>
             </div>
         )
     }

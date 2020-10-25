@@ -3,7 +3,10 @@ import { withRouter } from 'react-router-dom'
 
 
 const Trucks = props => {
+
   const allTrucks = props.trucks
+  const error = props.error
+  let message = ""
   
   function details(truckId){
     props.details(truckId)
@@ -32,11 +35,18 @@ const Trucks = props => {
     })
   }
 
+  if (error){
+    message = "There are no foodtrucks in your area. If you think this is a mistake, check the spelling of the City and State"
+  }
+  else {
+    message = Grab()
+  }
+
 return (
   <div>
       All trucks 
     <ul>
-        {Grab()}
+        {message}
     </ul>
     <button onClick={() => {mainPage()}}>Main Page</button>
   </div>
