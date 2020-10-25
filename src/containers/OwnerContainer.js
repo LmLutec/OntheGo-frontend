@@ -57,10 +57,10 @@ class OwnerContainer extends Component {
                     <Route exact path="/owner/new"><OwnerInput addOwner={this.props.addOwner}/></Route>
                     <Route exact path="/setup"> <TruckInput addTruck={this.props.addTruck} menu={this.props.createMenu} profile={this.props.getProfile}/></Route>
                     <Route exact path="/schedule"> <Schedule addSchedule={this.props.addSchedule} truck={this.props.truck} addMenu={this.props.createMenu}/></Route>
-                    <Route exact path="/manage/menu"> <MenuItemsInput addFood={this.props.addFood} menu={this.props.menu} food={this.props.food} profile={this.props.getProfile}/></Route>
+                    <Route exact path="/manage/menu"> <MenuItemsInput addFood={this.props.addFood} menu={this.props.menu} food={this.props.food} deleteFood={this.props.deleteFood} profile={this.props.getProfile}/></Route>
                     <Route exact path="/edit/truck"> <EditTruck edit={this.props.editTruck} truck={this.props.truck} profile={this.props.getProfile}/></Route>
                     <Route exact path="/edit/schedule"><EditSchedule schedule={this.props.schedule} edit={this.props.editSchedule} truck={this.props.truck} profile={this.props.getProfile}/></Route>
-                    <Route exact path="/edit/menu"><EditMenu menu={this.props.menu} addFood={this.props.addFood} profile={this.props.getProfile} /></Route>
+                    <Route exact path="/edit/menu"><EditMenu menu={this.props.menu} addFood={this.props.addFood} profile={this.props.getProfile} deleteFood={this.props.deleteFood} /></Route>
                     <Route exact path="/new/note"><NoteInput add={this.props.addNote} truck={this.props.truck}/></Route>
                     <Route exact path="/truck/ratings"><RatingsDetails ratings={this.props.ratings}/></Route>
                     </Switch>

@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import {withRouter} from 'react-router-dom'
+import MenuItem from './MenuItem'
+
+let list = []
 
 
 
@@ -31,7 +34,9 @@ class MenuItemsInput extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        // debugger
+        
+        list.push(this.state.item)
+
         this.props.addFood(this.state.item, this.props.menu)
         this.setState({
             item: {
@@ -43,16 +48,14 @@ class MenuItemsInput extends Component {
         })
     }
 
-    // showList = () =>{
-    //   console.log(true)
-    // }
-
     goHome = () => {
         this.props.history.push("/home")
     }
 
     render(){
-        // <MenuItem delete={this.props.delete} key={id} item={item}/>)
+        
+        let renderItems = list.map((i, id) => <MenuItem key={id} item={i} deleteFood={this.props.deleteFood}/>)
+
         return(
             <div>
                 <h4>Add menu items</h4>
@@ -76,7 +79,7 @@ class MenuItemsInput extends Component {
                 </form>
 
                 <h5>So far you've added:</h5><br/><br/>
-                    {/* {item} */}
+                    {renderItems}
                 <button onClick={this.goHome}>Home</button>
             </div>
         )

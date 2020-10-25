@@ -65,7 +65,7 @@ class Home extends Component {
             deleteProf: false
         })
     }
-// create link for owner to delete their profile
+
 
     render(){
         const renderItems = () => {

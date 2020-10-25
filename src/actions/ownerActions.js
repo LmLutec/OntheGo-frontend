@@ -182,7 +182,6 @@ export const addFood = (food, menuId) => {
         .then(response => {
             return response.json()
         }).then(json => {
-            console.log(json)
             dispatch({type: 'ADD_FOOD', food: json.item})
         })
     }

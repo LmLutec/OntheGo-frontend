@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-// import Home from './Home'
+import MenuItem from './MenuItem'
+
+let list = []
 
 
 class EditMenu extends Component {
@@ -30,6 +32,8 @@ class EditMenu extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
+
+        list.push(this.state.item)
         
         this.props.addFood(this.state.item, this.props.menu.id)
         this.setState({
@@ -49,7 +53,9 @@ class EditMenu extends Component {
     }
 
     render(){
-    
+        
+        let renderItems = list.map((i, id) => <MenuItem key={id} item={i} deleteFood={this.props.deleteFood}/>)
+
         return(
             <div>
                 <h4>Add menu items</h4>
@@ -69,7 +75,7 @@ class EditMenu extends Component {
                 </form>
 
                 <h5>Menu</h5><br/><br/>
-                    {/* {items} */}
+                    {renderItems}
 
                 <button onClick={this.goHome}>Home</button>
             </div>
