@@ -50,19 +50,19 @@ class EditTruck extends Component {
                 <h3>Edit one or more fields</h3>
                 <form onSubmit={(event) => {this.handleSubmit(event)}}>
                     <label>Name</label>
-                    <input onChange={ event => {this.handleChange(event)}} type="text" id="name" value={this.state.foodtruck.name} /><br/>
+                    <input onChange={ event => {this.handleChange(event)}} type="text" id="name" value={this.state.foodtruck.name} required /><br/>
                     <label>Street</label>
-                    <input onChange={ event => {this.handleChange(event)}} type="text" id="street" value={this.state.foodtruck.street}/><br/>
+                    <input onChange={ event => {this.handleChange(event)}} type="text" id="street" value={this.state.foodtruck.street} required/><br/>
                     <label>State</label>
-                    <input onChange={ event => {this.handleChange(event)}} type="text" id="state" value={this.state.foodtruck.state}/><br/>
+                    <input onChange={ event => {this.handleChange(event)}} type="text" id="state" value={this.state.foodtruck.state} required/><br/>
                     <label>City</label>
-                    <input onChange={ event => {this.handleChange(event)}} type="text" id="city" value={this.state.foodtruck.city}/><br/>
+                    <input onChange={ event => {this.handleChange(event)}} type="text" id="city" value={this.state.foodtruck.city} required/><br/>
                     <label>Zip code</label>
-                    <input onChange={ event => {this.handleChange(event)}} type="text" id="zip_code" value={this.state.foodtruck.zip_code}/><br/>
+                    <input onChange={ event => {this.handleChange(event)}} type="text" id="zip_code" value={this.state.foodtruck.zip_code} required/><br/>
                     <label>Food type</label>
-                    <input onChange= { event => {this.handleChange(event)}} type="text" id="food_type" value={this.state.foodtruck.food_type}/><br/>
+                    <input onChange= { event => {this.handleChange(event)}} type="text" id="food_type" value={this.state.foodtruck.food_type} required/><br/>
                     <label>Phone number</label>
-                    <input onChange= { event => {this.handleChange(event)}} type="text" id="phone_number" value={this.state.foodtruck.phone_number}/><br/>
+                    <input onChange= { event => {this.handleChange(event)}} type="text" id="phone_number" value={this.state.foodtruck.phone_number} required/><br/>
                     <input type="submit" value="Edit Truck"/>
                 </form>
 
