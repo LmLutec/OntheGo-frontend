@@ -30,7 +30,7 @@ class EditMenu extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        // debugger
+        
         this.props.addFood(this.state.item, this.props.menu.id)
         this.setState({
             item: {
@@ -43,28 +43,21 @@ class EditMenu extends Component {
 
     }
 
-    // showList = () =>{
-    //   this.props.menu.items.map((i) => {
-    //     <li>{i}</li>
-    //   })
-    // }
-
     goHome = () => {
-    //    return (<Home />)
         this.props.history.push("/home")
         
     }
 
     render(){
-        // const items = this.props.menu.items.map((item, id) => <MenuItem delete={this.props.delete} key={id} item={item}/>)
+    
         return(
             <div>
                 <h4>Add menu items</h4>
                 <form onSubmit={(event) => {this.handleSubmit(event)}}>
-                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="name" value={this.state.item.name} placeholder="Food name"/>
-                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="price" value={this.state.item.price} placeholder="Price"/><br/>
-                    <input onChange={(event) => {this.handleChange(event)}} type="textarea" id="description" value={this.state.item.description} placeholder="Description"/><br/>
-                    <select onChange={(event) => {this.handleChange(event)}} value={this.state.item.item_type} id="item_type">
+                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="name" value={this.state.item.name} placeholder="Food name" required/>
+                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="price" value={this.state.item.price} placeholder="Price" required/><br/>
+                    <input onChange={(event) => {this.handleChange(event)}} type="textarea" id="description" value={this.state.item.description} placeholder="Description" required/><br/>
+                    <select onChange={(event) => {this.handleChange(event)}} value={this.state.item.item_type} id="item_type" required>
                     <option value="Beverage">Beverage</option>
                     <option value="Dessert">Dessert</option>
                     <option value="Salad">Salad</option>
