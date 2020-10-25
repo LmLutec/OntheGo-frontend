@@ -15,12 +15,6 @@ class RatingInput extends Component {
     }
 
     ratingInputValidator = () => {
-        if (this.state.rating.includes("")){
-            console.log(true)
-        }
-        // if (this.state.food_quality === "" || this.state.food_quality > 5){
-        //     errorMessage = ""
-        // }
     }
 
 
@@ -36,7 +30,7 @@ class RatingInput extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        this.ratingInputValidator()
+        // this.ratingInputValidator()
         console.log(this.props.truck.id)
         this.props.add(this.state.rating, this.props.truck.id)
 
