@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {withRouter} from 'react-router-dom'
 
-
+// let error = ""
 
 class OwnerLogin extends Component{
   
@@ -12,8 +12,6 @@ class OwnerLogin extends Component{
             password: ""
             }
         }
-  
-
 
     handleChange = event => {
         this.setState({
@@ -28,10 +26,15 @@ class OwnerLogin extends Component{
         event.preventDefault()
         this.props.login(this.state.owner)
         
-             if (localStorage.getItem("jwt_token")){
+             if (localStorage.getItem("jwt_token") !== "undefined"){
                 this.props.history.push("/home")
                 return this.props.profile()
-         }
+            }
+            else {
+                this.props.history.push("/")
+            }
+         
+
     }
     
                 
@@ -44,6 +47,7 @@ class OwnerLogin extends Component{
     render(){
         return(
             <div>
+                {/* {error} */}
                 <form onSubmit={event => {this.handleSubmit(event)}} >
                     <label>Email</label>
                     <input onChange={event => {this.handleChange(event)}} type="text" id="email" value={this.state.owner.email} required/><br/>

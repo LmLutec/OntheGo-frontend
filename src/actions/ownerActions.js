@@ -33,6 +33,7 @@ export const Login = (credentials) => {
                 dispatch({type: 'LOGIN', owner: json.owner})
                    localStorage.setItem("jwt_token", json.jwt)
                    localStorage.setItem("owner", JSON.stringify(json.owner)) 
+           
         }) 
       
         }

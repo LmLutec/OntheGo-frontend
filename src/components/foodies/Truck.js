@@ -19,7 +19,6 @@ const Truck = props => {
   let salads = []
 
   let scheduleMessage = ""
-  let itemsMessage = ""
 
   function Rate(){
     props.history.push("/new/rating")
@@ -107,13 +106,6 @@ const Truck = props => {
         scheduleMessage = getSchedule()
       }
 
-      // if (!i){
-      //   itemsMessage = "Loading"
-      // }
-      // else {
-      //   getItems()
-      // }
-console.log(n)
     return(
       
 

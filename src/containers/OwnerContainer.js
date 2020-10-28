@@ -53,7 +53,7 @@ class OwnerContainer extends Component {
                     <Route exact path="/home">
                         <Home owner={this.props.owner} profile={this.props.getProfile} truck={this.props.truck} schedule={this.props.schedule} menu={this.props.menu} food={this.props.food} notes={this.props.notes} deleteFood={this.props.deleteFood} deleteNote={this.props.deleteNote} ratings={this.props.ratings} deleteAcct={this.props.deleteProfile}/> 
                     </Route>
-                    <Route exact path="/login"> <OwnerLogin login={this.props.login} profile={this.props.getProfile}/></Route>
+                    <Route exact path="/login"> <OwnerLogin login={this.props.login} profile={this.props.getProfile} /></Route>
                     <Route exact path="/owner/new"><OwnerInput addOwner={this.props.addOwner}/></Route>
                     <Route exact path="/setup"> <TruckInput addTruck={this.props.addTruck} menu={this.props.createMenu} profile={this.props.getProfile}/></Route>
                     <Route exact path="/schedule"> <Schedule addSchedule={this.props.addSchedule} truck={this.props.truck} addMenu={this.props.createMenu}/></Route>

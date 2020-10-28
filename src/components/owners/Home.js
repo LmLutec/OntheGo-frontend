@@ -14,7 +14,7 @@ class Home extends Component {
     }
 
     componentDidMount(){
-        this.props.profile()
+        this.props.profile() 
     }
 
     editTruck = () => {

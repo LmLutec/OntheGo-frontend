@@ -5,7 +5,7 @@ export default function ownersReducer(state = {
         food: [],
         schedule: {},
         notes: [],
-        ratings: [],
+        ratings: []
 }, action){
     // debugger
     let idx;
@@ -31,7 +31,6 @@ export default function ownersReducer(state = {
         case "ADD_FOOD":
                 return {...state, food: [...state.food, action.item]}
         case "ADD_NOTE":
-                // debugger 
                 return {...state, notes: [...state.notes, action.note]}
         case "DELETE_NOTE":
                 idx = state.findIndex(item => item.id === action.id)
