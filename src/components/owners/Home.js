@@ -80,7 +80,6 @@ class Home extends Component {
                 return allnotes.map((n, id) => <Note deleteNote={this.props.deleteNote} key={id} note={n}/>)
              })
          }
-
         
         return(
         
@@ -122,7 +121,7 @@ class Home extends Component {
                     <button onClick={this.editMenu}>Edit Menu</button>
                 </section>
 
-                <section className="add_notes" style={{display: this.props.truck.notes > 0 ? 'block' : 'none' }}>
+                <section className="add_notes" style={{display: this.props.notes.length > 0 ? 'block' : 'none' }}>
                     <h3>Notes</h3>
                     {renderNotes()}
                 </section>

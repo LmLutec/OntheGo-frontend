@@ -22,7 +22,7 @@ const GetRatings = props => {
   })
 
 const getAverage = (arr) => {
-   return arr.reduce(reducer,0) / arr.length
+   return Math.round(arr.reduce(reducer,0) / arr.length)
 }
 
   return (

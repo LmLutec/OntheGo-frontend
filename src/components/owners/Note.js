@@ -14,7 +14,6 @@ const Note = props => {
 
   return (
     <div>
-        Note
       <ul>
               <p>{note.date}</p>
               <i>{note.message}</i>

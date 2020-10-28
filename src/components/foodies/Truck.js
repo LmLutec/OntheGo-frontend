@@ -2,13 +2,24 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import GetRatings from '../owners/GetRatings'
  
+
+
 const Truck = props => {
   const t = props.truck  
   const s = props.schedule
   const r = props.ratings
   const i = props.items
+  const n = props.notes
+
+  let beverages = []
+  let sides = []
+  let entrees = []
+  let sandwiches = []
+  let desserts = []
+  let salads = []
 
   let scheduleMessage = ""
+  let itemsMessage = ""
 
   function Rate(){
     props.history.push("/new/rating")
@@ -31,17 +42,63 @@ const Truck = props => {
         </div>
   }
 
-  function getRatings(){
-    return <div>
-
-
-          </div>
-  }
 
   function getItems(){
-
+    i.map((item) => {
+      return item.map((food) => {
+        switch (food.item_type) {
+          case "Beverage":
+            beverages.push(food)
+            break;
+          case "Dessert":
+            desserts.push(food) 
+            break;
+          case "Entree":
+            entrees.push(food)
+            break;
+          case "Salad":
+            salads.push(food)
+            break;
+          case "Sandwich":
+            sandwiches.push(food)
+            break;
+          case "Side":
+            sides.push(food)
+            break;
+        }
+      })  
+    })
   }
 
+  function getNotes(){
+    return n.map((notes) => {
+      return notes.map((note, id) => <li key={id}>{note.date}: {note.message}</li>)
+    })
+  }
+
+  function getBeverages(){
+  return beverages.map((drink, id) => <li key={id}>{drink.name}<i>({drink.description})</i>- ${drink.price} </li>)
+  }
+
+  function getEntrees(){
+  return entrees.map((entree, id) => <li key={id}>{entree.name}<i>({entree.description})</i>- ${entree.price}</li>)
+  }
+
+  function getSides(){
+  return sides.map((side, id) => <li key={id}>{side.name}<i>({side.description})</i>- ${side.price}</li>)
+  }
+
+  function getDesserts(){
+  return desserts.map((dessert, id) => <li key={id}>{dessert.name}<i>({dessert.description})</i>- ${dessert.price}</li>)
+  }
+
+  function getSalads(){
+  return salads.map((salad, id) => <li key={id}>{salad.name}<i>({salad.description})</i>- ${salad.price}</li>)
+  }
+
+  function getSandwiches(){
+  return sandwiches.map((sandwich, id) => <li key={id}>{sandwich.name}<i>({sandwich.description})- ${sandwich.price}</i></li>)
+  }
 
       if (!s){
         scheduleMessage = "Loading"
@@ -50,32 +107,62 @@ const Truck = props => {
         scheduleMessage = getSchedule()
       }
 
-      // if (!r){
-      //   message = "Loading"
-      // }
-      // else {
-      //   message = getRatings()
-      // }
-
       // if (!i){
-      //   message = "Loading"
+      //   itemsMessage = "Loading"
       // }
       // else {
-      //   message = getItems()
+      //   getItems()
       // }
-
+console.log(n)
     return(
       
+
       <div>
+        <section className="notes">
+          <h4>Notes from Truck Owner</h4>
+            {getNotes()}
+        </section>
+
 
          <section className="schedule_info"> 
             {scheduleMessage}
          </section>
 
-         <h4>Ratings</h4>
-         <section className="ratings" style={{display: props.ratings.length > 0 ? 'block' : 'none'}}>
+         <section className="ratings" style={{display: r.length > 0 ? 'block' : 'none'}}>
+          <h4>Ratings</h4>
             <GetRatings ratings={r}/>
          </section>
+
+          <h4>Menu</h4>
+            {getItems()}
+          <section>
+            <div className="beverages" style={{display: beverages.length > 0 ? 'block' : 'none'}}>
+              Beverages:
+              {getBeverages()}
+            </div><br/>
+            <div className="entrees" style={{display: entrees.length > 0 ? 'block' : 'none'}}>
+              Entrees:
+              {getEntrees()}
+            </div><br/>
+            <div className="sandwiches" style={{display: sandwiches.length > 0 ? 'block' : 'none'}}>
+              Sandwiches:
+              {getSandwiches()}
+            </div><br/>
+            <div className="salads" style={{display: salads.length > 0 ? 'block' : 'none'}}>
+              Salads:
+              {getSalads()}
+            </div><br/>
+            <div className="sides" style={{display: sides.length > 0 ? 'block' : 'none'}}>
+              Sides:
+              {getSides()}
+            </div><br/>
+            <div className="desserts" style={{display: desserts.length > 0 ? 'block' : 'none'}}>
+              Desserts:
+              {getDesserts()}
+            </div>
+           
+          </section><br/>
+
           <button onClick={() => {Rate()}}>Rate Foodtruck</button><br/><br/>
 
           <button onClick={() => {goBack()}}>Back to results</button><br/>
@@ -83,55 +170,5 @@ const Truck = props => {
       </div>
     )
 }
-
-
-
-  // const renderItems = () => {
-  //   return t.menu.items.map((items) => {
-  //     console.log(items)
-      //  return items.map((i, id) => <li>{i}</li>)
-    // })
-// }   
- 
-
-//   return (
-//     <div>
-//         <section>
-//             <h2>{t.name}</h2>
-//             Food type:{t.food_type}<br/>
-//             Phone number:{t.phone_number}<br/>
-//             Street: {t.street}<br/>
-//             City:{t.city}<br/>
-//             State:{t.state}<br/>
-//             Zip code: {t.zip_code}<br/>
-//         </section>
-
-//         <section>
-//             <h4>Notes from Truck Owner</h4>
-//         </section>
-
-
-//         <section>
-//             <h2>Schedule</h2>
-//             Monday: {s.schedule.mon_start} to {s.schedule.mon_end}<br/> 
-//             Tuesday: {t.schedule.tues_start} to {t.schedule.tues_end} <br/>
-//             Wednesday: {t.schedule.wed_start} to {t.schedule.wed_end} <br/>
-//             Thursday: {t.schedule.thurs_start} to {t.schedule.thurs_end} <br/>
-//             Friday: {t.schedule.fri_start} to {t.schedule.fri_end} <br/>
-//             Saturday: {t.schedule.sat_start} to {t.schedule.sat_end} <br/>
-//             Sunday: {t.schedule.sun_start} to {t.schedule.sun_end} <br/>
-//         </section>
-
-//         <section>
-//             <h2>Menu</h2>
-            
-//         </section>
-
-//         <button onClick={() => {goBack()}}>Back to results</button><br/>
-//         <button onClick={() => {Rate()}}>Rate Foodtruck</button>
-
-//     </div>
-//   )
-// }
  
 export default withRouter(Truck)

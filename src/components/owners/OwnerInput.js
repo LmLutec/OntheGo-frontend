@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
 
-// on new owner submit, redirect to truckinput
 class OwnerInput extends Component {
 
     state = {
@@ -14,7 +13,6 @@ class OwnerInput extends Component {
         }
     }
 
-    // setup a way for user to change their password
 
     handleChange = event => {
         this.setState({
