@@ -8,7 +8,7 @@ export const search = (search) => {
         body: JSON.stringify(search)
     }
     return (dispatch) => {
-        fetch("http://localhost:3000/api/v1/search/", formData)
+        fetch("https://alwaysonthego.herokuapp.com/api/v1/search/", formData)
         .then(response => {
             return response.json()
         }).then(json => {
@@ -21,7 +21,7 @@ export const search = (search) => {
 export const details = (id) => {
 // debugger
     return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/foodtrucks/${id}`)
+    fetch(`https://alwaysonthego.herokuapp.com/api/v1/foodtrucks/${id}`)
     .then(response => {
         return response.json()
     }).then(json => {
@@ -42,7 +42,7 @@ export const addRating = (rating, truckId) => {
         body: JSON.stringify(rating)
     }
     return (dispatch) => {
-        fetch("http://localhost:3000/api/v1/ratings/", formData)
+        fetch("https://alwaysonthego.herokuapp.com/api/v1/ratings/", formData)
         .then(response => {
             return response.json()
         }).then(json => {

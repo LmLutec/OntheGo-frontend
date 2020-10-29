@@ -8,7 +8,7 @@ export const addOwner = (owner) => {
         body: JSON.stringify({owner: owner}) 
     }
     return (dispatch) => {
-        fetch("http://localhost:3000/api/v1/owners/", formData)
+        fetch("https://alwaysonthego.herokuapp.com/api/v1/owners/", formData)
         .then(response => {
             return response.json()
     }).then(json => {
@@ -26,7 +26,7 @@ export const Login = (credentials) => {
         body: JSON.stringify(credentials)
         }
         return(dispatch) => {
-        fetch("http://localhost:3000/api/v1/login/", data)
+        fetch("https://alwaysonthego.herokuapp.com/api/v1/login/", data)
             .then(response => {
                 return response.json()
         }).then(json => {
@@ -41,7 +41,7 @@ export const Login = (credentials) => {
 
 export const getProfile = () => {
     return(dispatch) => {
-    fetch("http://localhost:3000/api/v1/profile", {
+    fetch("https://alwaysonthego.herokuapp.com/api/v1/profile", {
             method: "GET",
             headers: {
                 Authorization: `Bearer: ${localStorage.getItem('jwt_token')}`
@@ -70,7 +70,7 @@ export const addTruck = (truck) => {
         body: JSON.stringify(truck) 
     }
     return (dispatch) => {
-        fetch("http://localhost:3000/api/v1/foodtrucks/", formData)
+        fetch("https://alwaysonthego.herokuapp.com/api/v1/foodtrucks/", formData)
         .then(response => {
             return response.json()
     }).then(json => {
@@ -93,7 +93,7 @@ export const editTruck = (truck,id) => {
     }
 
     return (dispatch) => {
-        fetch(`http://localhost:3000/api/v1/foodtrucks/${truck}`, formData)
+        fetch(`https://alwaysonthego.herokuapp.com/api/v1/foodtrucks/${truck}`, formData)
         .then(response => {
             return response.json()
     }).then(json => {
@@ -115,7 +115,7 @@ export const createMenu = (truckId) => {
     }
     // debugger
     return (dispatch) => {
-        fetch("http://localhost:3000/api/v1/menus/", formData)
+        fetch("https://alwaysonthego.herokuapp.com/api/v1/menus/", formData)
         .then(response => {
             return response.json()
         }).then(json => {
@@ -135,7 +135,7 @@ export const addSchedule = (schedule, truck) => {
         body: JSON.stringify({schedule: schedule})
     }
     return (dispatch) => {
-        fetch("http://localhost:3000/api/v1/schedules/", formData)
+        fetch("https://alwaysonthego.herokuapp.com/api/v1/schedules/", formData)
         .then(response => {
             return response.json()
         }).then(json => {
@@ -157,7 +157,7 @@ export const editSchedule = (schedule, id) => {
     }
 
     return (dispatch) => {
-        fetch(`http://localhost:3000/api/v1/schedules/${schedule.id}`, formData)
+        fetch(`https://alwaysonthego.herokuapp.com/api/v1/schedules/${schedule.id}`, formData)
         .then(response => {
             return response.json()
     }).then(json => {
@@ -179,7 +179,7 @@ export const addFood = (food, menuId) => {
         body: JSON.stringify({item: food})
     }
     return (dispatch) => {
-        fetch("http://localhost:3000/api/v1/items/", formData)
+        fetch("https://alwaysonthego.herokuapp.com/api/v1/items/", formData)
         .then(response => {
             return response.json()
         }).then(json => {
@@ -199,7 +199,7 @@ export const deleteFood = (food) => {
         body: JSON.stringify({item: food})
     }
     return (dispatch) => {
-        fetch(`http://localhost:3000/api/v1/items/${food.id}`, formData)
+        fetch(`https://alwaysonthego.herokuapp.com/api/v1/items/${food.id}`, formData)
         .then(response => {
             return response.json()
         }).then(json => {
@@ -218,7 +218,7 @@ export const deleteNote = (note) => {
         body: JSON.stringify(note)
     }
     return (dispatch) => {
-        fetch(`http://localhost:3000/api/v1/notes/${note.id}`, formData)
+        fetch(`https://alwaysonthego.herokuapp.com/api/v1/notes/${note.id}`, formData)
         .then(response => {
             return response.json()
         }).then(json => {
@@ -238,7 +238,7 @@ export const addNote = (note) => {
         body: JSON.stringify(note)
     }
     return (dispatch) => {
-        fetch("http://localhost:3000/api/v1/notes/", formData)
+        fetch("https://alwaysonthego.herokuapp.com/api/v1/notes/", formData)
         .then(response => {
             return response.json()
         }).then(json => {
@@ -258,7 +258,7 @@ export const deleteProfile = (acct) => {
         body: JSON.stringify(acct)
     }
     return (dispatch) => {
-        fetch(`http://localhost:3000/api/v1/owners/${acct.owner.id}`, formData)
+        fetch(`https://alwaysonthego.herokuapp.com/api/v1/owners/${acct.owner.id}`, formData)
         // .then(response => {
         //     return response.json()
         // }).then(json => {
