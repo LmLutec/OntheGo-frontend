@@ -1,6 +1,6 @@
 import React from 'react';
 // import logo from './logo.svg';
-import logo from './public/foodtruck.png'
+import logo from '../public/foodtruck.png'
 import './App.css';
 import OwnerContainer from './containers/OwnerContainer'
 import FoodieContainer from './containers/FoodieContainer'
