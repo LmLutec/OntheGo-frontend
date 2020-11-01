@@ -29,7 +29,7 @@ const getAverage = (arr) => {
 
   return (
     <div>
-      <ul style={{display: props.ratings > 0 ? 'block' : 'none'}}>
+      <ul style={{display: props.ratings.length > 0 ? 'block' : 'none'}}>
             Overall food quality rating: {getAverage(foodQuality)} <br/>
             Overall Customer Service rating: {getAverage(customerService)} <br/>
             Overall Speed of Service: {getAverage(speedOfService)} <br/>
