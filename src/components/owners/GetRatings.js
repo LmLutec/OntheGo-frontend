@@ -12,14 +12,16 @@ const reducer = (accumulator, currentValue) => (accumulator + currentValue)
 
 
 const GetRatings = props => {
+  if(props.ratings){
    return props.ratings.map((nestedRatings) => {
      return nestedRatings.map((rating) => {
         foodQuality.push(rating.food_quality)
         customerService.push(rating.customer_service)
         speedOfService.push(rating.speed_of_service)
         prices.push(rating.prices)
+      })
     })
-  })
+  }
 
 const getAverage = (arr) => {
    return Math.round(arr.reduce(reducer,0) / arr.length)
@@ -27,7 +29,7 @@ const getAverage = (arr) => {
 
   return (
     <div>
-      <ul>
+      <ul style={{display: props.ratings > 0 ? 'block' : 'none'}}>
             Overall food quality rating: {getAverage(foodQuality)} <br/>
             Overall Customer Service rating: {getAverage(customerService)} <br/>
             Overall Speed of Service: {getAverage(speedOfService)} <br/>
