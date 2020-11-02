@@ -12,6 +12,10 @@ class RatingInput extends Component {
         }
     }
 
+    componentWillUnmount(){
+        window.location.reload()
+    }
+
     handleChange = event => {
         debugger
         this.setState({

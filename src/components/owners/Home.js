@@ -17,6 +17,10 @@ class Home extends Component {
         this.props.profile() 
     }
 
+    // componentWillUnmount(){
+    //     window.location.reload()
+    // }
+
     editTruck = () => {
      this.props.history.push("/edit/truck")
     }
