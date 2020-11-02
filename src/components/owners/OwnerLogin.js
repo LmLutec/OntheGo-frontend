@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {withRouter} from 'react-router-dom'
 
-// let error = ""
 
 class OwnerLogin extends Component{
   
@@ -12,6 +11,10 @@ class OwnerLogin extends Component{
             password: ""
             }
         }
+    
+    componentWillUnmount(){
+        window.location.reload()
+    }
 
     handleChange = event => {
         this.setState({
