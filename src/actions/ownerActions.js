@@ -30,10 +30,11 @@ export const Login = (credentials) => {
             .then(response => {
                 return response.json()
         }).then(json => {
-            debugger
+            if(json.owner){
                 dispatch({type: 'LOGIN', owner: json.owner})
                    localStorage.setItem("jwt_token", json.jwt)
                    localStorage.setItem("owner", JSON.stringify(json.owner)) 
+            }
            
         }) 
       
