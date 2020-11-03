@@ -12,9 +12,9 @@ class OwnerLogin extends Component{
             }
         }
     
-    componentWillUnmount(){
-        window.location.reload()
-    }
+    // componentWillUnmount(){
+    //     window.location.reload()
+    // }
 
     handleChange = event => {
         this.setState({
