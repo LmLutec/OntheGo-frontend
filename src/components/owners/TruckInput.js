@@ -30,6 +30,7 @@ class TruckInput extends Component {
         event.preventDefault()
         this.props.addTruck(this.state.foodtruck)
         this.props.history.push("/schedule")
+        console.log(localStorage.getItem("jwt_token"))
     }
 
     render(){

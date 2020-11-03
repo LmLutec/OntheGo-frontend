@@ -27,7 +27,12 @@ class OwnerInput extends Component {
     handleSubmit = event => {
         event.preventDefault()
         this.props.addOwner(this.state.owner)
-        this.props.history.push("/setup")
+        if (!localStorage.getItem("jwt_token")){
+            this.props.history.push("/setup")
+        }
+        else {
+            this.props.push("/")
+        }
     }
 
     goBack = () => {
