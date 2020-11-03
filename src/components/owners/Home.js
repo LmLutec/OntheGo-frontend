@@ -61,8 +61,9 @@ class Home extends Component {
 
     delete = () => {
         this.props.deleteAcct(this.props.owner)
-        localStorage.clear()
         this.props.history.push("/")
+        localStorage.clear()
+        window.location.reload()
     }
 
     dontDelete = () => {
