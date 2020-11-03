@@ -29,7 +29,7 @@ class OwnerLogin extends Component{
         event.preventDefault()
         this.props.login(this.state.owner)
         
-             if (localStorage.getItem("jwt_token") !== "undefined"){
+             if (!localStorage.getItem("jwt_token")){
                 this.props.history.push("/home")
                 return this.props.profile()
             }
