@@ -5,15 +5,17 @@ export default function ownersReducer(state = {
         food: [],
         schedule: {},
         notes: [],
-        ratings: []
+        ratings: [],
+        errors: []
 }, action){
     // debugger
     let idx;
     switch(action.type){
+        case "ERROR":
+                return {...state, errors: [action.errorMessage]}
         case "ADD_OWNER":
                 return {...state,owner: action.owner} 
         case "LOGIN":
-                debugger
                 return {...state,owner: action.owner}
         case "PROFILE":
                 return {...state, truck: {id: action.data.id, name: action.data.name, food_type: action.data.food_type, phone_number: action.data.phone_number, street: action.data.street, city: action.data.city, state: action.data.state, zip_code: action.data.zip_code}, menu: action.data.menu, food: [action.data.menu.items], schedule: action.data.schedule, notes: [action.data.notes], ratings: [action.data.ratings]}

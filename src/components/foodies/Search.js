@@ -28,11 +28,13 @@ class Search extends Component {
 
     render(){
         return(
-            <div>
-                Find Foodtrucks by location
+            <div className="search">
+                <h3>Find Foodtrucks by location</h3>
                 <form onSubmit={(event)=> {this.handleSubmit(event)}}>
-                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="city" value={this.state.city} placeholder="city" required/><br/>
-                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="state" value={this.state.state} placeholder="state" required/><br/>
+                    <label>City</label>
+                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="city" value={this.state.city} required/><br/>
+                    <label>State</label>
+                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="state" value={this.state.state} required/><br/>
                     <input type="submit" value="Search for Trucks"/>
                 </form>
                 <br/>

@@ -27,11 +27,12 @@ class OwnerInput extends Component {
     handleSubmit = event => {
         event.preventDefault()
         this.props.addOwner(this.state.owner)
-        if (localStorage.getItem("jwt_token")){
+        
+        if (this.props.errors.length === 0){
             this.props.history.push("/setup")
         }
         else {
-            this.props.push("/")
+            this.props.history.push("/errors")
         }
     }
 
@@ -41,9 +42,9 @@ class OwnerInput extends Component {
 
     render(){
         return(
-            <div>
+            <div className="new-owner">
                <h3>Hey Truck Owners! Create a New Account below:</h3>
-                <form onSubmit={event => {this.handleSubmit(event)}}> 
+                <form onSubmit={event => {this.handleSubmit(event)}} className="owner-form"> 
                     <label>First name</label>
                     <input onChange= { event => {this.handleChange(event)}} type="text" id= "first_name" value={this.state.owner.first_name} required/><br/>
                     <label>Last name</label>

@@ -44,8 +44,8 @@ const Trucks = props => {
 
 return (
   <div>
-      All trucks 
-    <ul>
+      <h3>All trucks </h3>
+    <ul className="trucks">
         {message}
     </ul>
     <button onClick={() => {mainPage()}}>Main Page</button>

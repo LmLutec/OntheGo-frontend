@@ -17,10 +17,6 @@ class Home extends Component {
         this.props.profile() 
     }
 
-    // componentWillUnmount(){
-    //     window.location.reload()
-    // }
-
     editTruck = () => {
      this.props.history.push("/edit/truck")
     }
@@ -106,6 +102,12 @@ class Home extends Component {
                     <button onClick={this.editTruck}>Edit Truck Information</button><br/><br/>
                 </section>
 
+                <section className="add_notes" style={{display: this.props.notes.length > 0 ? 'block' : 'none' }}>
+                    <h3>Notes</h3>
+                    {renderNotes()}
+                </section>
+                <button onClick={this.addNote}>Add note</button><br/>
+
                 <section className="schedule_info">
                     <h3>Schedule</h3>
                     Monday: {this.props.schedule.mon_start} to {this.props.schedule.mon_end} <br/>
@@ -127,11 +129,6 @@ class Home extends Component {
                     <button onClick={this.editMenu}>Edit Menu</button>
                 </section>
 
-                <section className="add_notes" style={{display: this.props.notes.length > 0 ? 'block' : 'none' }}>
-                    <h3>Notes</h3>
-                    {renderNotes()}
-                </section>
-                <button onClick={this.addNote}>Add note</button><br/>
                 
                 <section className="ratings" style={{display: this.props.ratings.length > 0 ? 'block' : 'none' }}>
                     <h3>Ratings</h3>

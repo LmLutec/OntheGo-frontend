@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 
 class OwnerLogin extends Component{
@@ -11,10 +11,6 @@ class OwnerLogin extends Component{
             password: ""
             }
         }
-    
-    // componentWillUnmount(){
-    //     window.location.reload()
-    // }
 
     handleChange = event => {
         this.setState({
@@ -29,15 +25,13 @@ class OwnerLogin extends Component{
         event.preventDefault()
         this.props.login(this.state.owner)
         
-             if (!localStorage.getItem("jwt_token")){
+            if (localStorage.getItem("jwt_token")){
                 this.props.history.push("/home")
                 return this.props.profile()
             }
-            else {
-                this.props.history.push("/")
-            }
-         
-
+            {
+                this.props.history.push("/errors")
+            }    
     }
     
                 
@@ -50,8 +44,8 @@ class OwnerLogin extends Component{
     render(){
         return(
             <div>
-                {/* {error} */}
-                <form onSubmit={event => {this.handleSubmit(event)}} >
+                
+                <form onSubmit={event => {this.handleSubmit(event)}} className="owner-login" >
                     <label>Email</label>
                     <input onChange={event => {this.handleChange(event)}} type="text" id="email" value={this.state.owner.email} required/><br/>
                     <label>Password</label>
@@ -69,5 +63,3 @@ class OwnerLogin extends Component{
 
 export default withRouter(OwnerLogin)
 
-
-// create an onSubmit for loginfetch

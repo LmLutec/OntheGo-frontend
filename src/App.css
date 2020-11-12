@@ -14,14 +14,14 @@
 } */
 
 .App-header {
-  background-color: darkgreen;
-  min-height: 100vh;
+  background-color: #FBCA17;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: red;
 }
 
 .App-link {
@@ -38,17 +38,89 @@
 }
 
 a {
-  color: orange
+  color:  #3114B4;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: red;
 }
 
 h1 {
-  color: gold
+  color: #3114B4;
 }
-/* .menu_info { */
-  /* color: red ; */
-  /* padding: 40px; */
-  /* border-style: dashed;
-  position: absolute;
-  right: 10px; */
-  /* left: 30px; */
-/* } */
+
+button {
+  border-radius: 12px;
+}
+
+input[type=submit] {
+  color: #FBCA17;
+  background-color: #3114B4;
+}
+
+.main {
+  background-color: #F6EDCC;
+  min-height: 50vh;
+}
+
+/* label {
+  display: inline-block;
+} */
+
+input {
+  margin: 10px;
+  display: inline-block;
+}
+
+.new-owner {
+  background-color: #F6EDCC;
+  color: #3114B4;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.owner-login {
+  color: #3114B4;
+  font-weight: bold;
+}
+
+.truck_info{
+  color: red;
+  border-style: none solid solid solid;
+  border-color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0px;
+  font-size: 20px;
+  width: 300px;
+  /* left: -75px; */
+}
+
+
+.add_notes { 
+  color: red ; 
+  padding: 40px; 
+  border-style: solid;
+  /* position: relative;
+  left: -400px;
+  top: -375px;
+  width: 300px; */
+ } 
+
+ .ratings { 
+  color: red ; 
+  padding: 40px; 
+  border-style: solid;
+ } 
+
+ .search {
+   padding: 20px;
+   color:  #3114B4;
+   font-weight: bold;
+ }
+
+ .trucks {
+   float: left;
+ }

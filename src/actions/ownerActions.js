@@ -1,5 +1,5 @@
 export const addOwner = (owner) => {
-    
+    localStorage.clear()
     const formData = {
         method: 'POST',
         headers: { 
@@ -12,14 +12,24 @@ export const addOwner = (owner) => {
         .then(response => {
             return response.json()
     }).then(json => {
+        
+            if(json.owner !== undefined){
                dispatch({type: 'ADD_OWNER', owner: json.owner})
                localStorage.setItem("jwt_token", json.jwt)
                localStorage.setItem("owner", JSON.stringify(json.owner)) 
+            }
+            if(json.message){
+                dispatch({type: 'ERROR', errorMessage: json.message})
+            }
         })
+        .catch(err => { 
+            dispatch({type: 'ERROR', errorMessage: err.message});
+          })
     } 
 }
 
 export const Login = (credentials) => {
+   
     const data = { 
         method: "POST",
         headers: { "Content-Type" : "application/json" },
@@ -35,8 +45,14 @@ export const Login = (credentials) => {
                    localStorage.setItem("jwt_token", json.jwt)
                    localStorage.setItem("owner", JSON.stringify(json.owner)) 
             }
+            if(json.message){
+                dispatch({type: 'ERROR', errorMessage: json.message})
+            }
            
         }) 
+        .catch(err => { 
+            dispatch({type: 'ERROR', errorMessage: err.message});
+          })
       
     }
 }
@@ -68,15 +84,23 @@ export const addTruck = (truck) => {
         method: 'POST',
         headers: { 
             'Content-Type': 'application/json'
-         },
+        },
         body: JSON.stringify(truck) 
     }
     return (dispatch) => {
         fetch("https://alwaysonthego.herokuapp.com/api/v1/foodtrucks/", formData)
         .then(response => {
             return response.json()
-    }).then(json => {
-               dispatch({type: 'ADD_TRUCK', truck: json.id})
+        }).then(json => {
+            if (json.message){
+                dispatch({type: 'ERROR', errorMessage: json.message})
+            }
+            if (!json.message){
+                dispatch({type: 'ADD_TRUCK', truck: json.id})
+            }
+        })
+        .catch(err => { 
+            dispatch({type: 'ERROR', errorMessage: err.message});
         })
     }
 }
@@ -251,7 +275,7 @@ export const addNote = (note) => {
 
 
 export const deleteProfile = (acct) => {
-    
+    debugger
     const formData = {
         method: 'DELETE',
         headers: {

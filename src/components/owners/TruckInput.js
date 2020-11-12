@@ -27,9 +27,18 @@ class TruckInput extends Component {
     }
 
     handleSubmit = (event) => {
+
         event.preventDefault()
         this.props.addTruck(this.state.foodtruck)
-        this.props.history.push("/schedule")
+        
+        if (this.props.errors.length === 0){
+            this.props.history.push("/schedule")
+        }
+        else {
+            const owner = JSON.parse(localStorage.getItem('owner'))
+            this.props.history.push("/errors")
+            this.props.deleteProfile({owner: owner})
+        }
     }
 
     render(){

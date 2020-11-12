@@ -13,6 +13,7 @@ import EditMenu from '../components/owners/EditMenu'
 import { addOwner, Login, addTruck, addSchedule, editSchedule, createMenu, addFood, editTruck, addNote, getProfile, deleteFood, deleteNote, deleteProfile } from '../actions/ownerActions'
 import NoteInput from '../components/owners/NoteInput'
 import RatingsDetails from '../components/owners/RatingsDetails'
+import Errors from '../components/Errors'
 
 
 // let isLoggedIn;
@@ -41,21 +42,20 @@ class OwnerContainer extends Component {
         return(
             <div>
                     
-                    <Switch>
+                <Switch>
                     <Route exact path="/">
-                        {/* <header className="navlink">   */}
                         <NavLink exact to="/owner/new">New Owner</NavLink><br/><br/>
                         <NavLink exact to="/login">Login</NavLink><br/><br/>
                         <NavLink exact to="/foodies">Foodies</NavLink>
-                        {/* </header> */}
                     </Route>
                  
                     <Route exact path="/home">
                         <Home owner={this.props.owner} profile={this.props.getProfile} truck={this.props.truck} schedule={this.props.schedule} menu={this.props.menu} food={this.props.food} notes={this.props.notes} deleteFood={this.props.deleteFood} deleteNote={this.props.deleteNote} ratings={this.props.ratings} deleteAcct={this.props.deleteProfile}/> 
                     </Route>
+                    <Route exact path="/errors"><Errors errors={this.props.errors} /></Route>
                     <Route exact path="/login"> <OwnerLogin login={this.props.login} profile={this.props.getProfile} /></Route>
-                    <Route exact path="/owner/new"><OwnerInput addOwner={this.props.addOwner}/></Route>
-                    <Route exact path="/setup"> <TruckInput addTruck={this.props.addTruck} menu={this.props.createMenu} profile={this.props.getProfile}/></Route>
+                    <Route exact path="/owner/new"><OwnerInput addOwner={this.props.addOwner} errors={this.props.errors}/></Route>
+                    <Route exact path="/setup"> <TruckInput errors={this.props.errors} addTruck={this.props.addTruck} menu={this.props.createMenu} profile={this.props.getProfile} deleteProfile={this.props.deleteProfile} /></Route>
                     <Route exact path="/schedule"> <Schedule addSchedule={this.props.addSchedule} truck={this.props.truck} addMenu={this.props.createMenu}/></Route>
                     <Route exact path="/manage/menu"> <MenuItemsInput addFood={this.props.addFood} menu={this.props.menu} food={this.props.food} deleteFood={this.props.deleteFood} profile={this.props.getProfile}/></Route>
                     <Route exact path="/edit/truck"> <EditTruck edit={this.props.editTruck} truck={this.props.truck} profile={this.props.getProfile}/></Route>
@@ -63,7 +63,7 @@ class OwnerContainer extends Component {
                     <Route exact path="/edit/menu"><EditMenu menu={this.props.menu} addFood={this.props.addFood} profile={this.props.getProfile} deleteFood={this.props.deleteFood} /></Route>
                     <Route exact path="/new/note"><NoteInput add={this.props.addNote} truck={this.props.truck}/></Route>
                     <Route exact path="/truck/ratings"><RatingsDetails ratings={this.props.ratings}/></Route>
-                    </Switch>
+                </Switch>
             </div>
         )
     }
@@ -81,7 +81,8 @@ const mapStateToProps = (state) => {
          food: state.owners.food,
          schedule: state.owners.schedule,
          notes: state.owners.notes,
-         ratings: state.owners.ratings
+         ratings: state.owners.ratings,
+         errors: state.owners.errors
          }
 }
 
