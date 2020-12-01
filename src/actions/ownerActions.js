@@ -19,7 +19,7 @@ export const Login = (credentials) => {
 
 export const getProfile = () => {
     return(dispatch) => {
-    fetch("https://alwaysonthego.herokuapp.com/api/v1/profile/", {
+    fetch("https://alwaysonthego.herokuapp.com/profile/", {
             method: "GET",
             headers: {
                 Authorization: `Bearer: ${localStorage.getItem('jwt_token')}`
