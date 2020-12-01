@@ -44,7 +44,7 @@ const Truck = props => {
 
   function getItems(){
     i.map((item) => {
-      return item.map((food) => {
+      item.forEach((food) => {
         switch (food.item_type) {
           case "Beverage":
             beverages.push(food)
@@ -110,8 +110,17 @@ const Truck = props => {
       
 
       <div>
-        <section className="notes">
-          <h4>Notes from Truck Owner</h4>
+        <section className="truck-details">
+          <h2>{t.name}</h2>
+          <i>{t.food_type}</i><br/>
+          {t.street}<br/>
+          {t.city}, {t.state}<br/>
+          {t.zip_code}<br/>
+          {t.phone_number}
+          
+        </section>
+
+        <section className="notes" style={{display: n.length > 0 ? 'block' : 'none'}}>
             {getNotes()}
         </section>
 
@@ -121,35 +130,35 @@ const Truck = props => {
          </section>
 
          <section className="ratings" style={{display: r.length > 0 ? 'block' : 'none'}}>
-          <h4>Ratings</h4>
+          <h2>Ratings</h2>
             <GetRatings ratings={r}/>
          </section>
 
-          <h4>Menu</h4>
+          <h2>Menu</h2>
             {getItems()}
-          <section>
+          <section className="full-menu">
             <div className="beverages" style={{display: beverages.length > 0 ? 'block' : 'none'}}>
-              Beverages:
+              <h3>Beverages:</h3>
               {getBeverages()}
             </div><br/>
             <div className="entrees" style={{display: entrees.length > 0 ? 'block' : 'none'}}>
-              Entrees:
+              <h3>Entrees:</h3>
               {getEntrees()}
             </div><br/>
             <div className="sandwiches" style={{display: sandwiches.length > 0 ? 'block' : 'none'}}>
-              Sandwiches:
+              <h3>Sandwiches:</h3>
               {getSandwiches()}
             </div><br/>
             <div className="salads" style={{display: salads.length > 0 ? 'block' : 'none'}}>
-              Salads:
+              <h3>Salads:</h3>
               {getSalads()}
             </div><br/>
             <div className="sides" style={{display: sides.length > 0 ? 'block' : 'none'}}>
-              Sides:
+              <h3>Sides:</h3>
               {getSides()}
             </div><br/>
             <div className="desserts" style={{display: desserts.length > 0 ? 'block' : 'none'}}>
-              Desserts:
+              <h3>Desserts:</h3>
               {getDesserts()}
             </div>
            

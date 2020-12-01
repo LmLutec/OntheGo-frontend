@@ -10,8 +10,8 @@ class EditMenu extends Component {
         item: {
             name: "",
             price: "",
-            description: "",
-            item_type: ""
+            item_type: "Beverage",
+            description: ""
         }
     }
 
@@ -40,8 +40,8 @@ class EditMenu extends Component {
             item: {
             name: "", 
             price: "",
-            description: "",
-            item_type: ""
+            item_type: "",
+            description: ""
             }
         })
 
@@ -57,13 +57,13 @@ class EditMenu extends Component {
         let renderItems = list.map((i, id) => <MenuItem key={id} item={i} deleteFood={this.props.deleteFood}/>)
 
         return(
-            <div>
+            <div className="edit-menu">
                 <h4>Add menu items</h4>
                 <form onSubmit={(event) => {this.handleSubmit(event)}}>
                     <input onChange={(event) => {this.handleChange(event)}} type="text" id="name" value={this.state.item.name} placeholder="Food name" required/>
                     <input onChange={(event) => {this.handleChange(event)}} type="text" id="price" value={this.state.item.price} placeholder="Price" required/><br/>
                     <input onChange={(event) => {this.handleChange(event)}} type="textarea" id="description" value={this.state.item.description} placeholder="Description" required/><br/>
-                    <select onChange={(event) => {this.handleChange(event)}} value={this.state.item.item_type} id="item_type" required>
+                    <select onChange={(event) => {this.handleChange(event)}} value={this.state.item.item_type} id="item_type">
                     <option value="Beverage">Beverage</option>
                     <option value="Dessert">Dessert</option>
                     <option value="Salad">Salad</option>
@@ -73,6 +73,12 @@ class EditMenu extends Component {
                     </select><br/>
                     <input type="submit" value="Add to Menu"/>
                 </form>
+
+
+
+
+
+
 
                 <h5>Menu</h5><br/><br/>
                     {renderItems}

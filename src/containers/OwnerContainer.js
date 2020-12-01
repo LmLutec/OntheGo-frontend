@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Route, NavLink, Switch, Redirect } from 'react-router-dom'
+import { Route, NavLink, Switch } from 'react-router-dom'
 import Home from '../components/owners/Home'
 import OwnerInput from '../components/owners/OwnerInput'
 import OwnerLogin from '../components/owners/OwnerLogin'
@@ -10,23 +10,11 @@ import Schedule from '../components/owners/Schedule'
 import EditSchedule from '../components/owners/EditSchedule'
 import MenuItemsInput from '../components/owners/MenuItemsInput'
 import EditMenu from '../components/owners/EditMenu'
-import { addOwner, Login, addTruck, addSchedule, editSchedule, createMenu, addFood, editTruck, addNote, getProfile, deleteFood, deleteNote, deleteProfile } from '../actions/ownerActions'
+import { getErrors, addOwner, Login, getProfile, addTruck, addSchedule, editSchedule, createMenu, addFood, editTruck, addNote, deleteFood, deleteNote, deleteProfile } from '../actions/ownerActions'
 import NoteInput from '../components/owners/NoteInput'
 import RatingsDetails from '../components/owners/RatingsDetails'
 import Errors from '../components/Errors'
 
-
-// let isLoggedIn;
-
-// const IsLoggedIn = () => {
-//     if (localStorage.getItem('jwt_token')){
-//         return true
-//     }
-// }
-
-// function GoHome() {
-//     return <Redirect to="/home"/>
-// }
 
 class OwnerContainer extends Component {
 
@@ -50,12 +38,12 @@ class OwnerContainer extends Component {
                     </Route>
                  
                     <Route exact path="/home">
-                        <Home owner={this.props.owner} profile={this.props.getProfile} truck={this.props.truck} schedule={this.props.schedule} menu={this.props.menu} food={this.props.food} notes={this.props.notes} deleteFood={this.props.deleteFood} deleteNote={this.props.deleteNote} ratings={this.props.ratings} deleteAcct={this.props.deleteProfile}/> 
+                        <Home loggedIn={this.props.loggedIn} owner={this.props.owner} profile={this.props.getProfile} truck={this.props.truck} schedule={this.props.schedule} menu={this.props.menu} food={this.props.food} notes={this.props.notes} deleteFood={this.props.deleteFood} deleteNote={this.props.deleteNote} ratings={this.props.ratings} deleteAcct={this.props.deleteProfile} errors={this.props.errors}/> 
                     </Route>
                     <Route exact path="/errors"><Errors errors={this.props.errors} /></Route>
-                    <Route exact path="/login"> <OwnerLogin login={this.props.login} profile={this.props.getProfile} /></Route>
-                    <Route exact path="/owner/new"><OwnerInput addOwner={this.props.addOwner} errors={this.props.errors}/></Route>
-                    <Route exact path="/setup"> <TruckInput errors={this.props.errors} addTruck={this.props.addTruck} menu={this.props.createMenu} profile={this.props.getProfile} deleteProfile={this.props.deleteProfile} /></Route>
+                    <Route exact path="/login"> <OwnerLogin login={this.props.login} profile={this.props.getProfile} getErrors={this.props.getErrors}/></Route>
+                    <Route exact path="/owner/new"><OwnerInput addOwner={this.props.addOwner} getErrors={this.props.getErrors}/></Route>
+                    <Route exact path="/setup"> <TruckInput getErrors={this.props.getErrors} addTruck={this.props.addTruck} menu={this.props.createMenu} profile={this.props.getProfile} deleteProfile={this.props.deleteProfile} /></Route>
                     <Route exact path="/schedule"> <Schedule addSchedule={this.props.addSchedule} truck={this.props.truck} addMenu={this.props.createMenu}/></Route>
                     <Route exact path="/manage/menu"> <MenuItemsInput addFood={this.props.addFood} menu={this.props.menu} food={this.props.food} deleteFood={this.props.deleteFood} profile={this.props.getProfile}/></Route>
                     <Route exact path="/edit/truck"> <EditTruck edit={this.props.editTruck} truck={this.props.truck} profile={this.props.getProfile}/></Route>
@@ -82,12 +70,14 @@ const mapStateToProps = (state) => {
          schedule: state.owners.schedule,
          notes: state.owners.notes,
          ratings: state.owners.ratings,
+         loggedIn: state.owners.loggedIn,
          errors: state.owners.errors
          }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
+      getErrors: error => dispatch(getErrors(error)),
       addOwner: owner => dispatch(addOwner(owner)),
       login: credentials => dispatch(Login(credentials)),
       getProfile: () => dispatch(getProfile()),

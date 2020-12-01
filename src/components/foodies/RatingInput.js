@@ -12,12 +12,7 @@ class RatingInput extends Component {
         }
     }
 
-    componentWillUnmount(){
-        window.location.reload()
-    }
-
     handleChange = event => {
-        debugger
         this.setState({
             rating: {
                 ...this.state.rating,
@@ -31,7 +26,7 @@ class RatingInput extends Component {
         event.preventDefault()
         
         this.props.add(this.state.rating, this.props.truck.id)
-// debugger
+
         this.setState({
             rating: {
                 food_quality: "",
@@ -40,8 +35,8 @@ class RatingInput extends Component {
                 prices: ""
             }
         })
-
         this.props.history.push("/")
+        window.location.reload()
     }
 
     goBack = () => {
@@ -51,9 +46,9 @@ class RatingInput extends Component {
     render(){
         
         return(
-            <div>
-                Rate {this.props.truck.name}
-                <form onSubmit={(event) => {this.handleSubmit(event)}}>
+            <div className="rating-container">
+                <h3>Rate {this.props.truck.name}</h3>
+                <form onSubmit={(event) => {this.handleSubmit(event)}} className="rating-form">
                     <label>Rate the following areas</label><br/>
                     Food quality(Freshness and taste)
                     <select onChange={(event) => {this.handleChange(event)}} value={this.state.rating.food_quality} id="food_quality">

@@ -29,22 +29,47 @@ class TruckInput extends Component {
     handleSubmit = (event) => {
 
         event.preventDefault()
-        this.props.addTruck(this.state.foodtruck)
-        
-        if (this.props.errors.length === 0){
-            this.props.history.push("/schedule")
-        }
-        else {
+        this.newTruck()
+    }
+
+    async newTruck(){
+        try{
             const owner = JSON.parse(localStorage.getItem('owner'))
-            this.props.history.push("/errors")
-            this.props.deleteProfile({owner: owner})
-        }
+            const foodtruck = this.state.foodtruck
+            foodtruck["owner_id"] = owner.id
+
+
+            const formData = {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(foodtruck) 
+            }
+            const response = await fetch("https://alwaysonthego.herokuapp.com/api/v1/foodtrucks/", formData)
+            const json = await response.json()    
+            
+                    if (json.message){
+                        this.props.getErrors(json.message)
+                        this.props.history.push("/errors")
+                        this.props.deleteProfile({owner: owner})
+                    }
+                    if (!json.message){
+                        this.props.addTruck(json)
+                        this.props.history.push("/schedule")
+                    }
+               
+            }  
+            catch (error) {
+                this.props.getErrors(error)
+                this.props.history.push("/errors")
+            }   
     }
 
     render(){
         return(
-            <div>
-                <h4>Food Truck Information</h4>
+            <div className="truck-input">
+                <h3>Food Truck Information</h3>
                 <form onSubmit={(event) => {this.handleSubmit(event)}}>
                     <label>Name</label>
                     <input onChange={ event => {this.handleChange(event)}} type="text" id="name" value={this.state.foodtruck.name} required/><br/>

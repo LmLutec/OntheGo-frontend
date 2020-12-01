@@ -46,7 +46,7 @@ class EditTruck extends Component {
 
     render(){
         return(
-            <div>
+            <div className="edit-truck">
                 <h3>Edit one or more fields</h3>
                 <form onSubmit={(event) => {this.handleSubmit(event)}}>
                     <label>Name</label>

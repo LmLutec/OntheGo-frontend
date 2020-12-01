@@ -26,13 +26,35 @@ class OwnerInput extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        this.props.addOwner(this.state.owner)
-        
-        if (this.props.errors.length === 0){
-            this.props.history.push("/setup")
+        this.newOwner()
+    }
+
+    async newOwner(){
+        try{
+            const formData = {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json'
+                 },
+                body: JSON.stringify({owner: this.state.owner}) 
+            }
+                const response = await fetch("https://alwaysonthego.herokuapp.com/api/v1/owners/", formData)
+                const json = await response.json()
+    
+                if(!json.message){
+                    this.props.addOwner(this.state.owner)
+                    localStorage.setItem("jwt_token", json.jwt)
+                    localStorage.setItem("owner", JSON.stringify(json.owner)) 
+                    this.props.history.push("/setup")
+                }
+                else{
+                    this.props.getErrors(json.message)
+                    this.props.history.push("/errors")
+                }
         }
-        else {
-            this.props.history.push("/errors")
+        catch (error) {
+                    this.props.getErrors(error)
+                    this.props.history.push("/errors")
         }
     }
 

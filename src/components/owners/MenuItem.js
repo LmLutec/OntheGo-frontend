@@ -15,10 +15,13 @@ const MenuItem = props => {
   return (
     <div>
       <ul>
-              ${item.price} - {item.name} <br/>
+        <li>
+              ${item.price} - {item.name}(<i>{item.item_type}</i>) <br/>
               <i>{item.description}</i>
+              
               <br/>
               <button onClick={() => home(item)}> Remove </button>
+        </li>
       </ul>
     </div>
   )

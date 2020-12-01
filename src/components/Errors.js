@@ -9,6 +9,10 @@ class Errors extends Component {
     errors: false
   }
 
+  componentWillUnmount(){
+    window.location.reload()
+  }
+
 
 main = () => {
   this.props.history.push("/")

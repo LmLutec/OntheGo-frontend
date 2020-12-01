@@ -12,20 +12,17 @@ export const search = (search) => {
         .then(response => {
             return response.json()
         }).then(json => {
-            // debugger
             dispatch({type: 'SEARCH', trucks: json })
         })
     }
 }
 
 export const details = (id) => {
-// debugger
     return (dispatch) => {
     fetch(`https://alwaysonthego.herokuapp.com/api/v1/foodtrucks/${id}`)
     .then(response => {
         return response.json()
     }).then(json => {
-        // console.log(json)
         dispatch({type: 'DETAILS', truck: json})
     })
     }
@@ -51,4 +48,3 @@ export const addRating = (rating, truckId) => {
         })
     }
 }
-

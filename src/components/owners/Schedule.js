@@ -49,8 +49,8 @@ class Schedule extends Component {
     render(){
 
         return(
-            <div>
-                <h4>Foodtruck Hours</h4>
+            <div className="schedule-input">
+                <h3>Foodtruck Hours</h3>
                 <h6>Remember to specify Am/Pm.</h6>
                 <form onSubmit={(event) => {this.handleSubmit(event)}}>
                     Monday<input onChange={ event => {this.handleChange(event)}} type="text" id="mon_start" value={this.state.schedule.mon_start} placeholder="Open" required/>  

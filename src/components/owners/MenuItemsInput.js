@@ -12,7 +12,7 @@ class MenuItemsInput extends Component {
         item: {
             name: "",
             price: "",
-            item_type: "",
+            item_type: "Beverage",
             description: ""
         }
     }
@@ -57,15 +57,15 @@ class MenuItemsInput extends Component {
         let renderItems = list.map((i, id) => <MenuItem key={id} item={i} deleteFood={this.props.deleteFood}/>)
 
         return(
-            <div>
+            <div className="menu-input">
                 <h4>Add menu items</h4>
                 <form onSubmit={(event) => {this.handleSubmit(event)}}>
                     <label>Food name</label>
-                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="name" value={this.state.item.name} placeholder="Food name"/><br/>
+                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="name" value={this.state.item.name}/><br/>
                     <label>Food price</label>
-                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="price" value={this.state.item.price} placeholder="Price"/><br/>
+                    <input onChange={(event) => {this.handleChange(event)}} type="text" id="price" value={this.state.item.price}/><br/>
                     <label>Food description</label>
-                    <input onChange={(event) => {this.handleChange(event)}} type="textarea" id="description" value={this.state.item.description} placeholder="Description"/><br/>
+                    <input onChange={(event) => {this.handleChange(event)}} type="textarea" id="description" value={this.state.item.description}/><br/>
                     <label>Item type:</label>
                     <select onChange={(event) => {this.handleChange(event)}} value={this.state.item.item_type} id="item_type">
                     <option value="Beverage">Beverage</option>

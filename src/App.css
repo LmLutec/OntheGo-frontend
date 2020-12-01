@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 .App-logo {
@@ -43,17 +44,32 @@ a {
   font-size: 24px;
 }
 
+li {
+  list-style-type: none;
+  color: #3114B4;
+}
+
 a:hover {
   text-decoration: underline;
   color: red;
 }
 
-h1 {
+h1, h2 {
+  color: #3114B4;
+}
+
+h3 {
+  color: #FBCA17;
+}
+
+h6 {
   color: #3114B4;
 }
 
 button {
   border-radius: 12px;
+  background-color: #3114B4;
+  color: #FBCA17;
 }
 
 input[type=submit] {
@@ -61,14 +77,20 @@ input[type=submit] {
   background-color: #3114B4;
 }
 
+.profile{
+  padding:10px;
+}
+
 .main {
   background-color: #F6EDCC;
   min-height: 50vh;
+  /* padding: 100px; */
 }
 
-/* label {
-  display: inline-block;
-} */
+.main-page {
+  position: relative;
+  top: -100px;
+}
 
 input {
   margin: 10px;
@@ -89,38 +111,145 @@ input {
 
 .truck_info{
   color: red;
-  border-style: none solid solid solid;
-  border-color: red;
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 0px;
   font-size: 20px;
-  width: 300px;
-  /* left: -75px; */
+  box-shadow: 0 8px 10px 0 rgba(0,0,0,0.19);
+}
+
+.edit-truck{
+  padding:10px;
+}
+
+.menu_info {
+  color:  #3114B4;
+}
+
+.schedule_info {
+  color:  #FBCA17;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.schedule-input {
+  color: #3114B4;
+  padding: 10px;
 }
 
 
 .add_notes { 
   color: red ; 
   padding: 40px; 
-  border-style: solid;
-  /* position: relative;
-  left: -400px;
-  top: -375px;
-  width: 300px; */
  } 
+
+ .notes {
+  background-color: #F6EDCC;
+  padding: 10px;
+ }
 
  .ratings { 
   color: red ; 
   padding: 40px; 
-  border-style: solid;
+  font-weight: bold;
+  font-size: 18px;
  } 
 
  .search {
    padding: 20px;
    color:  #3114B4;
    font-weight: bold;
+   font-size: 18px;
+ }
+
+ .truck-container {
+  background-color: #F6EDCC;
+  padding: 10px;
+  min-height: 100vh;
  }
 
  .trucks {
+  background-color: #F6EDCC;
+  display: inline-block;
+  position: absolute;
+  left: 100px;
+  padding: 10px;
+  color: #4712A2;
+  font-weight: bold;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+ }
+
+ .truck {
+   padding: 40px;
+   box-shadow: 0 8px 10px 0 rgba(0,0,0,0.19);
+   transition: transform .2s;
+ }
+
+ .truck:hover {
+  transform: scale(1.5);
+  background-color: #FBCA17;
+ }
+
+ .truck-details {
+   color: #FC7307;
+   font-size: 18px;
+   font-weight: bold;
+   padding: 10px;
+ }
+
+ .full-menu {
+   overflow: auto;
+   padding: 40px;
+   box-shadow: 0 8px 10px 0 rgba(0,0,0,0.19);
+ }
+
+ .full-menu li {
    float: left;
+   padding: 50px;
+   box-shadow: 0 8px 10px 0 rgba(126, 12, 12, 0.19);
+   transition: transform .2s;
+ }
+
+ .home_edit_menu {
+   position: absolute;
+   left: 690px;
+   top: 1450px;
+ }
+
+ .full-menu li:hover {
+  transform: scale(1.5);
+  background-color: #FBCA17;
+ }
+
+ .edit-menu {
+   padding: 10px;
+ }
+
+ .rating-form {
+   color: #3114B4;
+   font-weight: bold;
+   margin: 10px;
+ }
+
+ .rating-form select {
+   color: red;
+   margin: 10px;
+ }
+
+ .rating-container {
+   padding: 10px;
+ }
+
+ .truck-input {
+   padding: 10px;
+   color: #3114B4;
+ }
+
+ .schedule-input {
+   padding: 10px;
+   font-size: 18px;
+   color: #3114B4;
+ }
+
+ .menu-input {
+  padding: 10px;
+  font-size: 18px;
+  color: #3114B4;
  }

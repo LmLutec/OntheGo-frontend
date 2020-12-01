@@ -21,7 +21,7 @@ const Trucks = props => {
 
     return allTrucks.map((nestedTrucks) => {
       return nestedTrucks.map((truck, id) => {
-        return <div key={id}>
+        return <div key={id} className="truck">
                 Food Truck: {truck.name}<br/>
                 Food type: {truck.food_type}<br/>
                 Street: {truck.street}<br/>
@@ -43,12 +43,14 @@ const Trucks = props => {
   }
 
 return (
-  <div className="trucks">
+  <div>
+    <section className="truck-container">
       <h3>All trucks </h3>
-    <ul>
+    <ul className="trucks">
         {message}
     </ul>
-    <button onClick={() => {mainPage()}}>Main Page</button>
+    <button onClick={() => {mainPage()}} className="main-page">Main Page</button>
+    </section>
   </div>
   )
 }
