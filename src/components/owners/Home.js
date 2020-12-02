@@ -12,11 +12,30 @@ class Home extends Component {
     }
 
  componentDidMount(){
-     this.setState({
-        data: this.props.profile()
-     })
+     this.fetchProfile()
  }
 
+ async fetchProfile(){
+     try {
+        const data =  {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer: ${localStorage.getItem('jwt_token')}`
+                }
+            }
+        const response = await fetch("https://alwaysonthego.herokuapp.com/api/v1/profile/", data)
+        const json = await response.json()
+        console.log(json)
+        // this.props.profile(json)
+            this.setState({
+                data: json
+            })
+        }
+        catch (error) {
+            this.props.errors(error)
+            this.props.history.push("/errors")
+        }
+ }
 
     profile = () => {
 

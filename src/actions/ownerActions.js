@@ -18,27 +18,27 @@ export const Login = (credentials) => {
 }
 
 export const getProfile = () => {
-    return(dispatch) => {
-    fetch("https://alwaysonthego.herokuapp.com/api/v1/profile/", {
-            method: "GET",
-            headers: {
-                Authorization: `Bearer: ${localStorage.getItem('jwt_token')}`
-            }
-        })
-        .then(response => response.json())
-        .then(json =>   {
-            if(json){
+    // return(dispatch) => {
+    // fetch("https://alwaysonthego.herokuapp.com/api/v1/profile/", {
+    //         method: "GET",
+    //         headers: {
+    //             Authorization: `Bearer: ${localStorage.getItem('jwt_token')}`
+    //         }
+    //     })
+    //     .then(response => response.json())
+    //     .then(json =>   {
+    //         if(json){
 
-                dispatch({type: 'PROFILE', data: json})
-            }
-            if(json.message){
-                dispatch({type: 'ERROR', errorMessage: json.message}) 
-            }
-        })
-        .catch(err => { 
-            dispatch({type: 'ERROR', errorMessage: err.message});
-        })
-    }
+    //             dispatch({type: 'PROFILE', data: json})
+    //         }
+    //         if(json.message){
+    //             dispatch({type: 'ERROR', errorMessage: json.message}) 
+    //         }
+    //     })
+    //     .catch(err => { 
+    //         dispatch({type: 'ERROR', errorMessage: err.message});
+    //     })
+    // }
 }
 
 export const addTruck = (truck) => {
