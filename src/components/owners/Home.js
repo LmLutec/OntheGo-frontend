@@ -32,7 +32,7 @@ class Home extends Component {
             })
         }
         catch (error) {
-            this.props.errors(error)
+            this.props.getErrors(error)
             this.props.history.push("/errors")
         }
  }
