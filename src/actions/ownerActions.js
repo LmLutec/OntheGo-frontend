@@ -17,8 +17,11 @@ export const Login = (credentials) => {
     }
 }
 
-export const getProfile = () => {
-    // return(dispatch) => {
+export const getProfile = (json) => {
+    return(dispatch) => {
+
+        dispatch({type: 'PROFILE', data: json})
+    }
     // fetch("https://alwaysonthego.herokuapp.com/api/v1/profile/", {
     //         method: "GET",
     //         headers: {
@@ -29,8 +32,6 @@ export const getProfile = () => {
     //     .then(json =>   {
     //         if(json){
 
-    //             dispatch({type: 'PROFILE', data: json})
-    //         }
     //         if(json.message){
     //             dispatch({type: 'ERROR', errorMessage: json.message}) 
     //         }

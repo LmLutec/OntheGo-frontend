@@ -62,6 +62,7 @@ class OwnerContainer extends Component {
 
 
 const mapStateToProps = (state) => {
+    // debugger
     return {
          owner: state.owners,
          truck: state.owners.truck,
@@ -80,7 +81,7 @@ const mapDispatchToProps = (dispatch) => {
       getErrors: error => dispatch(getErrors(error)),
       addOwner: owner => dispatch(addOwner(owner)),
       login: credentials => dispatch(Login(credentials)),
-      getProfile: () => dispatch(getProfile()),
+      getProfile: (acct) => dispatch(getProfile(acct)),
       addTruck: truck => dispatch(addTruck(truck)),
       editTruck: (truck, id) => dispatch(editTruck(truck, id)),
       addSchedule: (schedule, truck) => dispatch(addSchedule(schedule, truck)),
