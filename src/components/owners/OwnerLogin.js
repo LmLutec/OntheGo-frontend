@@ -50,8 +50,9 @@ class OwnerLogin extends Component{
             this.props.history.push("/errors")
         }
           } catch (error) {
-            this.props.getErrors(error)
-            this.props.history.push("/errors")
+              console.log(error)
+            // this.props.getErrors(error)
+            // this.props.history.push("/errors")
         }
     }
 
