@@ -24,19 +24,16 @@ class Home extends Component {
                     Authorization: `Bearer: ${localStorage.getItem('jwt_token')}`
                 }
             }
-        const response = await fetch("http://localhost:3000/api/v1/profile/", data)
+        const response = await fetch("https://alwaysonthego.herokuapp.com/api/v1/profile/", data)
         const json = await response.json()
-        console.log(json)
         this.props.profile(json)
             this.setState({
                 data: json
             })
-            // debugger
         }
         catch (error) {
-            console.log(error)
-            // this.props.errors(error)
-            // this.props.history.push("/errors")
+            this.props.errors(error)
+            this.props.history.push("/errors")
         }
  }
 //  https://alwaysonthego.herokuapp.com/api/v1/profile/
