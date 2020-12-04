@@ -12,6 +12,7 @@ const Trucks = props => {
     try {
       const response = await fetch(`https://alwaysonthego.herokuapp.com/api/v1/foodtrucks/${truckId}`)
       const json = await response.json()
+      console.log(json)
       props.details(json)
       props.history.push("/truck")
     }
