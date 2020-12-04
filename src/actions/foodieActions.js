@@ -17,9 +17,14 @@ export const search = (search) => {
     }
 }
 
-export const details = (json) => {
+export const details = (id) => {
     return (dispatch) => {
+    fetch(`https://alwaysonthego.herokuapp.com/api/v1/foodtrucks/${id}`)
+    .then(response => {
+        return response.json()
+    }).then(json => {
         dispatch({type: 'DETAILS', truck: json})
+    })
     }
 }
 
