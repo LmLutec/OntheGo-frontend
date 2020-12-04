@@ -8,14 +8,23 @@ const Trucks = props => {
   const error = props.error
   let message = ""
   
-  function details(truckId){
-    props.details(truckId)
-    props.history.push("/truck")
+  async function details(truckId){
+    try {
+      const response = await fetch(`https://alwaysonthego.herokuapp.com/api/v1/foodtrucks/${truckId}`)
+      const json = await response.json()
+      props.details(json)
+      props.history.push("/truck")
+    }
+    catch (error) {
+      this.props.history.push("/errors")
+  }
+    
   }
 
   function mainPage(){
     window.history.back()
   }
+
 
   function Grab(){
 
