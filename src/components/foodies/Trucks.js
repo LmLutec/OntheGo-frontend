@@ -16,7 +16,7 @@ const Trucks = props => {
       props.history.push("/truck")
     }
     catch (error) {
-      this.props.history.push("/errors")
+      props.history.push("/errors")
   }
     
   }
