@@ -32,8 +32,9 @@ class Home extends Component {
             })
         }
         catch (error) {
+            console.log(error)
             // this.props.getErrors(error)
-            this.props.history.push("/errors")
+            // this.props.history.push("/errors")
         }
  }
 //  https://alwaysonthego.herokuapp.com/api/v1/profile/
