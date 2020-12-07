@@ -16,7 +16,6 @@ class Home extends Component {
  }
 
  async fetchProfile(){
-    //  debugger
      try {
         const data =  {
                 method: "GET",
@@ -24,7 +23,7 @@ class Home extends Component {
                     Authorization: `Bearer: ${localStorage.getItem('jwt_token')}`
                 }
             }
-        const response = await fetch("https://alwaysonthego.herokuapp.com/api/v1/profile/", data)
+        const response = await fetch("http://localhost:3000/api/v1/profile/", data)
         const json = await response.json()
         this.props.profile(json)
             this.setState({
@@ -33,14 +32,11 @@ class Home extends Component {
         }
         catch (error) {
             console.log(error)
-            // this.props.getErrors(error)
-            // this.props.history.push("/errors")
         }
  }
-//  https://alwaysonthego.herokuapp.com/api/v1/profile/
-// http://localhost:3000/api/v1/profile/
+
     profile = () => {
-// debugger
+
         const renderItems = () => {
             return this.props.food.map((items) => {
                 return items.map((i, id) => <MenuItem deleteFood={this.props.deleteFood} key={id} item={i}/>)
@@ -172,9 +168,9 @@ class Home extends Component {
 
     render(){
         
-        // if(this.state.data === null){
-        //     return <div>Loading...</div>
-        // }
+        if(this.state.data === null){
+            return <div>Loading...</div>
+        }
 
 
         return(
@@ -191,3 +187,6 @@ class Home extends Component {
 
 
 export default withRouter(Home)
+
+// //  https://alwaysonthego.herokuapp.com/api/v1/profile/
+// http://localhost:3000/api/v1/profile/
