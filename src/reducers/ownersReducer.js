@@ -18,7 +18,7 @@ export default function ownersReducer(state = {
         case "LOGIN":
                 return {...state,owner: action.owner, loggedIn: true}
         case "PROFILE":
-                // debugger
+                console.log(action.data)
                 return {...state, truck: {id: action.data.id, name: action.data.name, food_type: action.data.food_type, phone_number: action.data.phone_number, street: action.data.street, city: action.data.city, state: action.data.state, zip_code: action.data.zip_code}, menu: action.data.menu, food: [action.data.menu.items], schedule: action.data.schedule, notes: [action.data.notes], ratings: [action.data.ratings]}
         case "LOG_TRUCK":
                 return {...state,truck: action.truck}
