@@ -23,7 +23,7 @@ class Home extends Component {
                     Authorization: `Bearer: ${localStorage.getItem('jwt_token')}`
                 }
             }
-        const response = await fetch("https://alwaysonthego.herokuapp.com/api/v1/profile/", data)
+        const response = await fetch("/profile/", data)
         const json = await response.json()
         this.props.profile(json)
             this.setState({
