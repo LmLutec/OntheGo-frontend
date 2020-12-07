@@ -24,7 +24,8 @@ class Home extends Component {
                 }
             }
         const response = await fetch("api/v1/profile/", data)
-        const json = await response.json()
+        const json = await response.text()
+        console.log(json)
         this.props.profile(json)
             this.setState({
                 data: json
