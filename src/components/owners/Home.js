@@ -38,12 +38,12 @@ class Home extends Component {
 
     profile = () => {
 
-        // const renderItems = () => {
-        //     return this.props.food.map((items) => {
-        //         return items.map((i, id) => <MenuItem deleteFood={this.props.deleteFood} key={id} item={i}/>)
-        //     })
+        const renderItems = () => {
+            return this.props.food.map((items) => {
+                return items.map((i, id) => <MenuItem deleteFood={this.props.deleteFood} key={id} item={i}/>)
+            })
                 
-        // }
+        }
     
         const renderNotes = () => {
             return this.props.notes.map((allnotes) => {
@@ -84,7 +84,7 @@ class Home extends Component {
 
                 <section className="menu_info full-menu">
                     <h3>Menu</h3>
-                    {/* {renderItems()} */}
+                    {renderItems()}
                     <button onClick={this.editMenu} className="home_edit_menu">Edit Menu</button>
                 </section>
                 <section className="add_notes" >
