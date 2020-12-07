@@ -23,7 +23,7 @@ class Home extends Component {
                     Authorization: `Bearer: ${localStorage.getItem('jwt_token')}`
                 }
             }
-        const response = await fetch("/profile/", data)
+        const response = await fetch("api/v1/profile/", data)
         const json = await response.json()
         this.props.profile(json)
             this.setState({
