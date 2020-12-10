@@ -114,8 +114,8 @@ class EditTruck extends Component {
                     <label>Food type</label>
                     <input onChange= { event => {this.handleChange(event)}} type="text" id="food_type" value={this.state.foodtruck.food_type} required/><br/>
                     <label>Phone number</label>  
-                        (<input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="areaCode" value={this.state.numberParts.areaCode} style={{ width: "20px" }} required/>)
-                    <input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="begNum" value={this.state.numberParts.begNum} style={{ width: "20px" }} required/> -
+                        (<input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="areaCode" value={this.state.numberParts.areaCode} style={{ width: "25px" }} required/>)
+                    <input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="begNum" value={this.state.numberParts.begNum} style={{ width: "25px" }} required/> -
                     <input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="lastNum" value={this.state.numberParts.lastNum} style={{ width: "30px" }} required/><br/>
                     {/* <input onChange= { event => {this.handleChange(event)}} type="text" id="phone_number" value={this.state.foodtruck.phone_number} required/><br/> */}
                     <input type="submit" value="Edit Truck"/>
