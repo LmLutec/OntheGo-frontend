@@ -91,7 +91,7 @@ input[type=submit] {
   /* position: relative;
   top: -100px; */
   position: fixed;
-  right: -60px;
+  right: -40px;
   bottom: 10px;
 }
 
