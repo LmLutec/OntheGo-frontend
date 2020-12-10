@@ -88,10 +88,10 @@ input[type=submit] {
 }
 
 .main-page {
-  /* position: relative;
-  top: -100px; */
-  position: fixed;
-  right: -20px;
+   position: relative;
+  /*top: -100px; */
+  /* position: fixed; */
+  left: 690px;
   bottom: 10px;
 }
 
@@ -172,7 +172,7 @@ input {
  .trucks {
   background-color: #F6EDCC;
   display: inline-block;
-  left: 100px;
+  /* left: 100px; */
   padding: 10px;
   color: #4712A2;
   font-weight: bold;
