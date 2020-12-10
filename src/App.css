@@ -163,6 +163,7 @@ input {
   background-color: #F6EDCC;
   padding: 10px;
   min-height: 100vh;
+  flex-direction: row;
  }
 
  .trucks {
@@ -174,7 +175,6 @@ input {
   color: #4712A2;
   font-weight: bold;
   font-family: "Comic Sans MS", cursive, sans-serif;
-  margin: auto;
  }
 
  .truck {
