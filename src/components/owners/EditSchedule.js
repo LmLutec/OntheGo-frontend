@@ -55,7 +55,7 @@ class EditSchedule extends Component {
 
     render(){
         return(
-            <div>
+            <div className="edit-schedule">
                 <h4>Foodtruck Hours</h4>
                 <h6>Remember to specify Am/Pm.</h6>
                 <form onSubmit={(event) => {this.handleSubmit(event)}}>

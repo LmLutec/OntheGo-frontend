@@ -223,6 +223,10 @@ input {
    padding: 10px;
  }
 
+ .edit-schedule {
+   padding: 10px;
+ }
+
  .rating-form {
    color: #3114B4;
    font-weight: bold;
@@ -257,6 +261,7 @@ input {
 
  input#areaCode{
   width: 20;
+  padding: 10px;
  }
 
  input#begNum{

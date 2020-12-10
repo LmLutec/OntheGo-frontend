@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {withRouter} from 'react-router-dom'
+import Select from "react-dropdown-select";
 import MenuItem from './MenuItem'
 
 let list = []
@@ -16,6 +17,7 @@ class MenuItemsInput extends Component {
             description: ""
         }
     }
+
 
 
     componentWillUnmount(){
@@ -53,7 +55,7 @@ class MenuItemsInput extends Component {
     }
 
     render(){
-        
+
         let renderItems = list.map((i, id) => <MenuItem key={id} item={i} deleteFood={this.props.deleteFood}/>)
 
         return(
