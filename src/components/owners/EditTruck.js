@@ -37,13 +37,13 @@ class EditTruck extends Component {
            const json = await response.json()
        
            this.props.profile(json)
-           console.log(json)
-           let areaCode = json.phone_number.split("", 3)
-        //    let begNum = json.phone_number.split("", 6)
-        //    let lastNum = json.phone_number.split("", )
+           console.log()
+           let areaCode = json.split("").slice(0,3)
+           let begNum = json.split("").slice(3,7)
+           let lastNum = json.split("").slice(7, -2)
            console.log(areaCode)
-        //    console.log(begNum)
-           console.log(json)
+           console.log(begNum)
+           console.log(lastNum)
             //    this.setState({
             //        data: json
             //    })
