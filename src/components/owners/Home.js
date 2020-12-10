@@ -25,7 +25,7 @@ class Home extends Component {
             }
         const response = await fetch("https://alwaysonthego.herokuapp.com/api/v1/profile", data)
         const json = await response.json()
-        console.log(json)
+    
         this.props.profile(json)
             this.setState({
                 data: json

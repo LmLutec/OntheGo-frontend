@@ -24,8 +24,7 @@ const Trucks = props => {
     // props.history.push("/errors")
     console.log(error)
 }
-// http://localhost:3000/api/v1/foodtrucks/${truckId}
-// https://alwaysonthego.herokuapp.com/api/v1/foodtrucks/${truckId}
+
 }
 
   function mainPage(){

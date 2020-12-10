@@ -163,6 +163,7 @@ input {
   background-color: #F6EDCC;
   padding: 10px;
   min-height: 100vh;
+  float: left;
  }
 
  .trucks {
