@@ -21,8 +21,30 @@ class EditTruck extends Component {
         }
     }
 
-    componentDidMount() {
-       this.props.profile()
+    componentDidMount(){
+        this.fetchProfile()
+    }
+   
+    async fetchProfile(){
+        try {
+           const data =  {
+                   method: "GET",
+                   headers: {
+                       Authorization: `Bearer: ${localStorage.getItem('jwt_token')}`
+                   }
+               }
+           const response = await fetch("https://alwaysonthego.herokuapp.com/api/v1/profile", data)
+           const json = await response.json()
+       
+           this.props.profile(json)
+           console.log(json)
+            //    this.setState({
+            //        data: json
+            //    })
+           }
+           catch (error) {
+               console.log(error)
+           }
     }
 
     componentWillUnmount(){
