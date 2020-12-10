@@ -45,7 +45,7 @@ class OwnerLogin extends Component{
             this.props.login(json)
             this.props.history.push("/home")
         }
-        else{
+        else if (json.message){
             this.props.getErrors(json.message)
             this.props.history.push("/errors")
         }

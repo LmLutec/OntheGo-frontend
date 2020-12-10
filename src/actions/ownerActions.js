@@ -1,4 +1,5 @@
 export const getErrors = (error) => {
+    console.log(error)
     return (dispatch)  => {
         dispatch({type: 'ERROR', errorMessage: error})
     }
