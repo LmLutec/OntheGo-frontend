@@ -38,9 +38,9 @@ class EditTruck extends Component {
        
            this.props.profile(json)
            console.log()
-           let areaCode = json.split("").slice(0,3)
-           let begNum = json.split("").slice(3,7)
-           let lastNum = json.split("").slice(7, -2)
+           let areaCode = json.slice(0,3)
+           let begNum = json.slice(3,7)
+           let lastNum = json.slice(7, -2)
            console.log(areaCode)
            console.log(begNum)
            console.log(lastNum)
