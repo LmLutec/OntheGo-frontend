@@ -38,6 +38,12 @@ class EditTruck extends Component {
        
            this.props.profile(json)
            console.log(json)
+           let areaCode = json.phone_number.split("", 3)
+        //    let begNum = json.phone_number.split("", 6)
+        //    let lastNum = json.phone_number.split("", )
+           console.log(areaCode)
+        //    console.log(begNum)
+           console.log(json)
             //    this.setState({
             //        data: json
             //    })
