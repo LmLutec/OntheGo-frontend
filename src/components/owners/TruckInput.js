@@ -34,6 +34,7 @@ class TruckInput extends Component {
     handlePhoneNumber = (event) => {
         this.setState({
             numberParts: {
+            ...this.state.numberParts,
             [event.target.id] : event.target.value
             }
         })
