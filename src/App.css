@@ -88,8 +88,10 @@ input[type=submit] {
 }
 
 .main-page {
-  position: relative;
-  top: -100px;
+  /* position: relative;
+  top: -100px; */
+  position: fixed;
+  bottom: 10px
 }
 
 input {
