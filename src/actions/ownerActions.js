@@ -87,6 +87,7 @@ export const createMenu = (truckId) => {
             dispatch({type: 'ADD_MENU', menu: json.id})
         })
     }
+    
 }
 
 export const addSchedule = (schedule, truck) => {
@@ -106,6 +107,7 @@ export const addSchedule = (schedule, truck) => {
             dispatch({type: 'ADD_SCHEDULE', schedule: json.data})
         })
     }
+    
 }
 
 export const editSchedule = (schedule, id) => {
@@ -149,7 +151,6 @@ export const addFood = (food, menuId) => {
         })
     }
 }
-
 
 export const deleteFood = (food) => {
     
