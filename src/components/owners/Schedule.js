@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import {withRouter} from 'react-router-dom'
+import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom';
 import Select from "react-dropdown-select";
 
 class Schedule extends Component {
@@ -80,9 +80,7 @@ class Schedule extends Component {
         return(
             <div className="schedule-input">
                 <h3>Foodtruck Hours</h3>
-                <h6>Remember to specify Am/Pm.</h6>
                 <form onSubmit={(event) => {this.handleSubmit(event)}}>
-                {/* {e => setFormData({ ...formData, 'name': e.target.value})} */}
                     Monday
                     <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'mon_start': event[0].value}})}} options={options} value={this.state.schedule.mon_start} required/><br/>
                     <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'mon_end': event[0].value}})}} options={options} value={this.state.schedule.mon_end} required/><br/>
