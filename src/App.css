@@ -254,3 +254,15 @@ input {
   font-size: 18px;
   color: #3114B4;
  }
+
+ #areaCode input {
+  width: 20;
+ }
+
+ #begNum input {
+  width: 20;
+ }
+
+ #lastNum input{
+  width: 20;
+ }
