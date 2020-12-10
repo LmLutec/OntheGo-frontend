@@ -14,7 +14,7 @@ const Trucks = props => {
 
   async function truckDetails(truckId){
   try {
-    const response = await fetch(`http://localhost:3000/api/v1/foodtrucks/${truckId}`)
+    const response = await fetch(`https://alwaysonthego.herokuapp.com/api/v1/foodtrucks/${truckId}`)
     const json = await response.json()
     console.log(json)
     props.details(json)

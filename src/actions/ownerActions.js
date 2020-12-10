@@ -80,7 +80,7 @@ export const createMenu = (truckId) => {
         body: JSON.stringify({menu: {foodtruck_id: truckId }})
     }
     return (dispatch) => {
-        fetch("// https://alwaysonthego.herokuapp.com/api/v1/menus/", formData)
+        fetch("https://alwaysonthego.herokuapp.com/api/v1/menus/", formData)
         .then(response => {
             return response.json()
         }).then(json => {
