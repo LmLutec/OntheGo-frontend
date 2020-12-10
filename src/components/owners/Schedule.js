@@ -85,34 +85,34 @@ class Schedule extends Component {
                 {/* {e => setFormData({ ...formData, 'name': e.target.value})} */}
                     Monday
                     <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'mon_start': event[0].value}})}} options={options} value={this.state.schedule.mon_start} required/><br/>
-                    <Select onChange={event => {this.handleChange(event)}} options={options} id="mon_end" value={this.state.schedule.mon_end} required/><br/>
+                    <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'mon_end': event[0].value}})}} options={options} value={this.state.schedule.mon_end} required/><br/>
                     Tuesday  
-                    <Select onChange={event => {this.handleChange(event[0])}} options={options} id="tues_start" value={this.state.schedule.tues_start} required/><br/>
-                    <Select onChange={event => {this.handleChange(event[0])}} options={options} id="tues_end" value={this.state.schedule.tues_end} required/><br/>
+                    <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'tues_start': event[0].value}})}} options={options} value={this.state.schedule.tues_start} required/><br/>
+                    <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'tues_end': event[0].value}})}} options={options} value={this.state.schedule.tues_end} required/><br/>
                     Wednesday
-                    <Select onChange={event => {this.handleChange(event[0])}} options={options} id="wed_start" value={this.state.schedule.wed_start} required/><br/>
-                    <Select onChange={event => {this.handleChange(event[0])}} options={options} id="wed_end" value={this.state.schedule.wed_end} required/><br/>
+                    <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'wed_start': event[0].value}})}} options={options} value={this.state.schedule.wed_start} required/><br/>
+                    <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'wed_end': event[0].value}})}} options={options} value={this.state.schedule.wed_end} required/><br/>
                     Thursday
-                    <Select onChange={event => {this.handleChange(event[0])}} options={options} id="thurs_start" value={this.state.schedule.thurs_start} required/><br/>
-                    <Select onChange={event => {this.handleChange(event[0])}} options={options} id="thurs_end" value={this.state.schedule.thurs_end} required/><br/>
+                    <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'thurs_start': event[0].value}})}} options={options} value={this.state.schedule.thurs_start} required/><br/>
+                    <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'thurs_end': event[0].value}})}} options={options} value={this.state.schedule.thurs_end} required/><br/>
                     Friday
-                    <Select onChange={event => {this.handleChange(event[0])}} options={options} id="fri_start" value={this.state.schedule.fri_start} required/><br/> 
-                    <Select onChange={event => {this.handleChange(event[0])}} options={options} id="fri_end" value={this.state.schedule.fri_end} required/><br/>
+                    <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'fri_start': event[0].value}})}} options={options} value={this.state.schedule.fri_start} required/><br/> 
+                    <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'fri_end': event[0].value}})}} options={options} value={this.state.schedule.fri_end} required/><br/>
                     Saturday
-                    <Select onChange={event => {this.handleChange(event[0])}} options={options} id="sat_start" value={this.state.schedule.sat_start} required/><br/> 
-                    <Select onChange={event => {this.handleChange(event[0])}} options={options} id="sat_end" value={this.state.schedule.sat_end} required/><br/>
+                    <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'sat_start': event[0].value}})}} options={options} value={this.state.schedule.sat_start} required/><br/> 
+                    <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'sat_end': event[0].value}})}} options={options} value={this.state.schedule.sat_end} required/><br/>
                     Sunday
-                    <Select onChange={event => {this.handleChange(event[0])}} options={options} id="sun_start" value={this.state.schedule.sun_start} required/><br/>
-                    <Select onChange={event => {this.handleChange(event[0])}} options={options} id="sun_end" value={this.state.schedule.sun_end} required/><br/>
+                    <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'sun_start': event[0].value}})}} options={options} value={this.state.schedule.sun_start} required/><br/>
+                    <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'sun_end': event[0].value}})}} options={options} value={this.state.schedule.sun_end} required/><br/>
                     New Years Day
-                    <Select onChange={event => {this.handleChange(event[0])}} options={options} id="new_years_day_start" value={this.state.schedule.new_years_day_start} required/><br/>
-                    <Select onChange={event => {this.handleChange(event[0])}} options={options} id="new_years_day_end" value={this.state.schedule.new_years_day_end} required/><br/>
+                    <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'new_years_day_start': event[0].value}})}} options={options} value={this.state.schedule.new_years_day_start} required/><br/>
+                    <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'new_years_day_end': event[0].value}})}} options={options} value={this.state.schedule.new_years_day_end} required/><br/>
                     Thanksgiving Day
-                    <Select onChange={event => {this.handleChange(event[0])}} options={options} id="thanksgiving_day_start" value={this.state.schedule.thanksgiving_day_start} required/><br/>
-                    <Select onChange={event => {this.handleChange(event[0])}} options={options} id="thanksgiving_day_end" value={this.state.schedule.thanksgiving_day_end} required/><br/>
+                    <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'thanksgiving_day_start': event[0].value}})}} options={options} value={this.state.schedule.thanksgiving_day_start} required/><br/>
+                    <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'thanksgiving_day_end': event[0].value}})}} options={options} value={this.state.schedule.thanksgiving_day_end} required/><br/>
                     Christmas Day
-                    <Select onChange={event => {this.handleChange(event[0])}} options={options} id="christmas_day_start" value={this.state.schedule.christmas_day_start} required/><br/>
-                    <Select onChange={event => {this.handleChange(event[0])}} options={options} id="christmas_day_end" value={this.state.schedule.christmas_day_end} required/><br/>
+                    <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'christmas_day_start': event[0].value}})}} options={options} value={this.state.schedule.christmas_day_start} required/><br/>
+                    <Select onChange={event => {this.setState({ schedule: {...this.state.schedule, 'christmas_day_end': event[0].value}})}} options={options} value={this.state.schedule.christmas_day_end} required/><br/>
                     <input type="submit" value="Set Hours"/>
                 </form>
             </div>
