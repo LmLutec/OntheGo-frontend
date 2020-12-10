@@ -48,7 +48,7 @@ class TruckInput extends Component {
 
     async newTruck(){
         let number = `${this.state.numberParts.areaCode}` + `${this.state.numberParts.begNum}` + `${this.state.numberParts.lastNum}`
-        console.log(number)
+        
         try{
             const owner = JSON.parse(localStorage.getItem('owner'))
             const foodtruck = this.state.foodtruck
@@ -100,9 +100,9 @@ class TruckInput extends Component {
                     <label>Food type</label>
                     <input onChange= { event => {this.handleChange(event)}} type="text" id="food_type" value={this.state.foodtruck.food_type} required/><br/>
                     <label>Phone number</label>
-                    <input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="areaCode" value={this.state.numberParts.areaCode} required/><br/>
-                    <input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="begNum" value={this.state.numberParts.begNum} required/><br/>
-                    <input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="lastNum" value={this.state.numberParts.lastNum} required/><br/>
+                    <input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="areaCode" value={this.state.numberParts.areaCode} width= "30" required/><br/>
+                    <input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="begNum" value={this.state.numberParts.begNum} width= "30" required/><br/>
+                    <input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="lastNum" value={this.state.numberParts.lastNum} width= "30" required/><br/>
                     {/* <input onChange= { event => {this.handleChange(event)}} type="text" id="phone_number" value={this.state.foodtruck.phone_number} required/><br/> */}
                     <input type="submit" value="Submit Truck"/>
                 </form>
