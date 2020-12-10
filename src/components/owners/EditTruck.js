@@ -38,12 +38,12 @@ class EditTruck extends Component {
        
            this.props.profile(json)
            console.log(json.phone_number)
-           let areaCode = json.slice(0,3)
-           let begNum = json.slice(3,7)
-           let lastNum = json.slice(7, -2)
-           console.log(areaCode)
-           console.log(begNum)
-           console.log(lastNum)
+        //    let areaCode = json.slice(0,3)
+        //    let begNum = json.slice(3,7)
+        //    let lastNum = json.slice(7, -2)
+        //    console.log(areaCode)
+        //    console.log(begNum)
+        //    console.log(lastNum)
             //    this.setState({
             //        data: json
             //    })
