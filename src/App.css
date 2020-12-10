@@ -168,8 +168,8 @@ input {
 
  .trucks {
   background-color: #F6EDCC;
-  display: inline-block;
-  position: absolute;
+  /* display: inline-block; */
+  float: left;
   left: 100px;
   padding: 10px;
   color: #4712A2;
