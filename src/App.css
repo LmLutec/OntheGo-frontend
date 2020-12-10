@@ -255,14 +255,14 @@ input {
   color: #3114B4;
  }
 
- #areaCode input {
+ input #areaCode{
   width: 20;
  }
 
- #begNum input {
+ input #begNum{
   width: 20;
  }
 
- #lastNum input{
+ input #lastNum{
   width: 20;
  }
