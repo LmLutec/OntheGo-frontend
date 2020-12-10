@@ -34,7 +34,7 @@ class Schedule extends Component {
         this.setState({
             schedule: { 
                 ...this.state.schedule,
-                [event.target.id]: event.target.value
+                [event.target.id]: event[0].target.value
             }
         })
     }
@@ -84,8 +84,8 @@ class Schedule extends Component {
                 <form onSubmit={(event) => {this.handleSubmit(event)}}>
                 {/* {e => setFormData({ ...formData, 'name': e.target.value})} */}
                     Monday
-                    <Select onChange={event => {console.log(event)}} options={options} id="mon_start" value={this.state.schedule.mon_start} required/><br/>
-                    <Select onChange={event => {this.handleChange(event[0])}} options={options} id="mon_end" value={this.state.schedule.mon_end} required/><br/>
+                    <Select onChange={event => {this.handleChange(event)}} options={options} id="mon_start" value={this.state.schedule.mon_start} required/><br/>
+                    <Select onChange={event => {this.handleChange(event)}} options={options} id="mon_end" value={this.state.schedule.mon_end} required/><br/>
                     Tuesday  
                     <Select onChange={event => {this.handleChange(event[0])}} options={options} id="tues_start" value={this.state.schedule.tues_start} required/><br/>
                     <Select onChange={event => {this.handleChange(event[0])}} options={options} id="tues_end" value={this.state.schedule.tues_end} required/><br/>
