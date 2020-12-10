@@ -27,9 +27,11 @@ getErrors(){
 checkForErrors() {
   if (!this.props.errors){
     message = "loading"
+    console.log(this.props.errors)
   }
   else{
     message = this.getErrors()
+    console.log(this.props.errors)
   }
 }
   
