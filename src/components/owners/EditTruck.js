@@ -13,6 +13,11 @@ class EditTruck extends Component {
             city: `${this.props.truck.city}`,
             state: `${this.props.truck.state}`,
             zip_code: `${this.props.truck.zip_code}`
+        },
+        numberParts: {
+        areaCode: '',
+        begNum: '',
+        lastNum: ''
         }
     }
 
@@ -33,10 +38,26 @@ class EditTruck extends Component {
         })
     }
 
+    handlePhoneNumber = (event) => {
+        this.setState({
+            numberParts: {
+            ...this.state.numberParts,
+            [event.target.id] : event.target.value
+            }
+        })
+    }
+
     handleSubmit = (event) => {
+        let number = `${this.state.numberParts.areaCode}` + `${this.state.numberParts.begNum}` + `${this.state.numberParts.lastNum}`
+        this.setState({
+            foodtruck: {
+                ...this.state.foodtruck,
+                phone_number: number
+            }
+        })
         event.preventDefault()
         const id = this.props.truck.id
-        this.props.edit(this.state, id)
+        this.props.edit(this.state.foodtruck, id)
         this.props.history.push("/home")
     }
 
@@ -62,7 +83,10 @@ class EditTruck extends Component {
                     <label>Food type</label>
                     <input onChange= { event => {this.handleChange(event)}} type="text" id="food_type" value={this.state.foodtruck.food_type} required/><br/>
                     <label>Phone number</label>
-                    <input onChange= { event => {this.handleChange(event)}} type="text" id="phone_number" value={this.state.foodtruck.phone_number} required/><br/>
+                    <input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="areaCode" value={this.state.numberParts.areaCode} width= "30" required/><br/>
+                    <input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="begNum" value={this.state.numberParts.begNum} width= "30" required/><br/>
+                    <input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="lastNum" value={this.state.numberParts.lastNum} width= "30" required/><br/>
+                    {/* <input onChange= { event => {this.handleChange(event)}} type="text" id="phone_number" value={this.state.foodtruck.phone_number} required/><br/> */}
                     <input type="submit" value="Edit Truck"/>
                 </form>
 
