@@ -66,6 +66,7 @@ class TruckInput extends Component {
             const json = await response.json()    
             
                     if (json.message){
+                        console.log(json.message)
                         this.props.getErrors(json.message)
                         this.props.history.push("/errors")
                         this.props.deleteProfile({owner: owner})
@@ -77,6 +78,7 @@ class TruckInput extends Component {
                
             }  
             catch (error) {
+                console.log(error)
                 this.props.getErrors(error)
                 this.props.history.push("/errors")
             }   
