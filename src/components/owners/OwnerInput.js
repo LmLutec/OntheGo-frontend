@@ -38,9 +38,9 @@ class OwnerInput extends Component {
                  },
                 body: JSON.stringify({owner: this.state.owner}) 
             }
-                const response = await fetch("http://localhost:3000/api/v1/owners/", formData)
+                const response = await fetch("https://alwaysonthego.herokuapp.com/api/v1/owners/", formData)
                 const json = await response.json()
-    // https://alwaysonthego.herokuapp.com/api/v1/owners/
+    
                 if(!json.message){
                     this.props.addOwner(this.state.owner)
                     localStorage.setItem("jwt_token", json.jwt)

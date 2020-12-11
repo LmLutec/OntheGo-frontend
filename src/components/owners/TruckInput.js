@@ -62,7 +62,7 @@ class TruckInput extends Component {
                 },
                 body: JSON.stringify(foodtruck) 
             }
-            const response = await fetch("http://localhost:3000/api/v1/foodtrucks/", formData)
+            const response = await fetch("https://alwaysonthego.herokuapp.com/api/v1/foodtrucks/", formData)
             const json = await response.json()    
             console.log(json)
                     if (json.message){
@@ -75,7 +75,6 @@ class TruckInput extends Component {
                         this.props.addTruck(json)
                         this.props.history.push("/schedule")
                     }
-            //    https://alwaysonthego.herokuapp.com/api/v1/foodtrucks/
             }  
             catch (error) {
                 console.log(error)
