@@ -64,7 +64,7 @@ class TruckInput extends Component {
             }
             const response = await fetch("https://alwaysonthego.herokuapp.com/api/v1/foodtrucks/", formData)
             const json = await response.json()    
-            
+            console.log(json)
                     if (json.message){
                         console.log(json.message)
                         this.props.getErrors(json.message)
