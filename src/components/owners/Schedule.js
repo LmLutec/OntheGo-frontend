@@ -73,8 +73,7 @@ class Schedule extends Component {
             { value: '8:00 pm', label: '8:00 pm' },
             { value: '9:00 pm', label: '9:00 pm' },
             { value: '10:00 pm', label: '10:00 pm' },
-            { value: '11:00 pm', label: '11:00 pm' },
-            { value: '12:00 pm', label: '12:00 pm' }
+            { value: '11:00 pm', label: '11:00 pm' }
           ]
 
         return(
