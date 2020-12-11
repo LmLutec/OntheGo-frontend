@@ -21,7 +21,7 @@ main = () => {
 
 
 getErrors(){
-  return JSON.stringify(this.props.errors[0])
+  return JSON.stringify(this.props.errors[0]) || this.props.errors
 }
 
 checkForErrors() {
