@@ -7,6 +7,7 @@ const Trucks = props => {
   const allTrucks = props.trucks
   const error = props.error
   let message = ""
+  let count = 0
   
   function details(truckId){
      truckDetails(truckId)
@@ -45,6 +46,7 @@ const Trucks = props => {
                 Zip code: {truck.zip_code}<br/>
                 Phone number: {truck.phone_number}<br/>
                 <button onClick={() => {details(truck.id)}}>View Details</button>
+                <button onClick={() => count++ }>{count} likes</button>
               </div>
       })
     })
