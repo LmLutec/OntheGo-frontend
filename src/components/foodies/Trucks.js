@@ -32,6 +32,10 @@ const Trucks = props => {
     window.history.back()
   }
 
+  function addLike(){
+    return count++
+  }
+
 
   function Grab(){
 
@@ -46,7 +50,7 @@ const Trucks = props => {
                 Zip code: {truck.zip_code}<br/>
                 Phone number: {truck.phone_number}<br/>
                 <button onClick={() => {details(truck.id)}}>View Details</button>
-                <button onClick={() => count++ }>{count} likes</button>
+                <button onClick={() => {addLike()} }>{count} likes</button>
               </div>
       })
     })
