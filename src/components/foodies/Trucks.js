@@ -33,7 +33,7 @@ const Trucks = props => {
   }
 
   function addLike(){
-    return count++
+    count++
   }
 
 
@@ -50,7 +50,7 @@ const Trucks = props => {
                 Zip code: {truck.zip_code}<br/>
                 Phone number: {truck.phone_number}<br/>
                 <button onClick={() => {details(truck.id)}}>View Details</button>
-                <button onClick={() => {addLike()} }>{count} likes</button>
+                <button onClick={() => addLike()}> {count} likes</button>
               </div>
       })
     })
