@@ -36,6 +36,7 @@ class Home extends Component {
         }
  }
 
+
     profile = () => {
 
         const renderItems = () => {

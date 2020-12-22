@@ -76,6 +76,7 @@ class TruckInput extends Component {
                         this.props.history.push("/schedule")
                     }
             }  
+            
             catch (error) {
                 console.log(error)
                 // this.props.getErrors(error)

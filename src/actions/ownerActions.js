@@ -1,5 +1,4 @@
 export const getErrors = (error) => {
-    console.log(error)
     return (dispatch)  => {
         dispatch({type: 'ERROR', errorMessage: error})
     }
@@ -20,27 +19,8 @@ export const Login = (credentials) => {
 
 export const getProfile = (json) => {
     return(dispatch) => {
-
         dispatch({type: 'PROFILE', data: json})
     }
-    // fetch("https://alwaysonthego.herokuapp.com/api/v1/profile/", {
-    //         method: "GET",
-    //         headers: {
-    //             Authorization: `Bearer: ${localStorage.getItem('jwt_token')}`
-    //         }
-    //     })
-    //     .then(response => response.json())
-    //     .then(json =>   {
-    //         if(json){
-
-    //         if(json.message){
-    //             dispatch({type: 'ERROR', errorMessage: json.message}) 
-    //         }
-    //     })
-    //     .catch(err => { 
-    //         dispatch({type: 'ERROR', errorMessage: err.message});
-    //     })
-    // }
 }
 
 export const addTruck = (truck) => {
@@ -132,6 +112,7 @@ export const editSchedule = (schedule, id) => {
     }
 }
 
+
 export const addFood = (food, menuId) => {
     
     food["menu_id"] = menuId
@@ -152,6 +133,7 @@ export const addFood = (food, menuId) => {
         })
     }
 }
+
 
 export const deleteFood = (food) => {
     
