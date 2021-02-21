@@ -87,7 +87,7 @@ input[type=submit] {
   /* padding: 100px; */
 }
 
-.main-page {
+button.main-page {
   /* margin: auto; */
   left: 150px;
   bottom: -200px;
