@@ -89,8 +89,8 @@ input[type=submit] {
 
 .main-page {
   margin: auto;
-  /* left: 150px;
-  bottom: -200px; */
+  left: 150px;
+  bottom: -200px;
 }
 
 input {
