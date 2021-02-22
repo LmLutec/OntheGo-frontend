@@ -58,7 +58,7 @@ class Trucks extends Component {
         this.props.history.push("/truck")
       }
       catch (error) {
-        // props.history.push("/errors")
+        props.history.push("/errors")
         console.log(error)
     }
   }
