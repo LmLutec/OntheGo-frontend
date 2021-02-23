@@ -85,7 +85,7 @@ class EditTruck extends Component {
         let number = `${this.state.numberParts.areaCode}` + `${this.state.numberParts.begNum}` + `${this.state.numberParts.lastNum}`
         this.setState({
             foodtruck: {
-                ...this.state.foodtruck,
+                ...this.state.foodtruck.foodtruck,
                 phone_number: number
             }
         })

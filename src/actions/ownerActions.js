@@ -30,10 +30,8 @@ export const addTruck = (truck) => {
 }
 
 export const editTruck = (foodtruck,id) => {
-    console.log(id)
-    console.log(foodtruck)
     foodtruck.foodtruck["id"] = id 
-    console.log(foodtruck)
+    
     const formData = {
         method: 'PATCH',
         headers: { 
@@ -47,7 +45,6 @@ export const editTruck = (foodtruck,id) => {
         .then(response => {
             return response.json()
     }).then(json => {
-        console.log(json)
                dispatch({type: 'EDIT_TRUCK', truck: json})
         })
     }
