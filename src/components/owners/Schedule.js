@@ -50,6 +50,7 @@ class Schedule extends Component {
     render(){
 
         const options = [
+            { value: 'closed', label: 'closed' },
             { value: '12:00 am', label: '12:00 am' },
             { value: '1:00 am', label: '1:00 am' },
             { value: '2:00 am', label: '2:00 am' },
