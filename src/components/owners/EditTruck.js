@@ -42,7 +42,7 @@ class EditTruck extends Component {
            let areaCode = json.phone_number.slice(0,3)
            let begNum = json.phone_number.slice(3,6)
            let lastNum = json.phone_number.slice(6)
-          console.log(begNum)
+          
                this.setState({
                    numberParts: {
                        ...this.state.numberParts,
@@ -80,7 +80,7 @@ class EditTruck extends Component {
             }
         })
         let number = `${this.state.numberParts.areaCode}` + `${this.state.numberParts.begNum}` + `${this.state.numberParts.lastNum}`
-
+        console.log(`${this.state.numberParts.begNum}`)
         this.setState({
             foodtruck: {
                 foodtruck: {
