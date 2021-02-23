@@ -45,9 +45,9 @@ export const editTruck = (truck,id) => {
     return (dispatch) => {
         fetch("https://alwaysonthego.herokuapp.com/api/v1/foodtrucks/", formData)
         .then(response => {
+            console.log(json)
             return response.json()
     }).then(json => {
-        console.log(json)
                dispatch({type: 'EDIT_TRUCK', truck: json.id})
         })
     }
