@@ -34,6 +34,7 @@ export const editTruck = (truck,id) => {
     console.log(truck)
     truck["id"] = id 
     console.log(truck)
+    
     const formData = {
         method: 'PATCH',
         headers: { 
