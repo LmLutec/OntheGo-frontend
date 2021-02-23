@@ -47,6 +47,7 @@ export const editTruck = (truck,id) => {
         .then(response => {
             return response.json()
     }).then(json => {
+        console.log(json)
                dispatch({type: 'EDIT_TRUCK', truck: json.id})
         })
     }
