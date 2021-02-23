@@ -49,31 +49,11 @@ export const editTruck = (foodtruck,id) => {
             console.log(json)
             return response.json()
     }).then(json => {
-               dispatch({type: 'EDIT_TRUCK', truck: json.id})
+               dispatch({type: 'EDIT_TRUCK', truck: json})
         })
     }
 } 
 
-export const editSchedule = (schedule, id) => {
-    schedule["foodtruck_id"] = id
-
-    const formData = {
-        method: 'PATCH',
-        headers: { 
-            'Content-Type': 'application/json'
-         },
-        body: JSON.stringify(schedule) 
-    }
-
-    return (dispatch) => {
-        fetch(`https://alwaysonthego.herokuapp.com/api/v1/schedules/${schedule.id}`, formData)
-        .then(response => {
-            return response.json()
-    }).then(json => {
-               dispatch({type: 'EDIT_SCHEDULE', schedule: json})
-        })
-    }
-}
 
 export const createMenu = (truckId) => {
     const formData = {
