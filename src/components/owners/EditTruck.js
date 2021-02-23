@@ -93,7 +93,7 @@ class EditTruck extends Component {
 
     handleSubmit = (event) => {
 
-        console.log(number)
+        // console.log(number)
         // this.setState({
         //     foodtruck: {
         //         foodtruck: {
