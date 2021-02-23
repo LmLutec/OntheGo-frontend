@@ -64,8 +64,10 @@ class EditTruck extends Component {
     handleChange = (event) => {
         this.setState({
             foodtruck: {
+                foodtruck: {
                 ...this.state.foodtruck.foodtruck,
                 [event.target.id]: event.target.value
+                }
             }
         })
     }
