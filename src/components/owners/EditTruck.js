@@ -6,6 +6,7 @@ class EditTruck extends Component {
 
     state = {
         foodtruck: {
+        foodtruck: {
             name: `${this.props.truck.name}`,
             food_type: `${this.props.truck.food_type}`,
             phone_number: `${this.props.truck.phone_number}`,
@@ -13,7 +14,7 @@ class EditTruck extends Component {
             city: `${this.props.truck.city}`,
             state: `${this.props.truck.state}`,
             zip_code: `${this.props.truck.zip_code}`
-        },
+        }},
         numberParts: {
         areaCode: '',
         begNum: '',
