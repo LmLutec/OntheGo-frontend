@@ -42,7 +42,7 @@ class EditTruck extends Component {
            let areaCode = json.phone_number.slice(0,3)
            let begNum = json.phone_number.slice(3,6)
            let lastNum = json.phone_number.slice(6)
-          
+          console.log(begNum)
                this.setState({
                    numberParts: {
                        ...this.state.numberParts,
