@@ -32,7 +32,7 @@ export const addTruck = (truck) => {
 export const editTruck = (foodtruck,id) => {
     console.log(id)
     console.log(foodtruck)
-    foodtruck.foodtruck["id"] = id 
+    foodtruck["id"] = id 
     console.log(foodtruck)
 
     const formData = {
