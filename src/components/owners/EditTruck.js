@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import PhoneInput from 'react-phone-number-input/input'
 
 
 class EditTruck extends Component {
@@ -131,9 +132,13 @@ class EditTruck extends Component {
                     <label>Food type</label>
                     <input onChange= { event => {this.handleChange(event)}} type="text" id="food_type" value={this.state.foodtruck.foodtruck.food_type} required/><br/>
                     <label>Phone number</label>  
-                        (<input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="areaCode" value={this.state.numberParts.areaCode} style={{ width: "25px" }} required/>)
+                    <PhoneInput
+                        country="US"
+                        value={this.state.foodtruck.foodtruck.phone_number}
+                        onChange={ event => {this.handleChange(event)}} />
+                        {/* (<input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="areaCode" value={this.state.numberParts.areaCode} style={{ width: "25px" }} required/>)
                     <input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="begNum" value={this.state.numberParts.begNum} style={{ width: "25px" }} required/>-
-                    <input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="lastNum" value={this.state.numberParts.lastNum} style={{ width: "30px" }} required/><br/>
+                    <input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="lastNum" value={this.state.numberParts.lastNum} style={{ width: "30px" }} required/><br/> */}
                     <input type="submit" value="Edit Truck"/>
                 </form>
 
