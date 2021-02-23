@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
 
-let number;
-
 class EditTruck extends Component {
 
     state = {
@@ -81,11 +79,8 @@ class EditTruck extends Component {
             [event.target.id] : event.target.value
             }
         })
-        number = `${this.state.numberParts.areaCode}` + `${this.state.numberParts.begNum}` + `${this.state.numberParts.lastNum}`
-    }
+        let number = `${this.state.numberParts.areaCode}` + `${this.state.numberParts.begNum}` + `${this.state.numberParts.lastNum}`
 
-    handleSubmit = (event) => {
-        console.log(number)
         this.setState({
             foodtruck: {
                 foodtruck: {
@@ -94,6 +89,19 @@ class EditTruck extends Component {
                 }
             }
         })
+    }
+
+    handleSubmit = (event) => {
+
+        console.log(number)
+        // this.setState({
+        //     foodtruck: {
+        //         foodtruck: {
+        //             ...this.state.foodtruck.foodtruck,
+        //             phone_number: number
+        //         }
+        //     }
+        // })
         event.preventDefault()
         console.log(this.state)
         const id = this.props.truck.id
