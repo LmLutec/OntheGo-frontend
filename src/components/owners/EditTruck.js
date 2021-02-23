@@ -83,6 +83,7 @@ class EditTruck extends Component {
 
     handleSubmit = (event) => {
         let number = `${this.state.numberParts.areaCode}` + `${this.state.numberParts.begNum}` + `${this.state.numberParts.lastNum}`
+        console.log(number)
         this.setState({
             foodtruck: {
             foodtruck: {
