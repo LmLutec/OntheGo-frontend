@@ -29,27 +29,26 @@ export const addTruck = (truck) => {
     }
 }
 
-export const editTruck = (foodtruck,id) => {
+export const editTruck = (truck,id) => {
     console.log(id)
-    console.log(foodtruck)
-    foodtruck["id"] = id 
-    console.log(foodtruck)
-
+    console.log(truck)
+    truck["id"] = id 
+    console.log(truck)
     const formData = {
         method: 'PATCH',
         headers: { 
             'Content-Type': 'application/json'
          },
-        body: JSON.stringify(foodtruck) 
+        body: JSON.stringify(truck) 
     }
 
     return (dispatch) => {
-        fetch(`https://alwaysonthego.herokuapp.com/api/v1/foodtrucks/${foodtruck.id}`, formData)
+        fetch("https://alwaysonthego.herokuapp.com/api/v1/foodtrucks/", formData)
         .then(response => {
-            console.log(json)
             return response.json()
     }).then(json => {
-               dispatch({type: 'EDIT_TRUCK', truck: json})
+        console.log(json)
+               dispatch({type: 'EDIT_TRUCK', truck: json.id})
         })
     }
 } 
