@@ -33,7 +33,7 @@ export const editTruck = (truck,id) => {
     console.log(id)
     console.log(truck)
     truck["id"] = id 
-
+debugger
     const formData = {
         method: 'PATCH',
         headers: { 
