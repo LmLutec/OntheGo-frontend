@@ -88,8 +88,9 @@ class EditTruck extends Component {
         })
         event.preventDefault()
         const id = this.props.truck.id
-        this.props.edit(this.state.foodtruck, id)
         console.log(this.state.foodtruck)
+        this.props.edit(this.state.foodtruck, id)
+        
         // this.props.history.push("/home")
     }
 
