@@ -74,19 +74,19 @@ class EditTruck extends Component {
     }
 
     handlePhoneNumber = (event) => {
-        this.setState({
-            numberParts: {
-            ...this.state.numberParts,
-            [event.target.id] : event.target.value
-            }
-        })
-        let number = `${this.state.numberParts.areaCode}` + `${this.state.numberParts.begNum}` + `${this.state.numberParts.lastNum}`
-        console.log(`${this.state.numberParts.areaCode}` + `${this.state.numberParts.begNum}` + `${this.state.numberParts.lastNum}`)
+        // this.setState({
+        //     numberParts: {
+        //     ...this.state.numberParts,
+        //     [event.target.id] : event.target.value
+        //     }
+        // })
+        // let number = `${this.state.numberParts.areaCode}` + `${this.state.numberParts.begNum}` + `${this.state.numberParts.lastNum}`
+        // console.log(`${this.state.numberParts.areaCode}` + `${this.state.numberParts.begNum}` + `${this.state.numberParts.lastNum}`)
         this.setState({
             foodtruck: {
                 foodtruck: {
                     ...this.state.foodtruck.foodtruck,
-                    phone_number: number
+                    phone_number: event.target.value
                 }
             }
         })
@@ -133,7 +133,7 @@ class EditTruck extends Component {
                     <input onChange= { event => {this.handleChange(event)}} type="text" id="food_type" value={this.state.foodtruck.foodtruck.food_type} required/><br/>
                     <label>Phone number</label>  
                     <PhoneInput
-                        country="US" onChange={ event => {this.handleChange(event)}} id="phone_number" value={this.state.foodtruck.foodtruck.phone_number} required/>
+                        country="US" onChange={ event => {this.handlePhoneNumber(event)}} id="phone_number" value={this.state.foodtruck.foodtruck.phone_number} required/>
                         {/* (<input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="areaCode" value={this.state.numberParts.areaCode} style={{ width: "25px" }} required/>)
                     <input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="begNum" value={this.state.numberParts.begNum} style={{ width: "25px" }} required/>-
                     <input onChange={ event => {this.handlePhoneNumber(event)}} type="text" id="lastNum" value={this.state.numberParts.lastNum} style={{ width: "30px" }} required/><br/> */}
