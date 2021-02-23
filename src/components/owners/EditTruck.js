@@ -80,7 +80,7 @@ class EditTruck extends Component {
             }
         })
         let number = `${this.state.numberParts.areaCode}` + `${this.state.numberParts.begNum}` + `${this.state.numberParts.lastNum}`
-        console.log(`${this.state.numberParts.begNum}`)
+        console.log(number)
         this.setState({
             foodtruck: {
                 foodtruck: {
