@@ -79,7 +79,7 @@ class Home extends Component {
                     Sunday: {this.props.schedule.sun_start} to {this.props.schedule.sun_end} <br/><br/>
                     New Years Day: {this.props.schedule.new_years_day_start} to {this.props.schedule.new_years_day_end}<br/>
                     Thanksgiving Day: {this.props.schedule.thanksgiving_day_start} to {this.props.schedule.thanksgiving_day_end}<br/>
-                    Christmas Day: {this.props.schedule.thanksgiving_day_start} to {this.props.schedule.thanksgiving_day_end}<br/>
+                    Christmas Day: {this.props.schedule.christmas_day_start} to {this.props.schedule.christmas_day_end}<br/>
                     <button onClick={this.editSchedule}>Edit Schedule</button>
                 </section>
 

@@ -106,7 +106,6 @@ export const editSchedule = (schedule, id) => {
         .then(response => {
             return response.json()
     }).then(json => {
-        console.log(json)
                dispatch({type: 'EDIT_SCHEDULE', schedule: json})
         })
     }
