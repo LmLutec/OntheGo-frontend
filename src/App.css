@@ -209,11 +209,11 @@ input {
    transition: transform .2s;
  }
 
- .home_edit_menu {
+ /* .home_edit_menu {
    position: absolute;
    left: 690px;
    top: 1450px;
- }
+ } */
 
  .full-menu li:hover {
   transform: scale(1.5);
