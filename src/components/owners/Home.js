@@ -95,7 +95,7 @@ class Home extends Component {
                 </section>
                 <button onClick={this.addNote}>Add note</button><br/>
 
-                <section className="ratings" style={{display: this.props.ratings.length > 1 ? 'block' : 'none' }}>
+                <section className="ratings" style={{display: this.props.ratings.length > 0 ? 'block' : 'none' }}>
                     <h3>Ratings</h3>
                     <GetRatings ratings={this.props.ratings}/>
                     <button onClick={this.allRatings}>See all ratings</button>

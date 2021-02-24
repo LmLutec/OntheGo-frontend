@@ -14,7 +14,6 @@ const MenuItem = props => {
 
   return (
     <div>
-      <ul>
         <li>
               ${item.price} - {item.name}(<i>{item.item_type}</i>) <br/>
               <i>{item.description}</i>
@@ -22,7 +21,6 @@ const MenuItem = props => {
               <br/>
               <button onClick={() => home(item)}> Remove </button>
         </li>
-      </ul>
     </div>
   )
 }
