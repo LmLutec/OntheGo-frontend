@@ -93,6 +93,7 @@ button.main-page {
   bottom: 0px; */
   margin: 0;
   position: absolute;
+  left: 50%;
   bottom: 50%
 }
 
