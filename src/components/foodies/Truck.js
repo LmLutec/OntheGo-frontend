@@ -137,7 +137,7 @@ const Truck = props => {
           <h2>Menu</h2>
             {getItems()}
           <section className="full-menu">
-            <div className="beverages" style={{display: beverages.length > 0 ? 'block' : 'none'}}>
+            <div className="beverages" style={{display: beverages.length > 0 ? 'inline-block' : 'none'}}>
               <h3>Beverages:</h3>
               {getBeverages()}
             </div><br/>
@@ -145,11 +145,11 @@ const Truck = props => {
               <h3>Entrees:</h3>
               {getEntrees()}
             </div><br/>
-            <div className="sandwiches" style={{display: sandwiches.length > 0 ? 'block' : 'none'}}>
+            <div className="sandwiches" style={{display: sandwiches.length > 0 ? 'inline-block' : 'none'}}>
               <h3>Sandwiches:</h3>
               {getSandwiches()}
             </div><br/>
-            <div className="salads" style={{display: salads.length > 0 ? 'block' : 'none'}}>
+            <div className="salads" style={{display: salads.length > 0 ? 'inline-block' : 'none'}}>
               <h3>Salads:</h3>
               {getSalads()}
             </div><br/>
@@ -157,7 +157,7 @@ const Truck = props => {
               <h3>Sides:</h3>
               {getSides()}
             </div><br/>
-            <div className="desserts" style={{display: desserts.length > 0 ? 'block' : 'none'}}>
+            <div className="desserts" style={{display: desserts.length > 0 ? 'inline-block' : 'none'}}>
               <h3>Desserts:</h3>
               {getDesserts()}
             </div>
