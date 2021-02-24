@@ -93,7 +93,7 @@ button.main-page {
   bottom: 0px; */
   margin: 0;
   position: absolute;
-  top: 50%
+  bottom: 50%
 }
 
 input {
