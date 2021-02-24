@@ -141,7 +141,7 @@ const Truck = props => {
               <h3>Beverages:</h3>
               {getBeverages()}
             </div><br/>
-            <div className="entrees" style={{display: entrees.length > 0 ? 'block' : 'none'}}>
+            <div className="entrees" style={{display: entrees.length > 0 ? 'inline-block' : 'none'}}>
               <h3>Entrees:</h3>
               {getEntrees()}
             </div><br/>
@@ -153,7 +153,7 @@ const Truck = props => {
               <h3>Salads:</h3>
               {getSalads()}
             </div><br/>
-            <div className="sides" style={{display: sides.length > 0 ? 'block' : 'none'}}>
+            <div className="sides" style={{display: sides.length > 0 ? 'inline-block' : 'none'}}>
               <h3>Sides:</h3>
               {getSides()}
             </div><br/>
