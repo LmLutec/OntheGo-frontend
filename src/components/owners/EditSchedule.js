@@ -46,7 +46,7 @@ class EditSchedule extends Component {
         event.preventDefault()
         let id = this.props.truck.id
         this.props.edit(this.state, id)
-        this.props.history.push("/home")
+        // this.props.history.push("/home")
     }
 
     home = () => {
