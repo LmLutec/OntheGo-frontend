@@ -88,9 +88,6 @@ input[type=submit] {
 }
 
 button.main-page {
-  /* margin: auto; */
-  /* left: 75px;
-  bottom: 0px; */
   margin: 0;
   position: absolute;
   left: 47%;
