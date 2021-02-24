@@ -41,7 +41,7 @@ class Home extends Component {
 
         const renderItems = () => {
             return this.props.food.map((items) => {
-                return items.map((i, id) => <li><MenuItem deleteFood={this.props.deleteFood} key={id} item={i}/></li>)
+                return items.map((i, id) => <MenuItem deleteFood={this.props.deleteFood} key={id} item={i}/>)
             })
                 
         }
