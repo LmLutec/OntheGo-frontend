@@ -41,7 +41,7 @@ class Home extends Component {
 
         const renderItems = () => {
             return this.props.food.map((items) => {
-                return items.map((i, id) => <MenuItem deleteFood={this.props.deleteFood} key={id} item={i}/>)
+                return items.map((i, id) => <li><MenuItem deleteFood={this.props.deleteFood} key={id} item={i}/></li>)
             })
                 
         }
@@ -86,7 +86,7 @@ class Home extends Component {
                 <section className="menu_info full-menu">
                     <h3>Menu</h3>
                     <button onClick={this.editMenu} className="home_edit_menu">Edit Menu</button>
-                    {renderItems()}
+                    <ul>{renderItems()}</ul>
                     
                 </section>
                 <section className="add_notes" >
