@@ -200,6 +200,7 @@ input {
    overflow: auto;
    padding: 40px;
    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.19);
+   width: 100%;
  }
 
  .full-menu li {
