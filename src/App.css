@@ -38,10 +38,29 @@
   }
 }
 
+/* General tags */
+
 a {
   color:  #3114B4;
   text-decoration: none;
   font-size: 24px;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: red;
+}
+
+.add_notes { 
+  color: red ; 
+  padding: 40px; 
+ } 
+
+button {
+  border-radius: 12px;
+  background-color: #3114B4;
+  color: #FBCA17;
+  padding: 10px;
 }
 
 button#deleteAccount {
@@ -49,15 +68,46 @@ button#deleteAccount {
   color: white;
 }
 
-li {
-  list-style-type: none;
-  color: #3114B4;
+button.main-page {
+  margin: 0;
+  position: absolute;
+  left: 47%;
+  bottom: 50%
 }
 
-a:hover {
-  text-decoration: underline;
-  color: red;
+div.ratingValues {
+  float: right;
 }
+
+.edit-menu {
+  padding: 10px;
+}
+
+.edit-schedule {
+  padding: 10px;
+}
+
+.edit-truck{
+  padding:10px;
+}
+
+.full-menu {
+  overflow: auto;
+  padding: 40px;
+  box-shadow: 0 8px 10px 0 rgba(0,0,0,0.19);
+}
+
+.full-menu li {
+  float: left;
+  padding: 50px;
+  box-shadow: 0 8px 10px 0 rgba(126, 12, 12, 0.19);
+  transition: transform .2s;
+}
+
+.full-menu li:hover {
+  transform: scale(1.5);
+  background-color: #FBCA17;
+ }
 
 h1, h2 {
   color: #3114B4;
@@ -71,10 +121,9 @@ h6 {
   color: #3114B4;
 }
 
-button {
-  border-radius: 12px;
-  background-color: #3114B4;
-  color: #FBCA17;
+input {
+  margin: 10px;
+  display: inline-block;
 }
 
 input[type=submit] {
@@ -82,8 +131,9 @@ input[type=submit] {
   background-color: #3114B4;
 }
 
-.profile{
-  padding:10px;
+li {
+  list-style-type: none;
+  color: #3114B4;
 }
 
 .main {
@@ -92,17 +142,15 @@ input[type=submit] {
   /* padding: 100px; */
 }
 
-button.main-page {
-  margin: 0;
-  position: absolute;
-  left: 47%;
-  bottom: 50%
+.menu_info {
+  color:  #3114B4;
 }
 
-input {
-  margin: 10px;
-  display: inline-block;
-}
+.menu-input {
+  padding: 10px;
+  font-size: 18px;
+  color: #3114B4;
+ }
 
 .new-owner {
   background-color: #F6EDCC;
@@ -111,24 +159,42 @@ input {
   padding: 20px;
 }
 
+.notes {
+  background-color: #F6EDCC;
+  padding: 10px;
+ }
+
 .owner-login {
   color: #3114B4;
   font-weight: bold;
 }
 
-.truck_info{
-  color: red;
-  font-size: 20px;
-  box-shadow: 0 8px 10px 0 rgba(0,0,0,0.19);
-}
 
-.edit-truck{
+.profile{
   padding:10px;
 }
 
-.menu_info {
-  color:  #3114B4;
+.rating-container {
+  padding: 10px;
 }
+
+ .rating-form {
+  color: #3114B4;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.rating-form select {
+  color: red;
+  margin: 10px;
+}
+
+.ratings { 
+  color: red ; 
+  padding: 40px; 
+  font-weight: bold;
+  font-size: 18px;
+ } 
 
 .schedule_info {
   color:  #FBCA17;
@@ -137,43 +203,57 @@ input {
 }
 
 .schedule-input {
-  color: #3114B4;
   padding: 10px;
+  font-size: 18px;
+  color: #3114B4;
 }
 
-
-.add_notes { 
-  color: red ; 
-  padding: 40px; 
- } 
-
- .notes {
-  background-color: #F6EDCC;
-  padding: 10px;
- }
-
- .ratings { 
-  color: red ; 
-  padding: 40px; 
+.search {
+  padding: 20px;
+  color:  #3114B4;
   font-weight: bold;
   font-size: 18px;
- } 
+}
 
- .search {
-   padding: 20px;
-   color:  #3114B4;
-   font-weight: bold;
-   font-size: 18px;
- }
+.truck {
+  float: left;
+  padding: 40px;
+  box-shadow: 0 8px 10px 0 rgba(0,0,0,0.19);
+  transition: transform .2s;
+}
 
- .truck-container {
+.truck:hover {
+  transform: scale(1.5);
+  background-color: #FBCA17;
+}
+
+.truck-container {
   background-color: #F6EDCC;
   padding: 10px;
   min-height: 100vh;
   flex-direction: row;
- }
+}
 
- .trucks {
+.truck-details {
+  color: #FC7307;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+
+.truck_info{
+  color: red;
+  font-size: 20px;
+  box-shadow: 0 8px 10px 0 rgba(0,0,0,0.19);
+}
+
+.truck-input {
+  padding: 10px;
+  color: #3114B4;
+}
+
+.trucks {
   background-color: #F6EDCC;
   display: inline-block;
   /* left: 100px; */
@@ -183,37 +263,32 @@ input {
   font-family: "Comic Sans MS", cursive, sans-serif;
  }
 
- .truck {
-   float: left;
-   padding: 40px;
-   box-shadow: 0 8px 10px 0 rgba(0,0,0,0.19);
-   transition: transform .2s;
- }
+ul.note{
+ border: 2px solid rgba(49, 10, 192, 0.452);
+ margin: 0;
+}
 
- .truck:hover {
-  transform: scale(1.5);
-  background-color: #FBCA17;
- }
 
- .truck-details {
-   color: #FC7307;
-   font-size: 18px;
-   font-weight: bold;
-   padding: 10px;
- }
 
- .full-menu {
-   overflow: auto;
-   padding: 40px;
-   box-shadow: 0 8px 10px 0 rgba(0,0,0,0.19);
- }
 
- .full-menu li {
-   float: left;
-   padding: 50px;
-   box-shadow: 0 8px 10px 0 rgba(126, 12, 12, 0.19);
-   transition: transform .2s;
- }
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
 
  /* .home_edit_menu {
    position: absolute;
@@ -221,56 +296,12 @@ input {
    top: 1450px;
  } */
 
- .full-menu li:hover {
-  transform: scale(1.5);
-  background-color: #FBCA17;
- }
 
- .edit-menu {
-   padding: 10px;
- }
 
- .edit-schedule {
-   padding: 10px;
- }
 
- .rating-form {
-   color: #3114B4;
-   font-weight: bold;
-   margin: 10px;
- }
 
- .rating-form select {
-   color: red;
-   margin: 10px;
- }
 
- .rating-container {
-   padding: 10px;
- }
 
- .truck-input {
-   padding: 10px;
-   color: #3114B4;
- }
 
- .schedule-input {
-   padding: 10px;
-   font-size: 18px;
-   color: #3114B4;
- }
 
- .menu-input {
-  padding: 10px;
-  font-size: 18px;
-  color: #3114B4;
- }
 
- ul.note{
-  border: 2px solid rgba(49, 10, 192, 0.452);
-  margin: 0;
- }
-
- div.ratingValues {
-   float: right;
- }
