@@ -29,9 +29,9 @@ const getAverage = (arr) => {
   return (
     <div>
       <ul className="ratingValues">
-          <li className="overallRating">Overall food quality rating: {getAverage(foodQuality)}</li> + " "
-          <li className="overallRating">Overall Customer Service rating: {getAverage(customerService)}</li> + " "
-          <li className="overallRating">Overall Speed of Service: {getAverage(speedOfService)}</li> + " "
+          <li className="overallRating">Overall food quality rating: {getAverage(foodQuality)}</li>
+          <li className="overallRating">Overall Customer Service rating: {getAverage(customerService)}</li> 
+          <li className="overallRating">Overall Speed of Service: {getAverage(speedOfService)}</li> 
           <li className="overallRating">Overall price scale: {getAverage(prices)}</li>
       </ul>
     </div>
