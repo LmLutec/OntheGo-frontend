@@ -109,7 +109,7 @@ class Home extends Component {
                             <button onClick={this.delete}>Yes</button>
                             <button onClick={this.dontDelete}>No</button>
                     </div>
-                    <button onClick={this.deleteProfileConf}>DELETE ACCOUNT</button>
+                    <button onClick={this.deleteProfileConf} id="deleteAccount">DELETE ACCOUNT</button>
                 </section>
         </div>
         

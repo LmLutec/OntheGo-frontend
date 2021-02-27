@@ -44,6 +44,11 @@ a {
   font-size: 24px;
 }
 
+button#deleteAccount {
+  background-color: red;
+  color: white;
+}
+
 li {
   list-style-type: none;
   color: #3114B4;
