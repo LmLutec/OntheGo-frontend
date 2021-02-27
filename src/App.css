@@ -270,7 +270,7 @@ ul.note{
 }
 
 ul.ratingValues li{
-  display: inline;
+  float: left;
 }
 
 
