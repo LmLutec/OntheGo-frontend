@@ -268,7 +268,7 @@ ul.note{
  margin: 0;
 }
 
-ul.ratingValues {
+ul.ratingValues li{
   display: inline;
 }
 
