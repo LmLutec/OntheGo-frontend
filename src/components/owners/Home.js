@@ -64,7 +64,7 @@ class Home extends Component {
                     City: {this.props.truck.city}<br/>
                     State: {this.props.truck.state}<br/>
                     Zip code: {this.props.truck.zip_code}<br/>
-                    Phone Number: {this.props.truck.phone_number}<br/>
+                    Phone Number: {this.props.truck.phone_number}<br/><br/>
                     <button onClick={this.editTruck}>Edit Truck Information</button><br/><br/>
                 </section>
 
@@ -79,7 +79,7 @@ class Home extends Component {
                     Sunday: {this.props.schedule.sun_start} to {this.props.schedule.sun_end} <br/><br/>
                     New Years Day: {this.props.schedule.new_years_day_start} to {this.props.schedule.new_years_day_end}<br/>
                     Thanksgiving Day: {this.props.schedule.thanksgiving_day_start} to {this.props.schedule.thanksgiving_day_end}<br/>
-                    Christmas Day: {this.props.schedule.christmas_day_start} to {this.props.schedule.christmas_day_end}<br/>
+                    Christmas Day: {this.props.schedule.christmas_day_start} to {this.props.schedule.christmas_day_end}<br/><br/>
                     <button onClick={this.editSchedule}>Edit Schedule</button>
                 </section>
 

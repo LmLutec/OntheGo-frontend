@@ -18,7 +18,7 @@ const MenuItem = props => {
               ${item.price} - {item.name}(<i>{item.item_type}</i>) <br/>
               <i>{item.description}</i>
               
-              <br/>
+              <br/><br/>
               <button onClick={() => home(item)}> Remove </button>
         </li>
     </div>
