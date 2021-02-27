@@ -270,11 +270,11 @@ li {
   font-family: "Comic Sans MS", cursive, sans-serif;
  }
 
-ul.note{
+/* ul.note{
  border: 2px solid rgba(49, 10, 192, 0.452);
  border-spacing: 10px;
  margin: 0;
-}
+} */
 
 ul.ratingValues li{
   float: left;
