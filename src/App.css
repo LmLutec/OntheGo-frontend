@@ -271,6 +271,7 @@ ul.note{
 
 ul.ratingValues li{
   float: left;
+  padding: 10px;
 }
 
 
