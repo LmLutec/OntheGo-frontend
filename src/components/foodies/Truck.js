@@ -133,7 +133,7 @@ const Truck = props => {
           <h2>Ratings</h2>
             <GetRatings ratings={r}/>
          </section>
-
+          <br/>
           <h2>Menu</h2>
             {getItems()}
           <section className="full-menu">
