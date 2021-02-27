@@ -272,5 +272,5 @@ input {
  }
 
  li.overallRating {
-   display: inline-block;
+   float: left;
  }
