@@ -222,6 +222,10 @@ li {
   font-size: 18px;
 }
 
+section.add_notes{
+  text-align: center;
+}
+
 .truck {
   float: left;
   padding: 40px;
