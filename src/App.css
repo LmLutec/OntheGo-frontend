@@ -271,6 +271,6 @@ input {
   margin: 0;
  }
 
- li.overallRating {
+ div.ratingValues {
    float: left;
  }
