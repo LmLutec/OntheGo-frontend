@@ -99,7 +99,7 @@ class Home extends Component {
                     <h3>Ratings</h3>
                     <button onClick={this.allRatings} className="allRatings">See all ratings</button>
                     <GetRatings ratings={this.props.ratings}/>
-                </section>
+                </section><br/><br/>
 
                 <button onClick={this.logout}>Logout</button><br/><br/><br/>
 
