@@ -98,7 +98,7 @@ class Home extends Component {
                 <section className="ratings" style={{display: this.props.ratings.length > 0 ? 'block' : 'none' }}>
                     <h3>Ratings</h3>
                     <GetRatings ratings={this.props.ratings}/>
-                    <button onClick={this.allRatings}>See all ratings</button>
+                    <button onClick={this.allRatings} className="allRatings">See all ratings</button>
                 </section>
 
                 <button onClick={this.logout}>Logout</button><br/><br/><br/>
