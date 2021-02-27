@@ -17,7 +17,7 @@ const Note = props => {
       <ul className="note">
               <p>{note.date}</p>
               <i>{note.message}</i>
-              <br/>
+              <br/><br/>
               <button onClick={() => home(note)}> Remove </button> 
       </ul>
     </div>
