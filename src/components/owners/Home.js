@@ -82,6 +82,12 @@ class Home extends Component {
                         Christmas Day: {this.props.schedule.christmas_day_start} to {this.props.schedule.christmas_day_end}<br/><br/>
                         <button onClick={this.editSchedule}>Edit Schedule</button>
                     </section>
+
+                    <section className="add_notes" >
+                        <h3>Notes</h3>
+                        {renderNotes()}
+                    </section>
+                    <button onClick={this.addNote}>Add note</button><br/>
                 </div>
                 <section className="menu_info full-menu">
                     <h3>Menu</h3>
@@ -89,11 +95,6 @@ class Home extends Component {
                     <ul>{renderItems()}</ul>
                     
                 </section>
-                <section className="add_notes" >
-                    <h3>Notes</h3>
-                    {renderNotes()}
-                </section>
-                <button onClick={this.addNote}>Add note</button><br/>
 
                 <section className="ratings" style={{display: this.props.ratings.length > 0 ? 'block' : 'none' }}>
                     <h3>Ratings</h3>
