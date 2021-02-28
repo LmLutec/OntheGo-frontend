@@ -232,6 +232,7 @@ li {
   font-weight: bold;
   font-size: 18px;
   padding: 20px;
+  border-right: 4px solid yellow;
 }
 
 .schedule-input {
@@ -282,8 +283,8 @@ section.add_notes{
 .truck_info{
   color: red;
   font-size: 20px;
-  box-shadow: 0 8px 10px 0 rgba(0,0,0,0.19);
   padding: 20px;
+  border-right: 4px solid yellow;
 }
 
 .truck-input {
