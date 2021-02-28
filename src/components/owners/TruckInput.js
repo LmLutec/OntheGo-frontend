@@ -53,6 +53,7 @@ class TruckInput extends Component {
             const owner = JSON.parse(localStorage.getItem('owner'))
             const foodtruck = this.state.foodtruck
             foodtruck["owner_id"] = owner.id
+            debugger
             foodtruck["phone_number"] = number
 
             const formData = {
