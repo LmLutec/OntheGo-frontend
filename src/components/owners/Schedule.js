@@ -42,10 +42,47 @@ class Schedule extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         let id = this.props.truck
-        this.props.addSchedule(this.state.schedule, id)
+        this.submitSchedule(this.state.schedule, id)
         this.props.addMenu(id)
         this.props.history.push("/manage/menu")
     }
+   
+
+    async submitSchedule(schedule, truck){
+        try {
+
+            schedule["foodtruck_id"] = truck
+
+            const formData = {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({schedule: schedule})
+            }
+            const response = await fetch("https://alwaysonthego.herokuapp.com/api/v1/schedules/", formData)
+            const json = await response.json()
+
+            if(json){
+                return (dispatch) => {
+                        dispatch({type: 'ADD_SCHEDULE', schedule: json.data})
+                }
+
+            }
+        }
+        catch(error){
+            // set a method to delete user just created
+            console.log(error)
+        }
+    }
+
+
+            
+            
+       
+            
+    
+    
 
     render(){
 

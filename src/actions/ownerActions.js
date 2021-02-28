@@ -70,25 +70,25 @@ export const createMenu = (truckId) => {
     
 }
 
-export const addSchedule = (schedule, truck) => {
-    schedule["foodtruck_id"] = truck
-    const formData = {
-        method: 'POST',
-        headers: {
-            'Content-type': 'application/json'
-        },
-        body: JSON.stringify({schedule: schedule})
-    }
-    return (dispatch) => {
-        fetch("https://alwaysonthego.herokuapp.com/api/v1/schedules/", formData)
-        .then(response => {
-            return response.json()
-        }).then(json => {
-            dispatch({type: 'ADD_SCHEDULE', schedule: json.data})
-        })
-    }
+// export const addSchedule = (schedule, truck) => {
+//     schedule["foodtruck_id"] = truck
+//     const formData = {
+//         method: 'POST',
+//         headers: {
+//             'Content-type': 'application/json'
+//         },
+//         body: JSON.stringify({schedule: schedule})
+//     }
+//     return (dispatch) => {
+//         fetch("https://alwaysonthego.herokuapp.com/api/v1/schedules/", formData)
+//         .then(response => {
+//             return response.json()
+//         }).then(json => {
+//             dispatch({type: 'ADD_SCHEDULE', schedule: json.data})
+//         })
+//     }
     
-}
+// }
 
 export const editSchedule = (schedule, id) => {
     schedule["foodtruck_id"] = id
