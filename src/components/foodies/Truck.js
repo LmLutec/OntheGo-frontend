@@ -10,7 +10,7 @@ const Truck = props => {
   const r = props.ratings
   const i = props.items
   const n = props.notes
-console.log(t.truck.phone_number.chars)
+console.log(t.phone_number.chars)
   let beverages = []
   let sides = []
   let entrees = []
