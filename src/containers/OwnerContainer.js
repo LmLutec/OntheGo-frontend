@@ -15,6 +15,8 @@ import NoteInput from '../components/owners/NoteInput'
 import RatingsDetails from '../components/owners/RatingsDetails'
 import Errors from '../components/Errors'
 
+
+// addSchedule={this.props.addSchedule} from schedule component
 // removed addSchedule 
 class OwnerContainer extends Component {
 
@@ -44,7 +46,7 @@ class OwnerContainer extends Component {
                     <Route exact path="/login"> <OwnerLogin login={this.props.login} profile={this.props.getProfile} getErrors={this.props.getErrors}/></Route>
                     <Route exact path="/owner/new"><OwnerInput addOwner={this.props.addOwner} getErrors={this.props.getErrors}/></Route>
                     <Route exact path="/setup"> <TruckInput getErrors={this.props.getErrors} addTruck={this.props.addTruck} menu={this.props.createMenu} profile={this.props.getProfile} deleteProfile={this.props.deleteProfile} /></Route>
-                    <Route exact path="/schedule"> <Schedule addSchedule={this.props.addSchedule} truck={this.props.truck} addMenu={this.props.createMenu}/></Route>
+                    <Route exact path="/schedule"> <Schedule truck={this.props.truck} addMenu={this.props.createMenu}/></Route>
                     <Route exact path="/manage/menu"> <MenuItemsInput addFood={this.props.addFood} menu={this.props.menu} food={this.props.food} deleteFood={this.props.deleteFood} profile={this.props.getProfile}/></Route>
                     <Route exact path="/edit/truck"> <EditTruck edit={this.props.editTruck} truck={this.props.truck} profile={this.props.getProfile}/></Route>
                     <Route exact path="/edit/schedule"><EditSchedule schedule={this.props.schedule} edit={this.props.editSchedule} truck={this.props.truck} profile={this.props.getProfile}/></Route>
@@ -84,7 +86,7 @@ const mapDispatchToProps = (dispatch) => {
       getProfile: (acct) => dispatch(getProfile(acct)),
       addTruck: truck => dispatch(addTruck(truck)),
       editTruck: (truck, id) => dispatch(editTruck(truck, id)),
-      addSchedule: (schedule, truck) => dispatch(addSchedule(schedule, truck)),
+    //   addSchedule: (schedule, truck) => dispatch(addSchedule(schedule, truck)),
       editSchedule: (schedule) => dispatch(editSchedule(schedule)),
       createMenu: truckId => dispatch(createMenu(truckId)),
       addFood: (food, menuId) => dispatch(addFood(food, menuId)),
