@@ -55,34 +55,34 @@ class Home extends Component {
         return(
             <div>
                 <h1>Welcome back</h1>
+                <div className="profileInfo">
+                    <section className="truck_info">
+                        <h3>Food Truck</h3>
+                        Food Truck: {this.props.truck.name}<br/>
+                        Food type: {this.props.truck.food_type}<br/>
+                        Street: {this.props.truck.street}<br/>
+                        City: {this.props.truck.city}<br/>
+                        State: {this.props.truck.state}<br/>
+                        Zip code: {this.props.truck.zip_code}<br/>
+                        Phone Number: {this.props.truck.phone_number}<br/><br/>
+                        <button onClick={this.editTruck}>Edit Truck Information</button><br/><br/>
+                    </section>
 
-                <section className="truck_info">
-                    <h3>Food Truck</h3>
-                    Food Truck: {this.props.truck.name}<br/>
-                    Food type: {this.props.truck.food_type}<br/>
-                    Street: {this.props.truck.street}<br/>
-                    City: {this.props.truck.city}<br/>
-                    State: {this.props.truck.state}<br/>
-                    Zip code: {this.props.truck.zip_code}<br/>
-                    Phone Number: {this.props.truck.phone_number}<br/><br/>
-                    <button onClick={this.editTruck}>Edit Truck Information</button><br/><br/>
-                </section>
-
-                <section className="schedule_info">
-                    <h3>Schedule</h3>
-                    Monday: {this.props.schedule.mon_start} to {this.props.schedule.mon_end} <br/>
-                    Tuesday: {this.props.schedule.tues_start} to {this.props.schedule.tues_end} <br/>
-                    Wednesday: {this.props.schedule.wed_start} to {this.props.schedule.wed_end} <br/>
-                    Thursday: {this.props.schedule.thurs_start} to {this.props.schedule.thurs_end} <br/>
-                    Friday: {this.props.schedule.fri_start} to {this.props.schedule.fri_end} <br/>
-                    Saturday: {this.props.schedule.sat_start} to {this.props.schedule.sat_end} <br/>
-                    Sunday: {this.props.schedule.sun_start} to {this.props.schedule.sun_end} <br/><br/>
-                    New Years Day: {this.props.schedule.new_years_day_start} to {this.props.schedule.new_years_day_end}<br/>
-                    Thanksgiving Day: {this.props.schedule.thanksgiving_day_start} to {this.props.schedule.thanksgiving_day_end}<br/>
-                    Christmas Day: {this.props.schedule.christmas_day_start} to {this.props.schedule.christmas_day_end}<br/><br/>
-                    <button onClick={this.editSchedule}>Edit Schedule</button>
-                </section>
-
+                    <section className="schedule_info">
+                        <h3>Schedule</h3>
+                        Monday: {this.props.schedule.mon_start} to {this.props.schedule.mon_end} <br/>
+                        Tuesday: {this.props.schedule.tues_start} to {this.props.schedule.tues_end} <br/>
+                        Wednesday: {this.props.schedule.wed_start} to {this.props.schedule.wed_end} <br/>
+                        Thursday: {this.props.schedule.thurs_start} to {this.props.schedule.thurs_end} <br/>
+                        Friday: {this.props.schedule.fri_start} to {this.props.schedule.fri_end} <br/>
+                        Saturday: {this.props.schedule.sat_start} to {this.props.schedule.sat_end} <br/>
+                        Sunday: {this.props.schedule.sun_start} to {this.props.schedule.sun_end} <br/><br/>
+                        New Years Day: {this.props.schedule.new_years_day_start} to {this.props.schedule.new_years_day_end}<br/>
+                        Thanksgiving Day: {this.props.schedule.thanksgiving_day_start} to {this.props.schedule.thanksgiving_day_end}<br/>
+                        Christmas Day: {this.props.schedule.christmas_day_start} to {this.props.schedule.christmas_day_end}<br/><br/>
+                        <button onClick={this.editSchedule}>Edit Schedule</button>
+                    </section>
+                </div>
                 <section className="menu_info full-menu">
                     <h3>Menu</h3>
                     <button onClick={this.editMenu} className="home_edit_menu">Edit Menu</button>

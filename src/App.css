@@ -79,7 +79,15 @@ button.main-page {
   margin: 0;
   position: absolute;
   left: 47%;
-  bottom: 50%
+  bottom: 50%;
+}
+
+div.profileInfo{
+  display: flex;
+}
+
+div.profileInfo section{
+  justify-content: center;
 }
 
 div.ratingValues {
