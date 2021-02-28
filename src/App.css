@@ -229,7 +229,7 @@ li {
   color:  #FBCA17;
   font-weight: bold;
   font-size: 18px;
-  padding: 10px;
+  padding: 20px;
 }
 
 .schedule-input {
@@ -247,7 +247,7 @@ li {
 
 section.add_notes{
   text-align: center;
-  padding: 10px;
+  padding: 20px;
 }
 
 .truck {
@@ -281,7 +281,7 @@ section.add_notes{
   color: red;
   font-size: 20px;
   box-shadow: 0 8px 10px 0 rgba(0,0,0,0.19);
-  padding: 10px;
+  padding: 20px;
 }
 
 .truck-input {
