@@ -87,7 +87,7 @@ class Home extends Component {
                         <h3>Notes</h3>
                         {renderNotes()}
                     </section>
-                    <button onClick={this.addNote}>Add note</button>
+                    <button onClick={this.addNote} className="addNote">Add note</button>
                 </div>
                 <section className="menu_info full-menu">
                     <h3>Menu</h3>
