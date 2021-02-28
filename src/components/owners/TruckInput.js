@@ -47,13 +47,13 @@ class TruckInput extends Component {
     }
 
     async newTruck(){
-        let number = `${this.state.numberParts.areaCode}` + `${this.state.numberParts.begNum}` + `${this.state.numberParts.lastNum}`
+        let number = `${this.state.numberParts.areaCode}-` + `${this.state.numberParts.begNum}-` + `${this.state.numberParts.lastNum}`
         
         try{
             const owner = JSON.parse(localStorage.getItem('owner'))
             const foodtruck = this.state.foodtruck
             foodtruck["owner_id"] = owner.id
-            debugger
+            
             foodtruck["phone_number"] = number
 
             const formData = {
