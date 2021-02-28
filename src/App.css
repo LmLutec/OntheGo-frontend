@@ -90,11 +90,13 @@ button.main-page {
 
 div.profileInfo{
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-div.profileInfo section{
+/* div.profileInfo section{
   align-content: center;
-}
+} */
 
 div.ratingValues {
   float: right;
