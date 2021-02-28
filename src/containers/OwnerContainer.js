@@ -10,12 +10,12 @@ import Schedule from '../components/owners/Schedule'
 import EditSchedule from '../components/owners/EditSchedule'
 import MenuItemsInput from '../components/owners/MenuItemsInput'
 import EditMenu from '../components/owners/EditMenu'
-import { getErrors, addOwner, Login, getProfile, addTruck, addSchedule, editSchedule, createMenu, addFood, editTruck, addNote, deleteFood, deleteNote, deleteProfile } from '../actions/ownerActions'
+import { getErrors, addOwner, Login, getProfile, addTruck, editSchedule, createMenu, addFood, editTruck, addNote, deleteFood, deleteNote, deleteProfile } from '../actions/ownerActions'
 import NoteInput from '../components/owners/NoteInput'
 import RatingsDetails from '../components/owners/RatingsDetails'
 import Errors from '../components/Errors'
 
-
+// removed addSchedule 
 class OwnerContainer extends Component {
 
 
