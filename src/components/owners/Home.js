@@ -190,6 +190,3 @@ class Home extends Component {
 
 
 export default withRouter(Home)
-
-// //  https://alwaysonthego.herokuapp.com/api/v1/profile/
-// http://localhost:3000/api/v1/profile/
