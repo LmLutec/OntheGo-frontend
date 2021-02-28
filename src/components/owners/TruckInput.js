@@ -89,7 +89,7 @@ class TruckInput extends Component {
         return(
             <div className="truck-input">
                 <h3>Food Truck Information</h3>
-                <form onSubmit={(event) => {this.handleSubmit(event)}}>
+                <form onSubmit={(event) => {this.handleSubmit(event)}} className="newTruck">
                     <label>Name</label>
                     <input onChange={ event => {this.handleChange(event)}} type="text" id="name" value={this.state.foodtruck.name} required/><br/>
                     <label>Street</label>
