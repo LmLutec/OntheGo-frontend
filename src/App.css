@@ -138,6 +138,10 @@ input[type=submit] {
   background-color: #3114B4;
 }
 
+input#state {
+  width: 3%;
+}
+
 li {
   list-style-type: none;
   color: #3114B4;
