@@ -87,8 +87,7 @@ div.profileInfo{
 }
 
 div.profileInfo section{
-  justify-content: center;
-  margin: 10px;
+  align-content: space-between;
 }
 
 div.ratingValues {
