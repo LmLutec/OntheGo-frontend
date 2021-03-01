@@ -90,7 +90,7 @@ button.main-page {
 div.profileInfo{
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 /* div.profileInfo section{
