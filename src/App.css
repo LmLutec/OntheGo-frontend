@@ -90,8 +90,8 @@ button.main-page {
 
 div.profileInfo{
   display: flex;
-  align-items: center;
-  justify-content: baseline;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 /* div.profileInfo section{
