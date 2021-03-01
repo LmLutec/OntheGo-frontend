@@ -54,6 +54,7 @@ a:hover {
 .add_notes { 
   color: red ; 
   padding: 40px; 
+  flex: 1;
  } 
 
 button {
@@ -90,12 +91,11 @@ button.main-page {
 
 div.profileInfo{
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  flex: 1;
 }
 
 /* div.profileInfo section{
-  align-content: center;
+  flex: 1;
 } */
 
 div.ratingValues {
@@ -235,6 +235,7 @@ li {
   /* border-right: 4px solid yellow; */
   height: 50%;
   width: 35%;
+  flex: 1;
 }
 
 .schedule-input {
@@ -286,6 +287,7 @@ section.add_notes{
   color: red;
   font-size: 20px;
   padding: 20px;
+  flex: 2; 
   /* border-right: 4px solid yellow; */
 }
 
