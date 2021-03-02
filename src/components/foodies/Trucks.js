@@ -73,6 +73,7 @@ class Trucks extends Component {
       message = "There are no foodtrucks in your area. If you think this is a mistake, check the spelling of the City and State"
     }
     else {
+      console.log(truckList)
       message = this.Grab()
     }
 
