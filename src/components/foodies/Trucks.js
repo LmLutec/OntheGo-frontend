@@ -69,7 +69,7 @@ class Trucks extends Component {
     let truckList = this.props.trucks
     let message = ""
 
-    if (!truckList){
+    if (truckList.message){
       message = "There are no foodtrucks in your area. If you think this is a mistake, check the spelling of the City and State"
     }
     else {
