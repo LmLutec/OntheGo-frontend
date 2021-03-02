@@ -65,10 +65,11 @@ class Trucks extends Component {
 
 
   render(){
-    let error = this.props.errors
+    // let error = this.props.errors
+    let truckList = this.props.trucks
     let message = ""
 
-    if (error){
+    if (!truckList){
       message = "There are no foodtrucks in your area. If you think this is a mistake, check the spelling of the City and State"
     }
     else {
