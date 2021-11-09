@@ -1,13 +1,18 @@
 .App {
   text-align: center;
   font-family: "Comic Sans MS", cursive, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(221, 178, 221);
+  height: 100vh;
 }
 
-.App-logo {
-  height: 20vmin;
-  pointer-events: none;
+.appWrap {
+  border: 5px solid #3114b4;
+  width: 30em;
+  /* display: flex; */
 }
-
 /* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -15,7 +20,7 @@
 } */
 
 .App-header {
-  background-color: #FBCA17;
+  /* background-color: #FBCA17; */
   min-height: 50vh;
   display: flex;
   flex-direction: column;
@@ -41,7 +46,7 @@
 /* General tags */
 
 a {
-  color:  #3114B4;
+  color: #3114b4;
   text-decoration: none;
   font-size: 24px;
 }
@@ -51,28 +56,28 @@ a:hover {
   color: red;
 }
 
-.add_notes { 
-  color: red ; 
-  padding: 40px; 
- } 
+.add_notes {
+  color: red;
+  padding: 40px;
+}
 
 button {
   border-radius: 12px;
-  background-color: #3114B4;
-  color: #FBCA17;
+  background-color: #3114b4;
+  color: #fbca17;
   padding: 5px;
 }
 
-button.addNote{
+button.addNote {
   padding: 5px;
   text-align: center;
 }
 
 button.allRatings {
-    border-radius: 12px;
-    background-color: #3114B4;
-    color: #FBCA17;
-    padding: 0;
+  border-radius: 12px;
+  background-color: #3114b4;
+  color: #fbca17;
+  padding: 0;
 }
 
 button#deleteAccount {
@@ -87,7 +92,7 @@ button.main-page {
   bottom: 50%;
 }
 
-div.profileInfo{
+div.profileInfo {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -109,42 +114,43 @@ div.ratingValues {
   padding: 10px;
 }
 
-.edit-truck{
-  padding:10px;
+.edit-truck {
+  padding: 10px;
 }
 
-form.newTruck{
+form.newTruck {
   text-align: left;
 }
 
 .full-menu {
   overflow: auto;
   padding: 40px;
-  box-shadow: 0 8px 10px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 .full-menu li {
   float: left;
   padding: 50px;
   box-shadow: 0 8px 10px 0 rgba(126, 12, 12, 0.19);
-  transition: transform .2s;
+  transition: transform 0.2s;
 }
 
 .full-menu li:hover {
   transform: scale(1.5);
-  background-color: #FBCA17;
- }
+  background-color: #fbca17;
+}
 
-h1, h2 {
-  color: #3114B4;
+h1,
+h2 {
+  color: #3114b4;
 }
 
 h3 {
-  color: #FBCA17;
+  color: #fbca17;
 }
 
 h6 {
-  color: #3114B4;
+  color: #3114b4;
 }
 
 input {
@@ -152,9 +158,9 @@ input {
   display: inline-block;
 }
 
-input[type=submit] {
-  color: #FBCA17;
-  background-color: #3114B4;
+input[type="submit"] {
+  color: #fbca17;
+  background-color: #3114b4;
 }
 
 input#state {
@@ -163,53 +169,59 @@ input#state {
 
 li {
   list-style-type: none;
-  color: #3114B4;
+  color: #3114b4;
 }
 
 .main {
-  background-color: #F6EDCC;
+  display: flex;
+  flex-direction: column;
+  /* background-color: #f6edcc;
   min-height: 50vh;
-  /* padding: 100px; */
+  padding: 100px; */
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
 }
 
 .menu_info {
-  color:  #3114B4;
+  color: #3114b4;
 }
 
 .menu-input {
   padding: 10px;
   font-size: 18px;
-  color: #3114B4;
- }
+  color: #3114b4;
+}
 
 .new-owner {
-  background-color: #F6EDCC;
-  color: #3114B4;
+  background-color: #f6edcc;
+  color: #3114b4;
   font-weight: bold;
   padding: 20px;
 }
 
 .notes {
-  background-color: #F6EDCC;
+  background-color: #f6edcc;
   padding: 10px;
- }
+}
 
 .owner-login {
-  color: #3114B4;
+  color: #3114b4;
   font-weight: bold;
 }
 
-
-.profile{
-  padding:10px;
+.profile {
+  padding: 10px;
 }
 
 .rating-container {
   padding: 10px;
 }
 
- .rating-form {
-  color: #3114B4;
+.rating-form {
+  color: #3114b4;
   font-weight: bold;
   margin: 10px;
 }
@@ -219,15 +231,15 @@ li {
   margin: 10px;
 }
 
-.ratings { 
-  color: red ; 
-  padding: 40px; 
+.ratings {
+  color: red;
+  padding: 40px;
   font-weight: bold;
   font-size: 18px;
- } 
+}
 
 .schedule_info {
-  color:  #FBCA17;
+  color: #fbca17;
   font-weight: bold;
   font-size: 18px;
   padding: 20px;
@@ -238,17 +250,17 @@ li {
 .schedule-input {
   padding: 10px;
   font-size: 18px;
-  color: #3114B4;
+  color: #3114b4;
 }
 
 .search {
   padding: 20px;
-  color:  #3114B4;
+  color: #3114b4;
   font-weight: bold;
   font-size: 18px;
 }
 
-section.add_notes{
+section.add_notes {
   text-align: center;
   /* padding: 20px; */
 }
@@ -256,31 +268,30 @@ section.add_notes{
 .truck {
   float: left;
   padding: 40px;
-  box-shadow: 0 8px 10px 0 rgba(0,0,0,0.19);
-  transition: transform .2s;
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.19);
+  transition: transform 0.2s;
 }
 
 .truck:hover {
   transform: scale(1.5);
-  background-color: #FBCA17;
+  background-color: #fbca17;
 }
 
 .truck-container {
-  background-color: #F6EDCC;
+  background-color: #f6edcc;
   padding: 10px;
   min-height: 100vh;
   flex-direction: row;
 }
 
 .truck-details {
-  color: #FC7307;
+  color: #fc7307;
   font-size: 18px;
   font-weight: bold;
   padding: 10px;
 }
 
-
-.truck_info{
+.truck_info {
   color: red;
   font-size: 20px;
   padding: 20px;
@@ -288,18 +299,18 @@ section.add_notes{
 
 .truck-input {
   padding: 10px;
-  color: #3114B4;
+  color: #3114b4;
 }
 
 .trucks {
-  background-color: #F6EDCC;
+  background-color: #f6edcc;
   display: inline-block;
   /* left: 100px; */
   padding: 10px;
-  color: #4712A2;
+  color: #4712a2;
   font-weight: bold;
   font-family: "Comic Sans MS", cursive, sans-serif;
- }
+}
 
 /* ul.note{
  border: 2px solid rgba(49, 10, 192, 0.452);
@@ -307,7 +318,7 @@ section.add_notes{
  margin: 0;
 } */
 
-ul.ratingValues li{
+ul.ratingValues li {
   float: left;
   padding: 15px;
   border: 2px solid rgb(243, 247, 5);
@@ -315,39 +326,8 @@ ul.ratingValues li{
   background-color: white;
 }
 
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
- /* .home_edit_menu {
+/* .home_edit_menu {
    position: absolute;
    left: 690px;
    top: 1450px;
  } */
-
-
-
-
-
-
-
-
-
-
