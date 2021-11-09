@@ -4,14 +4,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(221, 178, 221);
+  background-color: #836ee0;
+  /* opacity: 0.2; */
   height: 100vh;
+  position: relative;
 }
 
 .appWrap {
-  border: 5px solid #3114b4;
+  border: 5px solid black;
   width: 30em;
-  /* display: flex; */
+  background-color: rgb(202, 199, 199);
+  position: absolute;
+  /* z-index: -1; */
 }
 /* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
