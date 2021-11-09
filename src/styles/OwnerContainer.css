@@ -1,0 +1,38 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.link:hover {
+  color: black;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+/* .links {
+  border: 5px solid #3114b4;
+  width: 30em;
+} */
+
+/* .link {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+} */
+
+/* NavLink.truckOwners {
+  display: flex;
+  justify-content: space-between;
+}
+
+NavLink.foodies {
+  flex-direction: column;
+} */
