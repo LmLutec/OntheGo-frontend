@@ -7,12 +7,8 @@ import FoodieContainer from "./containers/FoodieContainer";
 function App() {
   return (
     <div className="App">
+      <h1 className="logo">Always On the Go</h1>
       <div className="appWrap">
-        <header className="App-header">
-          <h1>Always On the Go</h1>
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-
         <section className="main">
           <div className="container">
             <FoodieContainer />

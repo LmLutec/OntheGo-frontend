@@ -1,20 +1,24 @@
 .App {
+  /* font-size: calc(10px + 2vmin); */
   text-align: center;
   font-family: "Comic Sans MS", cursive, sans-serif;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #836ee0;
   /* opacity: 0.2; */
   height: 100vh;
   position: relative;
+  color: white;
 }
 
 .appWrap {
-  border: 5px solid black;
+  border: 3px solid black;
+  border-radius: 10px;
   width: 30em;
-  background-color: rgb(202, 199, 199);
-  position: absolute;
+  background-color: rgb(250, 249, 249);
+  /* position: absolute; */
   /* z-index: -1; */
 }
 /* @media (prefers-reduced-motion: no-preference) {
@@ -24,7 +28,6 @@
 } */
 
 .App-header {
-  /* background-color: #FBCA17; */
   min-height: 50vh;
   display: flex;
   flex-direction: column;
@@ -102,10 +105,6 @@ div.profileInfo {
   justify-content: space-between;
 }
 
-/* div.profileInfo section{
-  align-content: center;
-} */
-
 div.ratingValues {
   float: right;
 }
@@ -176,12 +175,17 @@ li {
   color: #3114b4;
 }
 
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 5px;
+  color: white;
+}
+
 .main {
   display: flex;
   flex-direction: column;
-  /* background-color: #f6edcc;
-  min-height: 50vh;
-  padding: 100px; */
 }
 
 .container {
@@ -266,7 +270,6 @@ li {
 
 section.add_notes {
   text-align: center;
-  /* padding: 20px; */
 }
 
 .truck {
@@ -309,18 +312,11 @@ section.add_notes {
 .trucks {
   background-color: #f6edcc;
   display: inline-block;
-  /* left: 100px; */
   padding: 10px;
   color: #4712a2;
   font-weight: bold;
   font-family: "Comic Sans MS", cursive, sans-serif;
 }
-
-/* ul.note{
- border: 2px solid rgba(49, 10, 192, 0.452);
- border-spacing: 10px;
- margin: 0;
-} */
 
 ul.ratingValues li {
   float: left;
@@ -329,9 +325,3 @@ ul.ratingValues li {
   border-radius: 50px 20px;
   background-color: white;
 }
-
-/* .home_edit_menu {
-   position: absolute;
-   left: 690px;
-   top: 1450px;
- } */
