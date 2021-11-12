@@ -115,10 +115,24 @@ class OwnerInput extends Component {
               required
             />
             <br />
-            <input type="submit" name="submit" />
           </form>
           <br />
-          <button onClick={this.goBack}>Back</button>
+          <div className="icons">
+            <svg
+              width="18"
+              height="12"
+              viewBox="0 0 18 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              onClick={this.goBack}
+            >
+              <path
+                d="M18 5H3.83L7.41 1.41L6 0L0 6L6 12L7.41 10.59L3.83 7H18V5Z"
+                fill="black"
+              />
+            </svg>
+            <input type="submit" name="submit" />
+          </div>
         </div>
       </div>
     );
