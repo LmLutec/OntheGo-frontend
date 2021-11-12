@@ -1,8 +1,8 @@
 import React from "react";
-import logo from "./foodtruck.png";
 import "./App.css";
 import OwnerContainer from "./containers/OwnerContainer";
 import FoodieContainer from "./containers/FoodieContainer";
+import Paper from "./Paper";
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
           </div>
         </section>
       </div>
+      {/* <Paper /> */}
     </div>
   );
 }
