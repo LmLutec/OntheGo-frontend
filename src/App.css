@@ -42,7 +42,7 @@
 }
 
 .appWrap {
-  border: 3px solid black;
+  border: 3px solid transparent;
   border-radius: 10px;
   width: 30em;
   background-color: white;
@@ -226,13 +226,6 @@ li {
   padding: 10px;
   font-size: 18px;
   color: #3114b4;
-}
-
-.new-owner {
-  background-color: #f6edcc;
-  color: #3114b4;
-  font-weight: bold;
-  padding: 20px;
 }
 
 .notes {
