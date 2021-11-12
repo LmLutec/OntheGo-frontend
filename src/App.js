@@ -11,10 +11,10 @@ function App() {
       <div className="appWrap">
         <section className="main">
           <div className="container">
-            <FoodieContainer />
+            <OwnerContainer />
           </div>
           <div className="container">
-            <OwnerContainer />
+            <FoodieContainer />
           </div>
         </section>
       </div>
