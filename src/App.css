@@ -133,10 +133,6 @@ div.profileInfo {
   justify-content: space-between;
 }
 
-/* div.profileInfo section{
-  align-content: center;
-} */
-
 div.ratingValues {
   float: right;
 }
@@ -200,7 +196,7 @@ input[type="submit"] {
 }
 
 input#state {
-  width: 2%;
+  width: 8%;
 }
 
 li {
@@ -209,9 +205,7 @@ li {
 }
 
 .main {
-  /* background-color: #f6edcc; */
   min-height: 50vh;
-  /* padding: 100px; */
 }
 
 .menu_info {
@@ -272,7 +266,7 @@ li {
 
 .search {
   padding: 20px;
-  color: #3114b4;
+  color: #7fbd32;
   font-weight: bold;
   font-size: 18px;
 }
