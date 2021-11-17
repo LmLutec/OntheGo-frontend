@@ -9,10 +9,7 @@
   align-items: center;
   background-color: #e7f7d4;
   color: #7fbd32;
-
-  /* height: 100vh; */
-
-  height: 1000px;
+  height: 100vh;
 }
 
 .logo {
@@ -184,7 +181,7 @@ h2 {
 }
 
 h3 {
-  color: #fbca17;
+  color: red;
 }
 
 h6 {
@@ -197,8 +194,9 @@ input {
 }
 
 input[type="submit"] {
-  color: #fbca17;
-  background-color: #3114b4;
+  background-color: #e7f7d4;
+  color: red;
+  border: 1px red solid;
 }
 
 input#state {
