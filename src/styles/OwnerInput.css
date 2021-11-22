@@ -1,0 +1,30 @@
+.icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-end;
+}
+
+input[type="submit"] {
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  transform: scale(1.2);
+}
+
+.new-owner {
+  /* background-color: #f6edcc; */
+  color: #7fbd32;
+  font-weight: bold;
+  padding: 20px;
+}
+
+svg {
+  cursor: pointer;
+}
+
+svg:hover {
+  transform: scale(1.5);
+}
