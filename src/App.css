@@ -3,12 +3,14 @@
   text-align: center;
   /* font-family: "Comic Sans MS", cursive, sans-serif; */
   font-family: "Copperplate", "Papyrus";
+  font-weight: lighter;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #e7f7d4;
-  color: #7fbd32;
+  /* background-color: #e7f7d4; */
+  background-color: #7fbd32;
+  /* color: #b8141f; */
   height: 100vh;
 }
 
@@ -17,8 +19,8 @@
   top: 0;
   /* left: 0; */
   padding-left: 5px;
-  color: #7fbd32;
-  border-bottom: 2px red solid;
+  color: #ea202c;
+  border-bottom: 2px #ea202c solid;
 }
 
 .App-header {
@@ -40,7 +42,8 @@
   border: 3px solid transparent;
   border-radius: 10px;
   width: 30em;
-  /* background-color: white; */
+  background-color: #e7f7d4;
+  font-weight: lighter;
   /* background-color: rgb(250, 249, 249); */
   /* position: absolute; */
   /* z-index: -1; */
@@ -81,7 +84,7 @@ input[type="password"] {
 
 a {
   /* color: #3114b4; */
-  color: #7fbd32;
+  color: #ea202c;
   text-decoration: none;
   font-size: 24px;
 }

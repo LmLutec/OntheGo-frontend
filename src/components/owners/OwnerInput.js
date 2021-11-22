@@ -27,6 +27,7 @@ class OwnerInput extends Component {
   };
 
   async newOwner() {
+    console.log("submit");
     try {
       const formData = {
         method: "POST",
@@ -131,7 +132,11 @@ class OwnerInput extends Component {
                 fill="black"
               />
             </svg>
-            <input type="submit" name="submit" />
+            <input
+              type="submit"
+              name="submit"
+              onClick={(event) => this.handleSubmit(event)}
+            />
           </div>
         </div>
       </div>
