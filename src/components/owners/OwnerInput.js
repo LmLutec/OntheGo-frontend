@@ -37,7 +37,7 @@ class OwnerInput extends Component {
     const formData = this.state.owner;
 
     axios
-      .put(`http://localhost:5000/onthego/owners`, formData)
+      .post(`http://localhost:5000/onthego/owners`, formData)
       .then((res) => console.log(res));
 
     // const json = await response.json();
