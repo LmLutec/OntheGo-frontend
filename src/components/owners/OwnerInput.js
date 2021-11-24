@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import "../../styles/OwnerInput.css";
+import axios from "axios";
+import Notifications, { notify } from "react-notify-toast";
 
 class OwnerInput extends Component {
   state = {
     owner: {
-      first_name: "",
-      last_name: "",
+      firstName: "",
+      lastName: "",
       email: "",
       password: "",
     },
@@ -26,35 +28,24 @@ class OwnerInput extends Component {
     this.newOwner();
   };
 
-  async newOwner() {
-    console.log("submit");
-    try {
-      const formData = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ owner: this.state.owner }),
-      };
-      const response = await fetch(
-        "https://alwaysonthego.herokuapp.com/api/v1/owners/",
-        formData
-      );
-      const json = await response.json();
+  // axios
+  //     .put(`http://localhost:5000/qsolutions/demographicsreport/${id}`, data)
+  //     .then((res) => console.log(res));
 
-      if (!json.message) {
+  async newOwner() {
+    const formData = this.state.owner;
+
+    axios.post(`http://localhost:5000/onthego/owners`, formData).then((res) => {
+      if (res.data) {
         this.props.addOwner(this.state.owner);
-        localStorage.setItem("jwt_token", json.jwt);
-        localStorage.setItem("owner", JSON.stringify(json.owner));
+        // localStorage.setItem("jwt_token", json.jwt);
+        localStorage.setItem("owner", JSON.stringify(res.data.owner._id));
+
         this.props.history.push("/setup");
       } else {
-        this.props.getErrors(json.message);
-        this.props.history.push("/errors");
+        notify.show("Fill out all fields");
       }
-    } catch (error) {
-      this.props.getErrors(error);
-      this.props.history.push("/errors");
-    }
+    });
   }
 
   goBack = () => {
@@ -63,7 +54,7 @@ class OwnerInput extends Component {
 
   render() {
     return (
-      <div>
+      <div className="appWrap">
         <h3>Hey Truck Owners! Create a New Account below:</h3>
         <div className="new-owner">
           <form
@@ -78,8 +69,8 @@ class OwnerInput extends Component {
                 this.handleChange(event);
               }}
               type="text"
-              id="first_name"
-              value={this.state.owner.first_name}
+              id="firstName"
+              value={this.state.owner.firstName}
               required
             />
             <br />
@@ -89,8 +80,8 @@ class OwnerInput extends Component {
                 this.handleChange(event);
               }}
               type="text"
-              id="last_name"
-              value={this.state.owner.last_name}
+              id="lastName"
+              value={this.state.owner.lastName}
               required
             />
             <br />
