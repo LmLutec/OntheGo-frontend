@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import axios from "axios";
+import { notify } from "react-notify-toast";
 
 class TruckInput extends Component {
   state = {
     foodtruck: {
       name: "",
-      food_type: "",
+      foodType: "",
       street: "",
       city: "",
       state: "",
-      zip_code: "",
-      phone_number: "",
+      zipCode: "",
+      phoneNumber: "",
     },
     numberParts: {
       areaCode: "",
@@ -51,34 +53,40 @@ class TruckInput extends Component {
 
     try {
       const owner = JSON.parse(localStorage.getItem("owner"));
-      const foodtruck = this.state.foodtruck;
-      foodtruck["owner_id"] = owner.id;
 
-      foodtruck["phone_number"] = number;
-
-      const formData = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(foodtruck),
+      const foodtruck = {
+        name: this.state.foodtruck.name,
+        foodType: this.state.foodtruck.foodType,
+        street: this.state.foodtruck.street,
+        city: this.state.foodtruck.city,
+        state: this.state.foodtruck.state,
+        zipCode: this.state.foodtruck.zipCode,
+        phoneNumber: number,
+        ownerId: owner,
       };
-      const response = await fetch(
-        "http://localhost:5000/onthego/foodtrucks/",
-        formData
-      );
-      const json = await response.json();
-      console.log(json);
-      if (json.message) {
-        console.log(json.message);
-        this.props.getErrors(json.message);
-        this.props.history.push("/errors");
-        this.props.deleteProfile({ owner: owner });
-      }
-      if (!json.message) {
-        this.props.addTruck(json);
-        this.props.history.push("/schedule");
-      }
+      // foodtruck["owner_id"] = owner.id;
+
+      // foodtruck["phone_number"] = number;
+      console.log(foodtruck);
+
+      const formData = foodtruck;
+
+      axios
+        .post(`http://localhost:5000/onthego/foodtrucks`, formData)
+        .then((res) => {
+          console.log(res);
+        });
+
+      // if (json.message) {
+      //   console.log(json.message);
+      //   this.props.getErrors(json.message);
+      //   this.props.history.push("/errors");
+      //   this.props.deleteProfile({ owner: owner });
+      // }
+      // if (!json.message) {
+      //   this.props.addTruck(json);
+      //   this.props.history.push("/schedule");
+      // }
     } catch (error) {
       console.log(error);
       // this.props.getErrors(error)
@@ -146,8 +154,8 @@ class TruckInput extends Component {
               this.handleChange(event);
             }}
             type="text"
-            id="zip_code"
-            value={this.state.foodtruck.zip_code}
+            id="zipCode"
+            value={this.state.foodtruck.zipCode}
             required
           />
           <br />
@@ -157,8 +165,8 @@ class TruckInput extends Component {
               this.handleChange(event);
             }}
             type="text"
-            id="food_type"
-            value={this.state.foodtruck.food_type}
+            id="foodType"
+            value={this.state.foodtruck.foodType}
             required
           />
           <br />

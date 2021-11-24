@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import "../../styles/OwnerInput.css";
 import axios from "axios";
+import Notifications, { notify } from "react-notify-toast";
 
 class OwnerInput extends Component {
   state = {
@@ -32,29 +33,19 @@ class OwnerInput extends Component {
   //     .then((res) => console.log(res));
 
   async newOwner() {
-    console.log("submit");
-    // try {
     const formData = this.state.owner;
 
-    axios
-      .post(`http://localhost:5000/onthego/owners`, formData)
-      .then((res) => console.log(res));
+    axios.post(`http://localhost:5000/onthego/owners`, formData).then((res) => {
+      if (res.data) {
+        this.props.addOwner(this.state.owner);
+        // localStorage.setItem("jwt_token", json.jwt);
+        localStorage.setItem("owner", JSON.stringify(res.data.owner._id));
 
-    // const json = await response.json();
-
-    //   if (!json.message) {
-    //     this.props.addOwner(this.state.owner);
-    //     localStorage.setItem("jwt_token", json.jwt);
-    //     localStorage.setItem("owner", JSON.stringify(json.owner));
-    //     this.props.history.push("/setup");
-    //   } else {
-    //     this.props.getErrors(json.message);
-    //     this.props.history.push("/errors");
-    //   }
-    // } catch (error) {
-    //   this.props.getErrors(error);
-    //   this.props.history.push("/errors");
-    // }
+        this.props.history.push("/setup");
+      } else {
+        notify.show("Fill out all fields");
+      }
+    });
   }
 
   goBack = () => {
