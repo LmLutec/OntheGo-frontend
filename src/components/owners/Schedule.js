@@ -2,30 +2,31 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Select from "react-dropdown-select";
 import "../../styles/Schedule.css";
+import axios from "axios";
 
 class Schedule extends Component {
   state = {
     schedule: {
       mon_start: "",
-      mon_end: "",
-      tues_start: "",
-      tues_end: "",
-      wed_start: "",
-      wed_end: "",
-      thurs_start: "",
-      thurs_end: "",
-      fri_start: "",
+      monEnd: "",
+      tuesStart: "",
+      tuesEnd: "",
+      wedStart: "",
+      wedEnd: "",
+      thursStart: "",
+      thursEnd: "",
+      friStart: "",
       fri_end: "",
-      sat_start: "",
-      sat_end: "",
-      sun_start: "",
-      sun_end: "",
-      new_years_day_start: "",
-      new_years_day_end: "",
-      thanksgiving_day_start: "",
-      thanksgiving_day_end: "",
-      christmas_day_start: "",
-      christmas_day_end: "",
+      satStart: "",
+      satEnd: "",
+      sunStart: "",
+      sunEnd: "",
+      newYearsDayStart: "",
+      newYearsDayEnd: "",
+      thanksgivingDayEnd: "",
+      thanksgivingDayEnd: "",
+      christmasDayStart: "",
+      christmasDayEnd: "",
     },
   };
 
@@ -47,27 +48,23 @@ class Schedule extends Component {
   };
 
   async submitSchedule(schedule, truck) {
+    const truckId = JSON.parse(localStorage.getItem("truckId"));
+    console.log(truckId);
     try {
-      schedule["foodtruck_id"] = truck;
+      axios
+        .put(`http://localhost:5000/onthego/schedule/:${truckId}`, schedule)
+        .then((res) => console.log(res));
+      //   const response = await fetch(
+      //     "https://alwaysonthego.herokuapp.com/api/v1/schedules/",
+      //     formData
+      //   );
+      //   const json = await response.json();
 
-      const formData = {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({ schedule: schedule }),
-      };
-      const response = await fetch(
-        "https://alwaysonthego.herokuapp.com/api/v1/schedules/",
-        formData
-      );
-      const json = await response.json();
-
-      if (json) {
-        return (dispatch) => {
-          dispatch({ type: "ADD_SCHEDULE", schedule: json.data });
-        };
-      }
+      //   if (json) {
+      //     return (dispatch) => {
+      //       dispatch({ type: "ADD_SCHEDULE", schedule: json.data });
+      //     };
+      //   }
     } catch (error) {
       // set a method to delete user just created
       console.log(error);
@@ -111,24 +108,24 @@ class Schedule extends Component {
           <Select
             onChange={(event) => {
               this.setState({
-                schedule: { ...this.state.schedule, mon_start: event[0].value },
+                schedule: { ...this.state.schedule, monStart: event[0].value },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.mon_start}
+            value={this.state.schedule.monStart}
             required
           />
           <br />
           <Select
             onChange={(event) => {
               this.setState({
-                schedule: { ...this.state.schedule, mon_end: event[0].value },
+                schedule: { ...this.state.schedule, monEnd: event[0].value },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.mon_end}
+            value={this.state.schedule.monEnd}
             required
           />
           <br />
@@ -138,25 +135,25 @@ class Schedule extends Component {
               this.setState({
                 schedule: {
                   ...this.state.schedule,
-                  tues_start: event[0].value,
+                  tuesStart: event[0].value,
                 },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.tues_start}
+            value={this.state.schedule.tuesStart}
             required
           />
           <br />
           <Select
             onChange={(event) => {
               this.setState({
-                schedule: { ...this.state.schedule, tues_end: event[0].value },
+                schedule: { ...this.state.schedule, tuesEnd: event[0].value },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.tues_end}
+            value={this.state.schedule.tuesEnd}
             required
           />
           <br />
@@ -164,24 +161,24 @@ class Schedule extends Component {
           <Select
             onChange={(event) => {
               this.setState({
-                schedule: { ...this.state.schedule, wed_start: event[0].value },
+                schedule: { ...this.state.schedule, wedStart: event[0].value },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.wed_start}
+            value={this.state.schedule.wedStart}
             required
           />
           <br />
           <Select
             onChange={(event) => {
               this.setState({
-                schedule: { ...this.state.schedule, wed_end: event[0].value },
+                schedule: { ...this.state.schedule, wedEnd: event[0].value },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.wed_end}
+            value={this.state.schedule.wedEnd}
             required
           />
           <br />
@@ -191,25 +188,25 @@ class Schedule extends Component {
               this.setState({
                 schedule: {
                   ...this.state.schedule,
-                  thurs_start: event[0].value,
+                  thursStart: event[0].value,
                 },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.thurs_start}
+            value={this.state.schedule.thursStart}
             required
           />
           <br />
           <Select
             onChange={(event) => {
               this.setState({
-                schedule: { ...this.state.schedule, thurs_end: event[0].value },
+                schedule: { ...this.state.schedule, thursEnd: event[0].value },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.thurs_end}
+            value={this.state.schedule.thursEnd}
             required
           />
           <br />
@@ -217,24 +214,24 @@ class Schedule extends Component {
           <Select
             onChange={(event) => {
               this.setState({
-                schedule: { ...this.state.schedule, fri_start: event[0].value },
+                schedule: { ...this.state.schedule, friStart: event[0].value },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.fri_start}
+            value={this.state.schedule.friStart}
             required
           />
           <br />
           <Select
             onChange={(event) => {
               this.setState({
-                schedule: { ...this.state.schedule, fri_end: event[0].value },
+                schedule: { ...this.state.schedule, friEnd: event[0].value },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.fri_end}
+            value={this.state.schedule.friEnd}
             required
           />
           <br />
@@ -242,24 +239,24 @@ class Schedule extends Component {
           <Select
             onChange={(event) => {
               this.setState({
-                schedule: { ...this.state.schedule, sat_start: event[0].value },
+                schedule: { ...this.state.schedule, satStart: event[0].value },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.sat_start}
+            value={this.state.schedule.satStart}
             required
           />
           <br />
           <Select
             onChange={(event) => {
               this.setState({
-                schedule: { ...this.state.schedule, sat_end: event[0].value },
+                schedule: { ...this.state.schedule, satEnd: event[0].value },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.sat_end}
+            value={this.state.schedule.satEnd}
             required
           />
           <br />
@@ -267,24 +264,24 @@ class Schedule extends Component {
           <Select
             onChange={(event) => {
               this.setState({
-                schedule: { ...this.state.schedule, sun_start: event[0].value },
+                schedule: { ...this.state.schedule, sunStart: event[0].value },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.sun_start}
+            value={this.state.schedule.sunStart}
             required
           />
           <br />
           <Select
             onChange={(event) => {
               this.setState({
-                schedule: { ...this.state.schedule, sun_end: event[0].value },
+                schedule: { ...this.state.schedule, sunEnd: event[0].value },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.sun_end}
+            value={this.state.schedule.sunEnd}
             required
           />
           <br />
@@ -294,13 +291,13 @@ class Schedule extends Component {
               this.setState({
                 schedule: {
                   ...this.state.schedule,
-                  new_years_day_start: event[0].value,
+                  newYearsDayStart: event[0].value,
                 },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.new_years_day_start}
+            value={this.state.schedule.newYearsDayStart}
             required
           />
           <br />
@@ -309,13 +306,13 @@ class Schedule extends Component {
               this.setState({
                 schedule: {
                   ...this.state.schedule,
-                  new_years_day_end: event[0].value,
+                  newYearsDayEnd: event[0].value,
                 },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.new_years_day_end}
+            value={this.state.schedule.newYearsDayEnd}
             required
           />
           <br />
@@ -325,13 +322,13 @@ class Schedule extends Component {
               this.setState({
                 schedule: {
                   ...this.state.schedule,
-                  thanksgiving_day_start: event[0].value,
+                  thanksgivingDayStart: event[0].value,
                 },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.thanksgiving_day_start}
+            value={this.state.schedule.thanksgivingDayStart}
             required
           />
           <br />
@@ -340,13 +337,13 @@ class Schedule extends Component {
               this.setState({
                 schedule: {
                   ...this.state.schedule,
-                  thanksgiving_day_end: event[0].value,
+                  thanksgivingDayEnd: event[0].value,
                 },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.thanksgiving_day_end}
+            value={this.state.schedule.thanksgivingDayEnd}
             required
           />
           <br />
@@ -356,13 +353,13 @@ class Schedule extends Component {
               this.setState({
                 schedule: {
                   ...this.state.schedule,
-                  christmas_day_start: event[0].value,
+                  christmasDayStart: event[0].value,
                 },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.christmas_day_start}
+            value={this.state.schedule.christmasDayStart}
             required
           />
           <br />
@@ -371,18 +368,22 @@ class Schedule extends Component {
               this.setState({
                 schedule: {
                   ...this.state.schedule,
-                  christmas_day_end: event[0].value,
+                  christmasDayEnd: event[0].value,
                 },
               });
             }}
             className="day"
             options={options}
-            value={this.state.schedule.christmas_day_end}
+            value={this.state.schedule.christmasDayEnd}
             required
           />
           <br />
-          <input type="submit" value="Set Hours" />
         </form>
+        <input
+          type="submit"
+          value="Set Hours"
+          onClick={(e) => this.handleSubmit(e)}
+        />
       </div>
     );
   }
