@@ -1,0 +1,18 @@
+.schedule-input {
+  display: flex;
+  /* flex-direction: column; */
+  padding: 10px;
+  font-size: 18px;
+  color: #3114b4;
+}
+
+.days {
+  display: flex;
+  /* width: 100%; */
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+/* .day {
+  flex-wrap: wrap;
+} */

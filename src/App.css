@@ -38,16 +38,14 @@
   color: #61dafb;
 }
 
-.appWrap {
+/* .appWrap {
   border: 3px solid transparent;
   border-radius: 10px;
-  width: 30em;
+  width: 50em;
   background-color: #e7f7d4;
   font-weight: lighter;
-  /* background-color: rgb(250, 249, 249); */
-  /* position: absolute; */
-  /* z-index: -1; */
-}
+  
+} */
 
 @keyframes App-logo-spin {
   from {
@@ -207,9 +205,9 @@ li {
   color: #3114b4;
 }
 
-.main {
+/* .main {
   min-height: 50vh;
-}
+} */
 
 .menu_info {
   color: #3114b4;
@@ -259,12 +257,6 @@ li {
   padding: 20px;
   height: 50%;
   width: 35%;
-}
-
-.schedule-input {
-  padding: 10px;
-  font-size: 18px;
-  color: #3114b4;
 }
 
 .search {

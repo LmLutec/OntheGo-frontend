@@ -28,3 +28,11 @@ svg {
 svg:hover {
   transform: scale(1.5);
 }
+
+.appWrap {
+  border: 3px solid transparent;
+  border-radius: 10px;
+  width: 50em;
+  background-color: #e7f7d4;
+  font-weight: lighter;
+}

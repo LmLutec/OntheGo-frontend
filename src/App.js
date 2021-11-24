@@ -10,8 +10,8 @@ function App() {
     <div className="App">
       <Notifications />
       <h1 className="logo">Always On the Go</h1>
-      <div className="appWrap">
-        <section className="main">
+      <div>
+        <section>
           <div className="container">
             <OwnerContainer />
           </div>

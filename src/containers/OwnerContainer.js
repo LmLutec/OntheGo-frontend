@@ -41,7 +41,7 @@ class OwnerContainer extends Component {
 
   render() {
     return (
-      <div className="main">
+      <div className="main ">
         <Switch>
           <Route exact path="/">
             <div className="links">

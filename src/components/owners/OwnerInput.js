@@ -54,7 +54,7 @@ class OwnerInput extends Component {
 
   render() {
     return (
-      <div>
+      <div className="appWrap">
         <h3>Hey Truck Owners! Create a New Account below:</h3>
         <div className="new-owner">
           <form
