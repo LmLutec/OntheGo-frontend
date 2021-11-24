@@ -64,17 +64,24 @@ class TruckInput extends Component {
         phoneNumber: number,
         ownerId: owner,
       };
-      // foodtruck["owner_id"] = owner.id;
 
-      // foodtruck["phone_number"] = number;
-      console.log(foodtruck);
+      // console.log(json.message);
+      // this.props.getErrors(json.message);
+      // this.props.history.push("/errors");
+      // this.props.deleteProfile({ owner: owner });
 
       const formData = foodtruck;
 
       axios
         .post(`http://localhost:5000/onthego/foodtrucks`, formData)
         .then((res) => {
-          console.log(res);
+          if (res.status === 200) {
+            console.log(res);
+            this.props.addTruck(res.data);
+            this.props.history.push("/schedule");
+          } else {
+            notify.show("Error", "warning");
+          }
         });
 
       // if (json.message) {
