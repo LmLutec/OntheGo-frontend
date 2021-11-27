@@ -28,10 +28,6 @@ class OwnerInput extends Component {
     this.newOwner();
   };
 
-  // axios
-  //     .put(`http://localhost:5000/qsolutions/demographicsreport/${id}`, data)
-  //     .then((res) => console.log(res));
-
   async newOwner() {
     const formData = this.state.owner;
 
@@ -41,7 +37,7 @@ class OwnerInput extends Component {
         // localStorage.setItem("jwt_token", json.jwt);
         localStorage.setItem("owner", JSON.stringify(res.data.owner._id));
 
-        this.props.history.push("/setup");
+        this.props.history.push("/home");
       } else {
         notify.show("Fill out all fields");
       }

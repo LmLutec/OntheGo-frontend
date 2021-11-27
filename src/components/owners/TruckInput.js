@@ -76,7 +76,10 @@ class TruckInput extends Component {
         .post(`http://localhost:5000/onthego/foodtrucks`, formData)
         .then((res) => {
           if (res.status === 200) {
-            console.log(res);
+            localStorage.setItem(
+              "truckId",
+              JSON.stringify(res.data.foodtruck._id)
+            );
             this.props.addTruck(res.data);
             this.props.history.push("/schedule");
           } else {
