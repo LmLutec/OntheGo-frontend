@@ -58,25 +58,12 @@ class Home extends Component {
         <div className="profileInfo">
           <section className="truck_info">
             <h3>Food Truck Information</h3>
-            <button onClick={this.createTruck}>Create Truck</button>
-            {/* Food Truck: {this.props.truck.name} */}
-            {/* <br />
-            Food type: {this.props.truck.food_type}
-            <br />
-            Street: {this.props.truck.street}
-            <br />
-            City: {this.props.truck.city}
-            <br />
-            State: {this.props.truck.state}
-            <br />
-            Zip code: {this.props.truck.zip_code}
-            <br />
-            Phone Number: {this.props.truck.phone_number}
-            <br />
-            <br />
-            <button onClick={this.editTruck}>Edit Truck Information</button>
-            <br />
-            <br /> */}
+
+            {Object.keys(this.props.truck).length === 0 ? (
+              <button onClick={this.createTruck}>Create Truck</button>
+            ) : (
+              this.truckDiv
+            )}
           </section>
 
           <section className="schedule_info">
@@ -185,6 +172,31 @@ class Home extends Component {
 
   allRatings = () => {
     this.props.history.push("/truck/ratings");
+  };
+
+  truckDiv = () => {
+    return (
+      <div>
+        Food Truck: {this.props.truck.name}
+        <br />
+        Food type: {this.props.truck.food_type}
+        <br />
+        Street: {this.props.truck.street}
+        <br />
+        City: {this.props.truck.city}
+        <br />
+        State: {this.props.truck.state}
+        <br />
+        Zip code: {this.props.truck.zip_code}
+        <br />
+        Phone Number: {this.props.truck.phone_number}
+        <br />
+        <br />
+        <button onClick={this.editTruck}>Edit Truck Information</button>
+        <br />
+        <br />
+      </div>
+    );
   };
 
   logout = () => {

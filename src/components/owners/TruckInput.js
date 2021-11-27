@@ -104,6 +104,10 @@ class TruckInput extends Component {
     }
   }
 
+  goBack = () => {
+    window.history.back();
+  };
+
   render() {
     return (
       <div className="truck-input">
@@ -216,7 +220,22 @@ class TruckInput extends Component {
           />
           <br />
           {/* <input onChange= { event => {this.handleChange(event)}} type="text" id="phone_number" value={this.state.foodtruck.phone_number} required/><br/> */}
-          <input type="submit" value="Submit Truck" />
+          <div>
+            <svg
+              width="18"
+              height="12"
+              viewBox="0 0 18 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              onClick={this.goBack}
+            >
+              <path
+                d="M18 5H3.83L7.41 1.41L6 0L0 6L6 12L7.41 10.59L3.83 7H18V5Z"
+                fill="black"
+              />
+            </svg>
+            <input type="submit" value="Submit Truck" />
+          </div>
         </form>
       </div>
     );
