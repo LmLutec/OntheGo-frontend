@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import axios from "axios";
 import MenuItem from "./MenuItem";
 import Note from "./Note";
 import GetRatings from "./GetRatings";
@@ -8,32 +9,44 @@ class Home extends Component {
   state = {
     deleteProf: false,
     data: null,
+    profileData: "",
   };
 
-  //  componentDidMount(){
-  //      this.fetchProfile()
-  //  }
+  componentDidMount() {
+    this.fetchProfile();
+  }
 
-  //  async fetchProfile(){
-  //      try {
-  //         const data =  {
-  //                 method: "GET",
-  //                 headers: {
-  //                     Authorization: `Bearer: ${localStorage.getItem('jwt_token')}`
-  //                 }
-  //             }
-  //         const response = await fetch("https://alwaysonthego.herokuapp.com/api/v1/profile", data)
-  //         const json = await response.json()
+  async fetchProfile() {
+    try {
+      //   const data = {
+      //     method: "GET",
+      //     headers: {
+      //       Authorization: `Bearer: ${localStorage.getItem("jwt_token")}`,
+      //     },
+      //   };
 
-  //         this.props.profile(json)
-  //             this.setState({
-  //                 data: json
-  //             })
-  //         }
-  //         catch (error) {
-  //             console.log(error)
-  //         }
-  //  }
+      //   axios.get("/yourURL").then(function(response) {
+      //     this.setState({ events: response.data });
+      //   }.bind(this));
+
+      const id = JSON.parse(localStorage.getItem("owner"));
+
+      axios.get(`http://localhost:5000/onthego/owner/${id}`).then(
+        (res) => console.log(res.data)
+        // set up a way to get foodtruck by ownerId
+        // console.log(res.data)
+      );
+
+      //   const json = await response.json();
+
+      //   this.props.profile(json);
+      //   this.setState({
+      //     data: json,
+      //   });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   profile = () => {
     const renderItems = () => {
@@ -59,11 +72,12 @@ class Home extends Component {
           <section className="truck_info">
             <h3>Food Truck Information</h3>
 
-            {Object.keys(this.props.truck).length === 0 ? (
+            {/* {this.props.truck === Object ? (
               <button onClick={this.createTruck}>Create Truck</button>
             ) : (
               this.truckDiv
-            )}
+            )} */}
+            <button onClick={this.createTruck}>Create Truck</button>
           </section>
 
           <section className="schedule_info">

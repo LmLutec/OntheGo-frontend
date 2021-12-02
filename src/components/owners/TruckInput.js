@@ -81,7 +81,7 @@ class TruckInput extends Component {
               JSON.stringify(res.data.foodtruck._id)
             );
             this.props.addTruck(res.data);
-            this.props.history.push("/schedule");
+            this.props.history.push("/home");
           } else {
             notify.show("Error", "warning");
           }
