@@ -30,13 +30,13 @@ class Home extends Component {
       //   }.bind(this));
 
       const id = JSON.parse(localStorage.getItem("owner"));
-
-      axios.get(`http://localhost:5000/onthego/owner/${id}`).then(
-        (res) => console.log(res.data)
-        // set up a way to get foodtruck by ownerId
-        // console.log(res.data)
+      let filteredTruck;
+      // get all then filter
+      axios.get(`http://localhost:5000/onthego/foodtrucks/`).then(
+        (res) => (filteredTruck = res.data.filter((i) => i.ownerId === id))
+        // set up a way to get foodtruck by ownerI
       );
-
+      console.log(filteredTruck);
       //   const json = await response.json();
 
       //   this.props.profile(json);

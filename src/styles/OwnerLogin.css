@@ -1,4 +1,8 @@
 .owner-login {
   color: #7fbd32;
   font-weight: bold;
+  background-color: #e7f7d4;
+  padding: 20px;
+  border: 1px #7fbd32 solid;
+  border-radius: 30px 30px;
 }
